@@ -1,0 +1,10 @@
+# Crontab for the www-data user: `crontab -u www-data deploy/crontab`
+# (adjust /var/www/bulletin and the backup target first).
+
+# Laravel scheduler: queue pruning, expired reset tokens, SQLite optimize
+# (routes/console.php).
+* * * * * cd /var/www/bulletin && php artisan schedule:run >> /dev/null 2>&1
+
+# Nightly backup of the database and uploaded manuscripts (see DEPLOY.md,
+# "Backups"). BACKUP_TARGET is an rsync destination off this server.
+30 2 * * * BACKUP_TARGET=backup@backup.example.org:bulletin /var/www/bulletin/deploy/backup.sh >> /var/www/bulletin/storage/logs/backup.log 2>&1

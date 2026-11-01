@@ -1,0 +1,1121 @@
+[
+    {
+        "id": 181,
+        "date": "2016-09-03T20:49:47",
+        "date_gmt": "2016-09-03T18:49:47",
+        "guid": { "rendered": "http:\/\/bulletin.mfd.org.mk\/?page_id=181" },
+        "modified": "2016-09-03T20:49:47",
+        "modified_gmt": "2016-09-03T18:49:47",
+        "slug": "downloads",
+        "status": "publish",
+        "type": "page",
+        "link": "https:\/\/bulletin.mfd.org.mk\/guidelines\/downloads\/",
+        "title": { "rendered": "Downloads" },
+        "content": {
+            "rendered": "<ul>\n<li>Author Disclosure Form [<a href=\"http:\/\/bulletin.mfd.org.mk\/downloads\/AUTHOR DISCLOSURE FORM.docx\">MS Word Document<\/a>]<\/li>\n<li>Ethical Responsibility Form [<a href=\"http:\/\/bulletin.mfd.org.mk\/downloads\/ETHICAL RESPONSIBILITY FORM.docx\">MS Word Document<\/a>]<\/li>\n<\/ul>\n",
+            "protected": false
+        },
+        "excerpt": {
+            "rendered": "<p>Author Disclosure Form [MS Word Document] Ethical Responsibility Form [MS Word Document]<\/p>\n",
+            "protected": false
+        },
+        "author": 1,
+        "featured_media": 0,
+        "parent": 115,
+        "menu_order": 6,
+        "comment_status": "closed",
+        "ping_status": "closed",
+        "template": "",
+        "meta": { "footnotes": "" },
+        "class_list": [
+            "post-181",
+            "page",
+            "type-page",
+            "status-publish",
+            "hentry"
+        ],
+        "_links": {
+            "self": [
+                {
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/pages\/181",
+                    "targetHints": { "allow": ["GET"] }
+                }
+            ],
+            "collection": [
+                {
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/pages"
+                }
+            ],
+            "about": [
+                {
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/types\/page"
+                }
+            ],
+            "author": [
+                {
+                    "embeddable": true,
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/users\/1"
+                }
+            ],
+            "replies": [
+                {
+                    "embeddable": true,
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/comments?post=181"
+                }
+            ],
+            "version-history": [
+                {
+                    "count": 1,
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/pages\/181\/revisions"
+                }
+            ],
+            "predecessor-version": [
+                {
+                    "id": 182,
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/pages\/181\/revisions\/182"
+                }
+            ],
+            "up": [
+                {
+                    "embeddable": true,
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/pages\/115"
+                }
+            ],
+            "wp:attachment": [
+                {
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/media?parent=181"
+                }
+            ],
+            "curies": [
+                {
+                    "name": "wp",
+                    "href": "https:\/\/api.w.org\/{rel}",
+                    "templated": true
+                }
+            ]
+        }
+    },
+    {
+        "id": 151,
+        "date": "2015-12-22T12:28:30",
+        "date_gmt": "2015-12-22T10:28:30",
+        "guid": { "rendered": "http:\/\/bulletin.mfd.org.mk\/?page_id=151" },
+        "modified": "2015-12-22T12:28:30",
+        "modified_gmt": "2015-12-22T10:28:30",
+        "slug": "open-access-policy",
+        "status": "publish",
+        "type": "page",
+        "link": "https:\/\/bulletin.mfd.org.mk\/guidelines\/open-access-policy\/",
+        "title": { "rendered": "Open Access Policy" },
+        "content": {
+            "rendered": "<p>The Macedonian Pharmaceutical Bulletin is an open access journal and its content is publicly available. Published material can be re-used without obtaining permission as long as the original authors and source are correctly cited.<\/p>\n",
+            "protected": false
+        },
+        "excerpt": {
+            "rendered": "<p>The Macedonian Pharmaceutical Bulletin is an open access journal and its content is publicly available. Published material can be re-used without obtaining permission as long as the original authors and source are correctly cited.<\/p>\n",
+            "protected": false
+        },
+        "author": 1,
+        "featured_media": 0,
+        "parent": 115,
+        "menu_order": 4,
+        "comment_status": "closed",
+        "ping_status": "closed",
+        "template": "",
+        "meta": { "footnotes": "" },
+        "class_list": [
+            "post-151",
+            "page",
+            "type-page",
+            "status-publish",
+            "hentry"
+        ],
+        "_links": {
+            "self": [
+                {
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/pages\/151",
+                    "targetHints": { "allow": ["GET"] }
+                }
+            ],
+            "collection": [
+                {
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/pages"
+                }
+            ],
+            "about": [
+                {
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/types\/page"
+                }
+            ],
+            "author": [
+                {
+                    "embeddable": true,
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/users\/1"
+                }
+            ],
+            "replies": [
+                {
+                    "embeddable": true,
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/comments?post=151"
+                }
+            ],
+            "version-history": [
+                {
+                    "count": 1,
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/pages\/151\/revisions"
+                }
+            ],
+            "predecessor-version": [
+                {
+                    "id": 152,
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/pages\/151\/revisions\/152"
+                }
+            ],
+            "up": [
+                {
+                    "embeddable": true,
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/pages\/115"
+                }
+            ],
+            "wp:attachment": [
+                {
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/media?parent=151"
+                }
+            ],
+            "curies": [
+                {
+                    "name": "wp",
+                    "href": "https:\/\/api.w.org\/{rel}",
+                    "templated": true
+                }
+            ]
+        }
+    },
+    {
+        "id": 146,
+        "date": "2015-12-22T12:12:37",
+        "date_gmt": "2015-12-22T10:12:37",
+        "guid": { "rendered": "http:\/\/bulletin.mfd.org.mk\/?page_id=146" },
+        "modified": "2024-05-21T18:53:09",
+        "modified_gmt": "2024-05-21T16:53:09",
+        "slug": "article-processing-charges",
+        "status": "publish",
+        "type": "page",
+        "link": "https:\/\/bulletin.mfd.org.mk\/guidelines\/article-processing-charges\/",
+        "title": { "rendered": "Article processing charges" },
+        "content": {
+            "rendered": "<p>Upon acceptance of the article, the Macedonian Pharmaceutical Bulletin charges article processing fee of 50 EUR.<\/p>\n",
+            "protected": false
+        },
+        "excerpt": {
+            "rendered": "<p>Upon acceptance of the article, the Macedonian Pharmaceutical Bulletin charges article processing fee of 50 EUR.<\/p>\n",
+            "protected": false
+        },
+        "author": 1,
+        "featured_media": 0,
+        "parent": 115,
+        "menu_order": 3,
+        "comment_status": "closed",
+        "ping_status": "closed",
+        "template": "",
+        "meta": { "footnotes": "" },
+        "class_list": [
+            "post-146",
+            "page",
+            "type-page",
+            "status-publish",
+            "hentry"
+        ],
+        "_links": {
+            "self": [
+                {
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/pages\/146",
+                    "targetHints": { "allow": ["GET"] }
+                }
+            ],
+            "collection": [
+                {
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/pages"
+                }
+            ],
+            "about": [
+                {
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/types\/page"
+                }
+            ],
+            "author": [
+                {
+                    "embeddable": true,
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/users\/1"
+                }
+            ],
+            "replies": [
+                {
+                    "embeddable": true,
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/comments?post=146"
+                }
+            ],
+            "version-history": [
+                {
+                    "count": 3,
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/pages\/146\/revisions"
+                }
+            ],
+            "predecessor-version": [
+                {
+                    "id": 535,
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/pages\/146\/revisions\/535"
+                }
+            ],
+            "up": [
+                {
+                    "embeddable": true,
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/pages\/115"
+                }
+            ],
+            "wp:attachment": [
+                {
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/media?parent=146"
+                }
+            ],
+            "curies": [
+                {
+                    "name": "wp",
+                    "href": "https:\/\/api.w.org\/{rel}",
+                    "templated": true
+                }
+            ]
+        }
+    },
+    {
+        "id": 141,
+        "date": "2015-12-22T12:08:10",
+        "date_gmt": "2015-12-22T10:08:10",
+        "guid": { "rendered": "http:\/\/bulletin.mfd.org.mk\/?page_id=141" },
+        "modified": "2020-12-16T15:06:31",
+        "modified_gmt": "2020-12-16T13:06:31",
+        "slug": "aims-and-scope",
+        "status": "publish",
+        "type": "page",
+        "link": "https:\/\/bulletin.mfd.org.mk\/guidelines\/aims-and-scope\/",
+        "title": { "rendered": "Aims and scope" },
+        "content": {
+            "rendered": "<p><em>Macedonian Pharmaceutical Bulletin<\/em> is an official publication of the <em>Macedonian Pharmaceutical Association<\/em> published in cooperation with <em>Ss. Cyril and Methodius University in Skopje, Faculty of Pharmacy.<\/em><br \/>\nThe journal publishes original scientific papers, short communications, reviews, mini-reviews and professional papers from all fields of pharmacy and corresponding scientific fields of interest for pharmacy (pharmaceutical and medicinal chemistry, immunology and imunochemistry, molecular biology, pharmaceutical analyses, drug quality control, pharmaceutical technology, pharmacoinformatics, pharmacoeconomics, biopharmacy, pharmacology, applied botany, pharmacognosy, toxicology, clinical pharmacy, food and nutrition, physical pharmacy, organical synthesis, social pharmacy, history of pharmacy etc.). Papers from all areas of medical and other life sciences are also welcomed.<br \/>\nThe Macedonian Pharmaceutical Bulletin, also, publishes and other contributions (recommendations and announcements, reports of meetings, important events and dates, book reviews, various rubrics).<\/p>\n",
+            "protected": false
+        },
+        "excerpt": {
+            "rendered": "<p>Macedonian Pharmaceutical Bulletin is an official publication of the Macedonian Pharmaceutical Association published in cooperation with Ss. Cyril and Methodius University in Skopje, Faculty of Pharmacy. The journal publishes original scientific papers, short communications, reviews, mini-reviews and professional papers from all fields of pharmacy and corresponding scientific fields of interest for pharmacy (pharmaceutical and medicinal [&hellip;]<\/p>\n",
+            "protected": false
+        },
+        "author": 1,
+        "featured_media": 0,
+        "parent": 115,
+        "menu_order": 0,
+        "comment_status": "closed",
+        "ping_status": "closed",
+        "template": "",
+        "meta": { "footnotes": "" },
+        "class_list": [
+            "post-141",
+            "page",
+            "type-page",
+            "status-publish",
+            "hentry"
+        ],
+        "_links": {
+            "self": [
+                {
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/pages\/141",
+                    "targetHints": { "allow": ["GET"] }
+                }
+            ],
+            "collection": [
+                {
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/pages"
+                }
+            ],
+            "about": [
+                {
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/types\/page"
+                }
+            ],
+            "author": [
+                {
+                    "embeddable": true,
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/users\/1"
+                }
+            ],
+            "replies": [
+                {
+                    "embeddable": true,
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/comments?post=141"
+                }
+            ],
+            "version-history": [
+                {
+                    "count": 3,
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/pages\/141\/revisions"
+                }
+            ],
+            "predecessor-version": [
+                {
+                    "id": 366,
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/pages\/141\/revisions\/366"
+                }
+            ],
+            "up": [
+                {
+                    "embeddable": true,
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/pages\/115"
+                }
+            ],
+            "wp:attachment": [
+                {
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/media?parent=141"
+                }
+            ],
+            "curies": [
+                {
+                    "name": "wp",
+                    "href": "https:\/\/api.w.org\/{rel}",
+                    "templated": true
+                }
+            ]
+        }
+    },
+    {
+        "id": 139,
+        "date": "2015-12-22T12:06:17",
+        "date_gmt": "2015-12-22T10:06:17",
+        "guid": { "rendered": "http:\/\/bulletin.mfd.org.mk\/?page_id=139" },
+        "modified": "2015-12-22T12:14:21",
+        "modified_gmt": "2015-12-22T10:14:21",
+        "slug": "review-policies",
+        "status": "publish",
+        "type": "page",
+        "link": "https:\/\/bulletin.mfd.org.mk\/guidelines\/review-policies\/",
+        "title": { "rendered": "Review Policies" },
+        "content": {
+            "rendered": "<p>The Macedonian Pharmaceutical Bulletin employ blind peer review, where the referees remain anonymous throughout the process. To keep the reviewers confidentiality, Macedonian Pharmaceutical Bulletin never disclose the names of reviewers to authors.<\/p>\n",
+            "protected": false
+        },
+        "excerpt": {
+            "rendered": "<p>The Macedonian Pharmaceutical Bulletin employ blind peer review, where the referees remain anonymous throughout the process. To keep the reviewers confidentiality, Macedonian Pharmaceutical Bulletin never disclose the names of reviewers to authors.<\/p>\n",
+            "protected": false
+        },
+        "author": 1,
+        "featured_media": 0,
+        "parent": 115,
+        "menu_order": 2,
+        "comment_status": "closed",
+        "ping_status": "closed",
+        "template": "",
+        "meta": { "footnotes": "" },
+        "class_list": [
+            "post-139",
+            "page",
+            "type-page",
+            "status-publish",
+            "hentry"
+        ],
+        "_links": {
+            "self": [
+                {
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/pages\/139",
+                    "targetHints": { "allow": ["GET"] }
+                }
+            ],
+            "collection": [
+                {
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/pages"
+                }
+            ],
+            "about": [
+                {
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/types\/page"
+                }
+            ],
+            "author": [
+                {
+                    "embeddable": true,
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/users\/1"
+                }
+            ],
+            "replies": [
+                {
+                    "embeddable": true,
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/comments?post=139"
+                }
+            ],
+            "version-history": [
+                {
+                    "count": 1,
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/pages\/139\/revisions"
+                }
+            ],
+            "predecessor-version": [
+                {
+                    "id": 140,
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/pages\/139\/revisions\/140"
+                }
+            ],
+            "up": [
+                {
+                    "embeddable": true,
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/pages\/115"
+                }
+            ],
+            "wp:attachment": [
+                {
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/media?parent=139"
+                }
+            ],
+            "curies": [
+                {
+                    "name": "wp",
+                    "href": "https:\/\/api.w.org\/{rel}",
+                    "templated": true
+                }
+            ]
+        }
+    },
+    {
+        "id": 115,
+        "date": "2015-06-25T13:16:39",
+        "date_gmt": "2015-06-25T11:16:39",
+        "guid": { "rendered": "http:\/\/bulletin.mfd.org.mk\/?page_id=115" },
+        "modified": "2015-12-22T13:11:19",
+        "modified_gmt": "2015-12-22T11:11:19",
+        "slug": "guidelines",
+        "status": "publish",
+        "type": "page",
+        "link": "https:\/\/bulletin.mfd.org.mk\/guidelines\/",
+        "title": { "rendered": "Guidelines" },
+        "content": {
+            "rendered": "<p><a href=\"http:\/\/bulletin.mfd.org.mk\/index.php\/guidelines\/aims-and-scope\/\">Aims and scope<\/a><\/p>\n<p><a href=\"http:\/\/bulletin.mfd.org.mk\/index.php\/editorial-policies\/\">Editorial Policies<\/a><\/p>\n<p><a href=\"http:\/\/bulletin.mfd.org.mk\/index.php\/guidelines\/review-policies\/\">Review Policies<\/a><\/p>\n<p><a href=\"http:\/\/bulletin.mfd.org.mk\/index.php\/guidelines\/article-processing-charges\/\">Article processing charges<\/a><\/p>\n<p><a href=\"http:\/\/bulletin.mfd.org.mk\/index.php\/instructions-for-authors\/\">Instructions for Authors<\/a><\/p>\n",
+            "protected": false
+        },
+        "excerpt": {
+            "rendered": "<p>Aims and scope Editorial Policies Review Policies Article processing charges Instructions for Authors<\/p>\n",
+            "protected": false
+        },
+        "author": 1,
+        "featured_media": 0,
+        "parent": 0,
+        "menu_order": 3,
+        "comment_status": "closed",
+        "ping_status": "closed",
+        "template": "",
+        "meta": { "footnotes": "" },
+        "class_list": [
+            "post-115",
+            "page",
+            "type-page",
+            "status-publish",
+            "hentry"
+        ],
+        "_links": {
+            "self": [
+                {
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/pages\/115",
+                    "targetHints": { "allow": ["GET"] }
+                }
+            ],
+            "collection": [
+                {
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/pages"
+                }
+            ],
+            "about": [
+                {
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/types\/page"
+                }
+            ],
+            "author": [
+                {
+                    "embeddable": true,
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/users\/1"
+                }
+            ],
+            "replies": [
+                {
+                    "embeddable": true,
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/comments?post=115"
+                }
+            ],
+            "version-history": [
+                {
+                    "count": 5,
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/pages\/115\/revisions"
+                }
+            ],
+            "predecessor-version": [
+                {
+                    "id": 365,
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/pages\/115\/revisions\/365"
+                }
+            ],
+            "wp:attachment": [
+                {
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/media?parent=115"
+                }
+            ],
+            "curies": [
+                {
+                    "name": "wp",
+                    "href": "https:\/\/api.w.org\/{rel}",
+                    "templated": true
+                }
+            ]
+        }
+    },
+    {
+        "id": 113,
+        "date": "2015-06-25T13:13:21",
+        "date_gmt": "2015-06-25T11:13:21",
+        "guid": { "rendered": "http:\/\/bulletin.mfd.org.mk\/?page_id=113" },
+        "modified": "2015-12-23T22:28:19",
+        "modified_gmt": "2015-12-23T20:28:19",
+        "slug": "editorial-policies",
+        "status": "publish",
+        "type": "page",
+        "link": "https:\/\/bulletin.mfd.org.mk\/guidelines\/editorial-policies\/",
+        "title": { "rendered": "Editorial Policies" },
+        "content": {
+            "rendered": "<ul>\n<li><a href=\"http:\/\/bulletin.mfd.org.mk\/index.php\/guidelines\/editorial-policies\/#auth_duty\">Authors&#8217; duties<\/a><\/li>\n<li><a href=\"http:\/\/bulletin.mfd.org.mk\/index.php\/guidelines\/editorial-policies\/#edit_duty\">Editors&#8217; duties<\/a><\/li>\n<li><a href=\"http:\/\/bulletin.mfd.org.mk\/index.php\/guidelines\/editorial-policies\/#rev_duty\">Reviewers&#8217; duties<\/a><\/li>\n<\/ul>\n<p>Macedonian Pharmaceutical Bulletin follows the standard for Ethics and Publication Malpractice set by the Committee on Publication Ethics (<a href=\"http:\/\/publicationethics.org\/files\/u2\/New_Code.pdf\">COPE<\/a>) (<a href=\"http:\/\/publicationethics.org\/resources\/guidelines\">http:\/\/publicationethics.org\/resources\/guidelines<\/a>). Conformance to standards of ethical behavior is expected of all parties involved: Authors, Editors, Reviewers, and the Publisher.<\/p>\n<div id=\"auth_duty\"><strong>1.<\/strong> <strong>Authors\u2019 duties<\/strong><\/div>\n<p><strong>Reporting standards.<\/strong><strong>\u00a0<\/strong>Authors of original research reports should present an accurate account of the work performed as well as an argumentatively coherent discussion of its significance. Underlying data should be represented accurately in the paper. A paper should contain sufficient detail to permit others to judge the academic and scientific merits of the work. Fraudulent or knowingly inaccurate statements constitute unethical behavior and are unacceptable.<\/p>\n<p><strong>Data access and retention.<\/strong><strong>\u00a0<\/strong>Authors may be asked to provide the raw data in connection with a paper for editorial review, and should be prepared to provide public access to such data, if practicable, and should in any event be prepared to retain such data for a reasonable time after publication.<\/p>\n<p><strong>Originality and plagiarism.<\/strong><strong>\u00a0<\/strong>The authors should ensure that they have written entirely original works, and if the authors have used the work and\/or words of others that this has been appropriately cited or quoted. Plagiarism takes many forms, from &#8216;passing off&#8217; another&#8217;s paper as the author&#8217;s own paper, to copying or paraphrasing substantial parts of another&#8217;s paper (without attribution), to claiming results from research conducted by others. Plagiarism in all its forms constitutes unethical publishing behavior and is unacceptable.<\/p>\n<p><strong>Multiple, redundant or concurrent publication<\/strong>. An author should not in general publish manuscripts describing essentially the same research in more than one journal or primary publication. Submitting the same manuscript to more than one journal concurrently constitutes unethical publishing behavior and is unacceptable. In general, an author should not submit for consideration in another journal a previously published paper.<\/p>\n<p><strong>Acknowledgement of sources<\/strong>. Proper acknowledgment of the work of others must always be given. Authors should cite publications that have been influential in determining the nature of the reported work. Information obtained privately, as in conversation, correspondence, or discussion with third parties, must not be used or reported without explicit, written permission from the source.<\/p>\n<p><strong>Authorship of the paper.<\/strong><strong>\u00a0<\/strong>Authorship should be limited to those who have made a significant contribution to the conception, design, execution, or interpretation of the reported study. All those who have made significant contributions should be listed as co-authors. Where there are others who have participated in certain substantive aspects of the research project, they should be acknowledged or listed as contributors. The corresponding author should ensure that all appropriate co-authors and no inappropriate co-authors are included on the paper, and that all co-authors have seen and approved the final version of the paper and have agreed to its submission for publication.<\/p>\n<p><strong>Disclosure and conflicts of interest.<\/strong><strong>\u00a0<\/strong>All authors should disclose in their manuscript any financial or other substantive conflict of interest that might be construed to influence the results or interpretation of their manuscript. All sources of financial support for the project should be disclosed.<\/p>\n<p><strong>Fundamental errors in published works<\/strong>. When an author discovers a significant error or inaccuracy in his\/her own published work, it is the author&#8217;s obligation to promptly notify the journal editor or publisher and cooperate with the editor to retract or correct the paper.<\/p>\n<div id=\"edit_duty\"><strong>2.Editors\u2019 duties<\/strong><\/div>\n<p><strong>Publication decisions.<\/strong>\u00a0The editors of a peer-reviewed journal are responsible for deciding which of the articles submitted to the journal should be published. The editors may be guided by the policies of the journal&#8217;s editorial board and constrained by such legal requirements as shall then be in force regarding libel, copyright infringement and plagiarism. The editors may confer with other editors or reviewers in making this decision.<\/p>\n<p><strong>Fair play.<\/strong>\u00a0An editor should evaluate manuscripts for their intellectual content without regard to race, gender, sexual orientation, religious belief, ethnic origin, citizenship or political philosophy of the authors.<\/p>\n<p><strong>Confidentiality.<\/strong>\u00a0The editors and any editorial staff must not disclose any information about a submitted manuscript to anyone other than the corresponding author, reviewers, potential reviewers, other editorial advisers, and the publisher, as appropriate.<\/p>\n<p><strong>Disclosure and conflicts of interest.<\/strong>\u00a0Unpublished materials disclosed in a submitted manuscript must not be used in an editor&#8217;s own research without the expressed written consent of the author. Privileged information or ideas obtained through peer review must be kept confidential and not used for personal advantage.<\/p>\n<div id=\"rev_duty\"><strong>3. Reviewers\u2019 duties<\/strong><\/div>\n<p><strong>Contribution to editorial decisions.<\/strong>\u00a0Peer review assists the editors in making editorial decisions and through the editorial communications with the author may also assist the author in improving the paper.<\/p>\n<p><strong>Promptness.<\/strong>\u00a0Referees who feel unqualified to review the research reported in a manuscript or knows that a prompt review will be impossible, should notify the editor and excuse themselves from the review process.<\/p>\n<p><strong>Confidentiality.<\/strong>\u00a0Any manuscripts received for review must be treated as confidential documents. They must not be shown to or discussed with others except as authorized by the editors.<\/p>\n<p><strong>Ethics.<\/strong>\u00a0Reviews should be written respectfully. Personal criticism of the author is inappropriate. Referees should express their views clearly with supporting arguments. Sweeping general remarks that disfavour the author&#8217;s paper is unacceptable and such remarks needs to be backed up with clear arguments and concrete references to the content of the paper reviewed.<\/p>\n<p><strong>Acknowledgement of sources.<\/strong>\u00a0Reviewers should identify relevant published work that has not been cited by the authors. Any statement that an observation, derivation, or argument had been previously reported should be accompanied by the relevant citation. A reviewer should also call to the editors&#8217; attention any substantial similarity or overlap between the manuscript under consideration and any other published paper of which they have personal knowledge.<\/p>\n<p><strong>Disclosure and conflict of interest.<\/strong>\u00a0Unpublished materials disclosed in a submitted manuscript must not be used in a reviewer&#8217;s own research without the express written consent of the author. Privileged information or ideas obtained through peer review must be kept confidential and not used for personal advantage. Reviewers should not consider manuscripts in which they have conflicts of interest.<\/p>\n<p><strong>DISCLAIMER<\/strong><\/p>\n<p>Neither the editors nor the Editorial Board are responsible for authors\u2019 expressed opinions, views, and the contents of the published manuscripts in the journal. The originality, proofreading of manuscripts and errors are the sole responsibility of the individual authors.<\/p>\n<p>All manuscripts submitted for review and publication in Macedonian Pharmaceutical Bulletin go under double-blind reviews for authenticity, ethical issues, and useful contributions. Decisions of the reviewers are the only tool for publication in the journal and will be final.<\/p>\n",
+            "protected": false
+        },
+        "excerpt": {
+            "rendered": "<p>Authors&#8217; duties Editors&#8217; duties Reviewers&#8217; duties Macedonian Pharmaceutical Bulletin follows the standard for Ethics and Publication Malpractice set by the Committee on Publication Ethics (COPE) (http:\/\/publicationethics.org\/resources\/guidelines). Conformance to standards of ethical behavior is expected of all parties involved: Authors, Editors, Reviewers, and the Publisher. 1. Authors\u2019 duties Reporting standards.\u00a0Authors of original research reports should present [&hellip;]<\/p>\n",
+            "protected": false
+        },
+        "author": 1,
+        "featured_media": 0,
+        "parent": 115,
+        "menu_order": 1,
+        "comment_status": "closed",
+        "ping_status": "closed",
+        "template": "",
+        "meta": { "footnotes": "" },
+        "class_list": [
+            "post-113",
+            "page",
+            "type-page",
+            "status-publish",
+            "hentry"
+        ],
+        "_links": {
+            "self": [
+                {
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/pages\/113",
+                    "targetHints": { "allow": ["GET"] }
+                }
+            ],
+            "collection": [
+                {
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/pages"
+                }
+            ],
+            "about": [
+                {
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/types\/page"
+                }
+            ],
+            "author": [
+                {
+                    "embeddable": true,
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/users\/1"
+                }
+            ],
+            "replies": [
+                {
+                    "embeddable": true,
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/comments?post=113"
+                }
+            ],
+            "version-history": [
+                {
+                    "count": 3,
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/pages\/113\/revisions"
+                }
+            ],
+            "predecessor-version": [
+                {
+                    "id": 164,
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/pages\/113\/revisions\/164"
+                }
+            ],
+            "up": [
+                {
+                    "embeddable": true,
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/pages\/115"
+                }
+            ],
+            "wp:attachment": [
+                {
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/media?parent=113"
+                }
+            ],
+            "curies": [
+                {
+                    "name": "wp",
+                    "href": "https:\/\/api.w.org\/{rel}",
+                    "templated": true
+                }
+            ]
+        }
+    },
+    {
+        "id": 18,
+        "date": "2015-05-08T15:32:44",
+        "date_gmt": "2015-05-08T13:32:44",
+        "guid": { "rendered": "http:\/\/bulletin.mfd.org.mk\/?page_id=18" },
+        "modified": "2025-09-02T12:04:20",
+        "modified_gmt": "2025-09-02T10:04:20",
+        "slug": "submit-your-paper",
+        "status": "publish",
+        "type": "page",
+        "link": "https:\/\/bulletin.mfd.org.mk\/submit-your-paper\/",
+        "title": { "rendered": "Submit your Paper" },
+        "content": {
+            "rendered": "\n\n<!-- Fast Secure Contact Form plugin 4.0.52 - begin - FastSecureContactForm.com -->\r\n<div style=\"clear:both;\"><\/div>\n\r\n<div id=\"FSContact3\" style=\"width:99%; max-width:555px;\">\r\n<form enctype=\"multipart\/form-data\" action=\"https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/pages?per_page=100&#038;page=1#FSContact3\" id=\"fscf_form3\" method=\"post\">\r\n\n<div id=\"fscf_required3\">\n  <span style=\"text-align:left;\">*<\/span> <span style=\"text-align:left;\">indicates required field<\/span>\n<\/div>\n\n\n<div id=\"fscf_div_clear3_0\" style=\"clear:both;\">\n  <div id=\"fscf_div_field3_0\" style=\"clear:left; float:left; width:99%; max-width:550px; margin-right:10px;\">\r\n    <div style=\"text-align:left; padding-top:5px;\">\n      <label style=\"text-align:left;\" for=\"fscf_name3\">Name:<span style=\"text-align:left;\">*<\/span><\/label>\n    <\/div>\r\n    <div style=\"text-align:left;\">\r\n      <input style=\"text-align:left; margin:0; width:99%; max-width:250px;\" type=\"text\" id=\"fscf_name3\" name=\"full_name\" value=\"\"  readonly=\"readonly\" \/>\r\n    <\/div>\r\n  <\/div>\n<\/div>\n\n<div id=\"fscf_div_clear3_1\" style=\"clear:both;\">\n  <div id=\"fscf_div_field3_1\" style=\"clear:left; float:left; width:99%; max-width:550px; margin-right:10px;\">\n    <div style=\"text-align:left; padding-top:5px;\">\n      <label style=\"text-align:left;\" for=\"fscf_email3\">Email:<span style=\"text-align:left;\">*<\/span><\/label>\n    <\/div>\n    <div style=\"text-align:left;\">\n      <input style=\"text-align:left; margin:0; width:99%; max-width:250px;\" type=\"text\" id=\"fscf_email3\" name=\"email\" value=\"\"  readonly=\"readonly\" \/>\n    <\/div>\n  <\/div>\n<\/div>\n\n<div id=\"fscf_div_clear3_3\" style=\"clear:both;\">\n  <div id=\"fscf_div_field3_3\" style=\"clear:left; float:left; width:99%; max-width:550px; margin-right:10px;\">\n    <div  id=\"fscf_label3_3\" style=\"text-align:left; padding-top:5px;\">\n    <\/div>\n    <div style=\"text-align:left; padding-top:5px;\">\n    <\/div>\n    <div style=\"text-align:left;\">\n      <textarea style=\"text-align:left; margin:0; width:99%; max-width:250px; height:120px;\" id=\"fscf_field3_3\" name=\"message\" cols=\"30\" rows=\"10\" ><\/textarea>\n    <\/div>\n  <\/div>\n<\/div>\n\n<div id=\"fscf_div_clear3_4\" style=\"clear:both;\">\n  <div id=\"fscf_div_field3_4\" style=\"clear:left; float:left; width:99%; max-width:550px; margin-right:10px;\">\n    <div  id=\"fscf_label3_4\" style=\"text-align:left; padding-top:5px;\">\r\n      <label style=\"text-align:left;\" for=\"fscf_field3_4\">Attachment:<span style=\"text-align:left;\">*<\/span><\/label>\n    <\/div>\n    <div style=\"text-align:left;\">\n      <input style=\"text-align:left; margin:0; width:99%; max-width:250px;\" type=\"file\" id=\"fscf_field3_4\" name=\"Attachment\"  size=\"20\" \/><br \/>\n      <span id=\"fscf_hint_file_types3_4\" style=\"font-size:x-small; font-weight:normal;\">Acceptable file types: doc,docx,pdf,txt.<br \/>Maximum file size: 10mb.<\/span>\n    <\/div>\n  <\/div>\n<\/div>\r\n<div style=\"clear:both;\"><\/div>\n\n<div style=\"text-align:left; padding-top:5px;\">\n<\/div>\n<div id=\"fscf_recaptcha3\"><\/div>\n\n<div id=\"fscf_submit_div3\" style=\"text-align:left; clear:both; padding-top:15px;\">\r\n\t\t<input type=\"submit\" id=\"fscf_submit3\" style=\"cursor:pointer; margin:0;\" value=\"Submit\"  onclick=\"this.disabled=true; this.value='Submitting...'; this.form.submit();\" \/> \n<\/div>\n\n<input type=\"hidden\" name=\"fscf_submitted\" value=\"0\" \/>\n<input type=\"hidden\" name=\"fs_postonce_3\" value=\"3c633141f93dd7e8b06b2b64ce42ca94,1793552084\" \/>\n<input type=\"hidden\" name=\"si_contact_action\" value=\"send\" \/>\n<input type=\"hidden\" name=\"form_id\" value=\"3\" \/>\n<input type=\"hidden\" name=\"mailto_id\" value=\"1\" \/>\n\n<\/form>\n<\/div>\r\n<div style=\"clear:both;\"><\/div>\n\n<!-- Fast Secure Contact Form plugin 4.0.52 - end - FastSecureContactForm.com -->\n\n",
+            "protected": false
+        },
+        "excerpt": { "rendered": "", "protected": false },
+        "author": 1,
+        "featured_media": 0,
+        "parent": 0,
+        "menu_order": 4,
+        "comment_status": "closed",
+        "ping_status": "closed",
+        "template": "",
+        "meta": { "footnotes": "" },
+        "class_list": [
+            "post-18",
+            "page",
+            "type-page",
+            "status-publish",
+            "hentry"
+        ],
+        "_links": {
+            "self": [
+                {
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/pages\/18",
+                    "targetHints": { "allow": ["GET"] }
+                }
+            ],
+            "collection": [
+                {
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/pages"
+                }
+            ],
+            "about": [
+                {
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/types\/page"
+                }
+            ],
+            "author": [
+                {
+                    "embeddable": true,
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/users\/1"
+                }
+            ],
+            "replies": [
+                {
+                    "embeddable": true,
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/comments?post=18"
+                }
+            ],
+            "version-history": [
+                {
+                    "count": 2,
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/pages\/18\/revisions"
+                }
+            ],
+            "predecessor-version": [
+                {
+                    "id": 20,
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/pages\/18\/revisions\/20"
+                }
+            ],
+            "wp:attachment": [
+                {
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/media?parent=18"
+                }
+            ],
+            "curies": [
+                {
+                    "name": "wp",
+                    "href": "https:\/\/api.w.org\/{rel}",
+                    "templated": true
+                }
+            ]
+        }
+    },
+    {
+        "id": 16,
+        "date": "2015-05-08T15:08:02",
+        "date_gmt": "2015-05-08T13:08:02",
+        "guid": { "rendered": "http:\/\/bulletin.mfd.org.mk\/?page_id=16" },
+        "modified": "2020-12-16T11:48:17",
+        "modified_gmt": "2020-12-16T09:48:17",
+        "slug": "editorial-board",
+        "status": "publish",
+        "type": "page",
+        "link": "https:\/\/bulletin.mfd.org.mk\/editorial-board\/",
+        "title": { "rendered": "Editorial Board" },
+        "content": {
+            "rendered": "<p><strong>Editor-in-Chief<\/strong><br \/>\n<em>Svetlana Kulevanova<br \/>\n<\/em>Ss. Cyril and Methodius University in Skopje, Faculty of Pharmacy<br \/>\nMajka Tereza 47, 1000 Skopje, Macedonia<\/p>\n<p><strong>Secretary<\/strong><br \/>\n<em>Marija Glavas Dodov<br \/>\n<\/em>Ss. Cyril and Methodius University in Skopje, Faculty of Pharmacy<br \/>\nMajka Tereza 47, 1000 Skopje, Macedonia<\/p>\n<p><strong>International Editorial Board<\/strong><br \/>\n<em>Apostolski Slobodan<\/em><br \/>\nOutpatient Neurological Clinic<br \/>\nVojislava Ilica 100\/4, Belgrade, Serbia<\/p>\n<p><em>Bankova Vassya<br \/>\n<\/em>Bulgarian Academy of Sciences<br \/>\nInstitute of Organic Chemistry with<br \/>\nCentre of Phytochemistry<br \/>\nAcad. G. Bonchev str., bl.9, 1113 Sofia, Bulgaria<\/p>\n<p><em>Cavaco Afonso Miguel das Neves<br \/>\n<\/em>University of Lisbon, School of Pharmacy<br \/>\nAv. Gama Pinto Lisbon, 1749-019 Lisboa, Portugal<\/p>\n<p><em>Makris Antonios<\/em><br \/>\nThe Centre for Research and Technology<br \/>\nVoulgaroktonou 72C, 53555 Thessaloniki, Greece<\/p>\n<p><em>Fernandez Carmen<\/em><br \/>\nStockholm University, Wenner-Gren Institute<br \/>\n106 91 Stockholm, Sweden<\/p>\n<p><em>Cvejic Jelena<\/em><br \/>\nUniversity of Novi Sad, Faculty of Medicine<br \/>\nHajduk Veljkova 3, 21000 Novi Sad, Serbia<\/p>\n<p><em>Calis Sema<\/em><br \/>\nHacettepe University, Faculty of Pharmacy<br \/>\n06100 S\u0131hhiye Ankara, Turkey<\/p>\n<p><em>Dreu Rok<\/em><br \/>\nUniversity of Ljubljana, Faculty of Pharmacy<br \/>\nA\u0161ker\u010deva cesta 7, SI-1000 Ljubljana, Slovenia<\/p>\n<p><em>Fjalland Bjarne<\/em><br \/>\nUniversity of Copenhagen, Faculty of Pharmaceutical Sciences<br \/>\nN\u00f8rregade 10, DK-1017 Copenhagen, Demark<\/p>\n<p><em>Karljikovic-Rajic Katarina<\/em><br \/>\nUniversity of Belgrade, Faculty of Pharmacy<br \/>\nVojvode Stepe 450, 11221 Belgrade, Serbia<\/p>\n<p><em>Savikin Katarina<\/em><br \/>\nInstitute for Medicinal Plant Research \u201cDr. Josif Panc\u0306i\u0107\u201d<br \/>\nTadeu\u0161a Ko\u0161\u0107u\u0161ka 1, 11000 Belgrade, Serbia<\/p>\n<p><em>Satovic Zlatko<\/em><br \/>\nUniversity of Zagreb, Faculty of Agriculture<br \/>\nSveto\u0161imunska cesta 25, 10000 Zagreb, Croatia<\/p>\n<p><em>Tanasijevic Milenko<\/em><br \/>\nHarvard University, Harvard Medical School Center<br \/>\n75 Francis Street, Amory 215A<br \/>\nBrigham and Women&#8217;s Hospital<br \/>\nBoston, MA 02115<\/p>\n<p><em>Viseras Iborra C\u00e9sar<\/em><br \/>\nUniversity of Granada, Faculty of Pharmacy<br \/>\n18011 Granada, Spain<\/p>\n<p><em>Ibraliu Alban<\/em><br \/>\nAgricultural University of Tirana, Plant Production Department<br \/>\nKod\u00ebr Kam\u00ebz, SH1, Tirana 1000, Albania<\/p>\n<p><em>Novak Johannes<\/em><br \/>\nUniversity of Veterinary Medicine, Institute of Animal Nutrition and Functional Plant Compounds<br \/>\nVeterin\u00e4rplatz 1, A-1210 Wien, Austria<\/p>\n<p><em>Duchene Dominique<\/em><br \/>\nUniversit\u00e9 Paris-Sud, Faculty of Pharmacy<br \/>\n5 rue Jean Baptiste Cl\u00e9ment<br \/>\n92290 Ch\u00e2tenay Malabry, Orsay, France<\/p>\n<p><em>Hank\u00f3 Bal\u00e1zs<\/em><br \/>\nSemmelweis University, University Pharmacy<br \/>\nH-1092 Budapest, H\u0151gyes Endre u. 7-9, Hungary<\/p>\n<p><em>Goracinova Katerina<br \/>\n<\/em>Ss. Cyril and Methodius University in Skopje, Faculty of Pharmacy<br \/>\nMajka Tereza 47, 1000 Skopje, Macedonia<\/p>\n<p><em>Dimitrovska Aneta<br \/>\n<\/em><span style=\"font-size: inherit;\">Ss. Cyril and Methodius University in Skopje, Faculty of Pharmacy<br \/>\n<\/span>Majka Tereza 47, 1000 Skopje, Macedonia<\/p>\n<p><em>Dimovski Aleksandar<br \/>\n<\/em><span style=\"font-size: inherit;\">Ss. Cyril and Methodius University in Skopje, Faculty of Pharmacy<br \/>\n<\/span>Majka Tereza 47, 1000 Skopje, Macedonia<\/p>\n<p><em>Jolevska Trajkovic Suzana<br \/>\n<\/em>Ss. Cyril and Methodius University in Skopje, Faculty of Pharmacy<br \/>\nMajka Tereza 47, 1000 Skopje, Macedonia<\/p>\n<p><em>Kavrakovski Zoran<br \/>\n<\/em>Ss. Cyril and Methodius University in Skopje, Faculty of Pharmacy<br \/>\nMajka Tereza 47, 1000 Skopje, Macedonia<\/p>\n<p><em>Mladenovska Kristina<br \/>\n<\/em>Ss. Cyril and Methodius University in Skopje, Faculty of Pharmacy<br \/>\nMajka Tereza 47, 1000 Skopje, Macedonia<\/p>\n<p><em>Panovska Kadifkova Tatjana<\/em><br \/>\nSs. Cyril and Methodius University in Skopje, Faculty of Pharmacy<br \/>\nMajka Tereza 47, 1000 Skopje, Macedonia<\/p>\n<p><em>Petkovska Rumenka<br \/>\n<\/em>Ss. Cyril and Methodius University in Skopje, Faculty of Pharmacy<br \/>\nMajka Tereza 47, 1000 Skopje, Macedonia<\/p>\n<p><em>Petrovska Bauer Biljana<br \/>\n<\/em>Ss. Cyril and Methodius University in Skopje, Faculty of Pharmacy<br \/>\nMajka Tereza 47, 1000 Skopje, Macedonia<\/p>\n<p><em>Petrusevska-Tozi Lidija<br \/>\n<\/em>Ss. Cyril and Methodius University in Skopje, Faculty of Pharmacy<br \/>\nMajka Tereza 47, 1000 Skopje, Macedonia<\/p>\n<p><em>Raicki Slaveska Renata<br \/>\n<\/em>Ss. Cyril and Methodius University in Skopje, Faculty of Pharmacy<br \/>\nMajka Tereza 47, 1000 Skopje, Macedonia<\/p>\n<p><em>Suturkova Ljubica<br \/>\n<\/em>Ss. Cyril and Methodius University in Skopje, Faculty of Pharmacy<br \/>\nMajka Tereza 47, 1000 Skopje, Macedonia<\/p>\n",
+            "protected": false
+        },
+        "excerpt": {
+            "rendered": "<p>Editor-in-Chief Svetlana Kulevanova Ss. Cyril and Methodius University in Skopje, Faculty of Pharmacy Majka Tereza 47, 1000 Skopje, Macedonia Secretary Marija Glavas Dodov Ss. Cyril and Methodius University in Skopje, Faculty of Pharmacy Majka Tereza 47, 1000 Skopje, Macedonia International Editorial Board Apostolski Slobodan Outpatient Neurological Clinic Vojislava Ilica 100\/4, Belgrade, Serbia Bankova Vassya Bulgarian [&hellip;]<\/p>\n",
+            "protected": false
+        },
+        "author": 1,
+        "featured_media": 0,
+        "parent": 0,
+        "menu_order": 2,
+        "comment_status": "closed",
+        "ping_status": "closed",
+        "template": "",
+        "meta": { "footnotes": "" },
+        "class_list": [
+            "post-16",
+            "page",
+            "type-page",
+            "status-publish",
+            "hentry"
+        ],
+        "_links": {
+            "self": [
+                {
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/pages\/16",
+                    "targetHints": { "allow": ["GET"] }
+                }
+            ],
+            "collection": [
+                {
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/pages"
+                }
+            ],
+            "about": [
+                {
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/types\/page"
+                }
+            ],
+            "author": [
+                {
+                    "embeddable": true,
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/users\/1"
+                }
+            ],
+            "replies": [
+                {
+                    "embeddable": true,
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/comments?post=16"
+                }
+            ],
+            "version-history": [
+                {
+                    "count": 9,
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/pages\/16\/revisions"
+                }
+            ],
+            "predecessor-version": [
+                {
+                    "id": 363,
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/pages\/16\/revisions\/363"
+                }
+            ],
+            "wp:attachment": [
+                {
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/media?parent=16"
+                }
+            ],
+            "curies": [
+                {
+                    "name": "wp",
+                    "href": "https:\/\/api.w.org\/{rel}",
+                    "templated": true
+                }
+            ]
+        }
+    },
+    {
+        "id": 13,
+        "date": "2015-05-08T15:03:15",
+        "date_gmt": "2015-05-08T13:03:15",
+        "guid": { "rendered": "http:\/\/bulletin.mfd.org.mk\/?page_id=13" },
+        "modified": "2020-12-16T11:49:20",
+        "modified_gmt": "2020-12-16T09:49:20",
+        "slug": "contact",
+        "status": "publish",
+        "type": "page",
+        "link": "https:\/\/bulletin.mfd.org.mk\/contact\/",
+        "title": { "rendered": "Contact" },
+        "content": {
+            "rendered": "<p><strong>Macedonian Pharmaceutical Bulletin<\/strong><\/p>\n<p><strong>Faculty of Pharmacy<\/strong><br \/>\nSs. Cyril and Methodius University in Skopje<br \/>\nMajka Tereza 17, P. O. Box 36<br \/>\nSkopje, Macedonia<\/p>\n<p><em>e-mail:<\/em> magl@ff.ukim.edu.mk<\/p>\n<p><strong>Macedonian Pharmaceutical Association<\/strong><br \/>\nMarshal Tito 13B\/8<br \/>\nSkopje, Macedonia<\/p>\n<p><em>e-mail:<\/em> info@mfd.org.mk<\/p>\n",
+            "protected": false
+        },
+        "excerpt": {
+            "rendered": "<p>Macedonian Pharmaceutical Bulletin Faculty of Pharmacy Ss. Cyril and Methodius University in Skopje Majka Tereza 17, P. O. Box 36 Skopje, Macedonia e-mail: magl@ff.ukim.edu.mk Macedonian Pharmaceutical Association Marshal Tito 13B\/8 Skopje, Macedonia e-mail: info@mfd.org.mk<\/p>\n",
+            "protected": false
+        },
+        "author": 1,
+        "featured_media": 0,
+        "parent": 0,
+        "menu_order": 1,
+        "comment_status": "closed",
+        "ping_status": "closed",
+        "template": "",
+        "meta": { "footnotes": "" },
+        "class_list": [
+            "post-13",
+            "page",
+            "type-page",
+            "status-publish",
+            "hentry"
+        ],
+        "_links": {
+            "self": [
+                {
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/pages\/13",
+                    "targetHints": { "allow": ["GET"] }
+                }
+            ],
+            "collection": [
+                {
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/pages"
+                }
+            ],
+            "about": [
+                {
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/types\/page"
+                }
+            ],
+            "author": [
+                {
+                    "embeddable": true,
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/users\/1"
+                }
+            ],
+            "replies": [
+                {
+                    "embeddable": true,
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/comments?post=13"
+                }
+            ],
+            "version-history": [
+                {
+                    "count": 4,
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/pages\/13\/revisions"
+                }
+            ],
+            "predecessor-version": [
+                {
+                    "id": 364,
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/pages\/13\/revisions\/364"
+                }
+            ],
+            "wp:attachment": [
+                {
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/media?parent=13"
+                }
+            ],
+            "curies": [
+                {
+                    "name": "wp",
+                    "href": "https:\/\/api.w.org\/{rel}",
+                    "templated": true
+                }
+            ]
+        }
+    },
+    {
+        "id": 11,
+        "date": "2015-05-08T14:51:51",
+        "date_gmt": "2015-05-08T12:51:51",
+        "guid": { "rendered": "http:\/\/bulletin.mfd.org.mk\/?page_id=11" },
+        "modified": "2015-12-22T13:09:20",
+        "modified_gmt": "2015-12-22T11:09:20",
+        "slug": "instructions-for-authors",
+        "status": "publish",
+        "type": "page",
+        "link": "https:\/\/bulletin.mfd.org.mk\/guidelines\/instructions-for-authors\/",
+        "title": { "rendered": "Instructions for Authors" },
+        "content": {
+            "rendered": "<ul>\n<li><a href=\"http:\/\/bulletin.mfd.org.mk\/index.php\/guidelines\/instructions-for-authors\/#types_paper\">Types of paper<\/a><\/li>\n<li><a href=\"http:\/\/bulletin.mfd.org.mk\/index.php\/guidelines\/instructions-for-authors\/#language\">Language<\/a><\/li>\n<li><a href=\"http:\/\/bulletin.mfd.org.mk\/index.php\/guidelines\/instructions-for-authors\/#sub_declare\">Submission declaration<\/a><\/li>\n<li><a href=\"http:\/\/bulletin.mfd.org.mk\/index.php\/guidelines\/instructions-for-authors\/#policy_ethics\">Policy and ethics<\/a><\/li>\n<li><a href=\"http:\/\/bulletin.mfd.org.mk\/index.php\/guidelines\/instructions-for-authors\/#submission\">Submission<\/a><\/li>\n<li><a href=\"http:\/\/bulletin.mfd.org.mk\/index.php\/guidelines\/instructions-for-authors\/#referees\">Referees<\/a><\/li>\n<li><a href=\"http:\/\/bulletin.mfd.org.mk\/index.php\/guidelines\/instructions-for-authors\/#prep_manuscripts\">Preparation of manuscripts<\/a><\/li>\n<li><a href=\"http:\/\/bulletin.mfd.org.mk\/index.php\/guidelines\/instructions-for-authors\/#after_accept\">After acceptance<\/a><\/li>\n<li><a href=\"http:\/\/bulletin.mfd.org.mk\/index.php\/guidelines\/instructions-for-authors\/#copy_notice\">Copyright Notice<\/a><\/li>\n<\/ul>\n<p>&nbsp;<\/p>\n<div id=\"types_paper\"><strong>Types of paper<\/strong><\/div>\n<p><em>Original scientific papers<\/em> (full length manuscripts) should contain own unpublished results of completed original scientific research.<br \/>\n<em>Short communications<\/em> also should contain completed but briefly presented results of original scientific research. The article should be prepared as described for full length manuscripts, except for the following: the number of pages should not exceed 10 (including 2 illustrations, figures or tables). An Abstract should be included as well as a full reference list.<br \/>\n<em>Reviews and mini-reviews<\/em> are written at the invitation of the Editorial Board. \u201cMini-reviews\u201d of a topic are especially welcome.<br \/>\nThey should be surveys of the investigations and knowledge of several authors in a given research area, the competency of the authors of the reviews being assured by their own published results.<br \/>\n<em>Professional papers report<\/em> on useful practical results which are not original but help the results of the original scientific research to be adopted into practical use. Professional papers might be based on the elaborating of theoretical data.<\/p>\n<div id=\"language\"><strong>Language<\/strong><\/div>\n<p>Original scientific papers, short communications, reviews and mini-reviews should be written in good English (American or British usage is accepted, but not a mixture of these), while professional papers and all other contributions may be submitted in Macedonian.<\/p>\n<div id=\"sub_declare\"><strong>Submission declaration<\/strong><\/div>\n<p>Submission of an article implies that the work described has not been published previously (except in the form of an abstract or as part of a published lecture or academic thesis), that it is not under consideration for publication elsewhere, that its publication is approved by all authors and tacitly or explicitly by the responsible authorities where the work was carried out, and that, if accepted, it will not be published elsewhere in the same form, in English or in any other language.<\/p>\n<div id=\"policy_ethics\"><strong>Policy and ethics<\/strong><\/div>\n<p>The work described in your article must have been carried out in accordance with <em>The Code of Ethics of the World Medical Association (Declaration of Helsinki)<\/em> for experiments involving humans http:\/\/www.wma.net\/en\/30publications\/10policies\/b3\/index.html;<br \/>\n<em>EC Directive 86\/609\/EEC<\/em> for animal experiments http:\/\/ec.europa.eu\/environment\/chemicals\/lab_animals\/legislation_en.htm;<br \/>\n<em>Uniform Requirements for manuscripts submitted to Biomedical journals<\/em> http:\/\/www.icmje.org. This must be stated at an appropriate point in the article.<\/p>\n<div id=\"submission\"><strong>Submission<\/strong><\/div>\n<p>Please submit the manuscript electronically (e-mail address: magl@ff.ukim.edu.mk) as a single PDF file, which will be used in the peer-review process. All correspondence, including notification of the Editor\u2019s decision and requests for revision, takes place by e-mail removing the need for a paper trail.<\/p>\n<div id=\"referees\"><strong>Referees<\/strong><\/div>\n<p>Please submit, with the manuscript, the names, addresses and e-mail addresses of 3 potential referees. Note that the editor retains the sole right to decide whether or not the suggested reviewers are used. Papers received by the Editorial Board are sent to referees. The suggestions\/comments of the referees and Editorial Board are sent to the author(s) for further action. The revised article should be returned to the Editorial Board as soon as possible but in not more than 30 days.<\/p>\n<div id=\"prep_manuscripts\"><strong>Preparation of manuscripts<\/strong><\/div>\n<p><em>Use of wordprocessing software<\/em><br \/>\nIt is important that the file be saved in the native format of the wordprocessor used. The text should be typed (1 \u00bd spaced) on A4 paper with margins of 3.0 cm on each side in single-column format, font Times New Roman, Mac C Times, Macedonian Times and size 11, Keep the layout of the text as simple as possible. Most formatting codes will be removed and replaced on processing the article. In particular, do not use the wordprocessor\u2019s options to justify text or to hyphenate words. However, do use bold face, italics, subscripts, superscripts etc. When preparing tables, if you are using a table grid, use only one grid for each individual table and not a grid for each row. If no grid is used, use tabs, not spaces, to align columns. The electronic text should be prepared in a way very similar to that of conventional manuscripts. To avoid unnecessary errors you are strongly advised to use the \u201cspell-check\u201d and \u201cgrammarcheck\u201d functions of your wordprocessor. The pages in the article should be numbered. Finally, please create PDF file before sending the article. After acceptance, you will be asked to supply the article as wordprocessing document (zip-file).<\/p>\n<p><em>Appendices<\/em><br \/>\nIf there is more than one appendix, they should be identified as A, B, etc. Formulae and equations in appendices should be given separate numbering: Eq. A.1), Eq. (A.2), etc.; in a subsequent appendix, Eq. (B.1) and so on. Similarly for tables and figures: Table A.1; Fig. A.1, etc.<\/p>\n<p><em>Abbreviations<\/em><br \/>\nDefine abbreviations that are not standard in this field in a footnote to be placed on the first page of the article. Such abbreviations that are unavoidable in the abstract must be defined at their first mention there, as well as in the footnote. Ensure consistency of abbreviations throughout the article.<\/p>\n<p><em>Units<\/em><br \/>\nFollow internationally accepted rules and conventions: use the international system of units (SI). If other units are mentioned, please give their equivalent in SI. The names of substances should be in accordance with the IUPAC recommendations and rules or Chemical Abstracts practice.<\/p>\n<p><em>Math formulae<\/em><br \/>\nPresent simple formulae in the line of normal text where possible and use the solidus (\/) instead of a horizontal line for small fractional terms, e.g., X\/Y. In principle, variables are to be presented in italics.<\/p>\n<p><em>Footnotes<\/em><br \/>\nFootnotes should be used sparingly. Number them consecutively throughout the article, using superscript Arabic numbers. Many wordprocessors build footnotes into the text, and this feature may be used. Should this not be the case, indicate the position of footnotes in the text and present the footnotes themselves separately at the end of the article. Do not include footnotes in the Reference list.<\/p>\n<p><em>Table footnotes<\/em><br \/>\nIndicate each footnote in a table with a superscript lowercase letter.<\/p>\n<p><em>Figures<\/em><br \/>\nFigures (photographs, diagrams and sketches) and structural formulae should each be given on a separate sheet (the place to which they belong in the text should be indicated). The figures should be numbered in Arabic numerals (e.g. Fig. 1). Ensure that each illustration has a caption. Supply all captions separately, not attached to the figure. A caption should comprise a brief title (not on the figure itself) and a description of the illustration. Keep text in the illustrations themselves to a minimum but explain all symbols and abbreviations used. Please submit the pictures in a black and white version.<\/p>\n<p><em>Tables<\/em><br \/>\nThe tables should be numbered in Arabic numerals (e.g. Table 1) and each should be given on a separate sheet (the place to which they belong in the text should be indicated). Number tables consecutively in accordance with their appearance in the text. Place footnotes to tables below the table body and indicate them with superscript lowercase letters. Be sparing in the use of tables and ensure that the data presented in the tables are not duplicated elsewhere in the article.<\/p>\n<p><strong>Article structure<\/strong><br \/>\nManuscript should contain: title, abstract, key words, introduction, material and methods, results and discussion, conclusion, acknowledgment (if desired) references and summary.<\/p>\n<p><em>Subdivision<\/em><br \/>\nDivide your article into clearly defined sections (Abstract, Introduction, Material and methods. etc.). Any section or subsection may be given a brief heading. Each heading should appear on its own separate line.<\/p>\n<p><em>Essential title page information<\/em><br \/>\nPapers should be preceded by a title page comprising: the title, the complete name(s) of the authors, and the author\u2019s affiliations.<br \/>\n<em>Title.<\/em> Concise and informative. Avoid abbreviations and formulae where possible.<br \/>\n<em>Author names and affiliations.<\/em> Where the family name may be ambiguous (e.g., a double name), please indicate this clearly. Present the authors\u2019 affiliation addresses (where the actual work was done) below the names. Indicate all affiliations with a lower-case superscript arabic number immediately after the author\u2019s name and in front of the appropriate address. Provide the full postal address of each affiliation, including the country name of each author.<br \/>\n<em>Corresponding author.<\/em> Clearly indicate (with *) who will handle correspondence at all stages of refereeing and publication, also post-publication. Ensure that telephone and fax numbers (with country and area code) are provided in addition to the e-mail address and the complete postal address.<br \/>\nEach paper must begin with an Abstract which should not exceed more than 250 (original scientific and professional papers) or 100 (short communications) words. The abstract should state briefly the purpose of the research, the principal results and major conclusions. References should be avoided, but if essential, then cite the author(s) and year(s). Also, non-standard or uncommon abbreviations should be avoided, but if essential they must be defined at<br \/>\ntheir first mention in the abstract itself. Immediately after the abstract, provide a list of 3 to 6 keywords arranged in the order according to their importance.<\/p>\n<p><em>Introduction<\/em><br \/>\nState the objectives of the work and provide an adequate background, avoiding a detailed literature survey or a summary of the results.<\/p>\n<p><em>Material and methods<\/em><br \/>\nProvide sufficient detail to allow the work to be reproduced. Methods already published should be indicated by a reference: only relevant modifications should be described. Manuscripts which are related to theoretical studies, instead of Material and methods, should contain a sub-heading and the Theoretical background where the necessary details for verifying the results obtained should be stated.<\/p>\n<p><em>Results<\/em><br \/>\nResults should be clear and concise.<\/p>\n<p><em>Discussion<\/em><br \/>\nThis should explore the significance of the results of the work, not repeat them. A combined Results and Discussion section is often appropriate. Avoid extensive citations and discussion of published literature.<\/p>\n<p><em>Conclusions<\/em><br \/>\nThe main conclusions of the study may be presented in a short Conclusions section, which may stand alone or form a subsection of a Discussion or Results and Discussion section.<\/p>\n<p><em>Acknowledgements<\/em><br \/>\nCollate acknowledgements in a separate section at the end of the article before the references and do not, therefore, include them on the title page, as a footnote to the title or otherwise. List here those individuals who provided help during the research (e.g., providing language help, writing assistance or proof reading the article, etc.).<\/p>\n<p><em>References<\/em><\/p>\n<p><em>Citation in text<\/em><br \/>\nPlease ensure that every reference cited in the text is also present in the reference list (and vice versa). Any references cited in the abstract must be given in full. Unpublished results and personal communications are not recommended in the reference list, but may be mentioned in the text. If these references are included in the reference list they should follow the standard reference style of the journal and should include a substitution of the publication date with either \u201cUnpublished results\u201d or \u201cPersonal communication\u201d. Citation of a reference as \u201cin press\u201d implies that the item has been accepted for publication and a copy of the title page of the relevant article must be submitted.<\/p>\n<p><em>Web references<\/em><br \/>\nAs a minimum, the full URL should be given and the date when the reference was last accessed. Any further information, if known (DOI, author names, dates, reference to a source publication,<br \/>\netc.), should also be given. Web references can be listed separately (e.g., after the reference list) under a different heading if desired, or can be included in the reference list.<br \/>\n<em>Reference style<\/em><br \/>\n<em>Text:<\/em> All citations in the text should refer to:<br \/>\n<em>1. Single author:<\/em> the author\u2019s name (without initials, unless there is ambiguity) and the year of publication;<br \/>\n<em>2. Two authors:<\/em> both authors\u2019 names and the year of publication;<br \/>\n<em>3. Three or more authors:<\/em> first author\u2019s name followed by \u201cet al.\u201d and the year of publication.<br \/>\nCitations may be made directly (or parenthetically).<br \/>\nGroups of references should be listed first alphabetically, then chronologically. Examples: \u201cas demonstrated (Allan, 1996a, 1996b,<br \/>\n1999; Allan and Jones, 1995). Kramer et al. (2000) have recently shown&#8230;.\u201d<br \/>\n<em>List:<\/em> References should be arranged first alphabetically and then further sorted chronologically if necessary. More than one reference from the same author(s) in the same year must be identified by the letters \u201ca\u201d, \u201cb\u201d, \u201cc\u201d, etc., placed after the year of publication.<br \/>\n<em>Examples:<\/em><br \/>\nReference to a journal publication:<br \/>\nVan der Geer, J., Hanraads, J.A.J., Lupton, R.A., 2000. The art of writing a scientific article. J. Sci. Commun. 163, 51\u201359.<br \/>\nReference to a book:<br \/>\nStrunk Jr., W., White, E.B., 1979. The Elements of Style, third ed. Macmillan, New York.<br \/>\nReference to a chapter in an edited book:<br \/>\nMettam, G.R., Adams, L.B., 1999. How to prepare an electronic version of your article, in: Jones, B.S., Smith, R.Z. (Eds.), Introduction to the Electronic Age. E-Publishing Inc., New York, pp. 281\u2013304.<br \/>\nJournal abbreviations source<br \/>\nJournal names should be abbreviated according to Index Medicus journal abbreviations: http:\/\/www.nlm.nih.gov\/tsd\/serials\/lji.html<br \/>\nList of serial title word abbreviations: http:\/\/www.issn.org\/2-22661-LTWA-online.php;<br \/>\nCAS (Chemical Abstracts Service): http:\/\/www.cas.org\/sent.html.<br \/>\nManuscripts written in English should contain a Summary in Macedonian at the end of the paper. The summary should contain: title, author(s) full-name(s), surname(s), author\u2019s affiliations (institution and address), key words and abstract. Professional papers written in Macedonian should contain a summary in English in which the same data should be included.<\/p>\n<p><strong>Submission checklist<\/strong><br \/>\nIt is hoped that this list will be useful during the final checking of an article prior to sending it to the journal\u2019s Editor for review. Please consult this Guide for Authors for further details of any item.<br \/>\nEnsure that the following items are present:<br \/>\nOne Author designated as corresponding Author:<br \/>\n&#8211; E-mail address<br \/>\n&#8211; Telephone and fax numbers<br \/>\n&#8211; All necessary files have been uploaded<br \/>\n&#8211; Keywords<br \/>\n&#8211; All figure captions<br \/>\n&#8211; All tables (including title, description, footnotes)<br \/>\n&#8211; Further considerations: Manuscript has been \u201cspellchecked\u201d and \u201cgrammar-checked\u201d<br \/>\n&#8211; References are in the correct format for this journal<br \/>\n&#8211; All references mentioned in the Reference list are cited in the text, and vice versa<br \/>\n&#8211; Permission has been obtained for use of copyrighted material from other sources (including the Web)<\/p>\n<div id=\"after_accept\"><strong>After acceptance<\/strong><\/div>\n<p><em>Proofs<\/em><br \/>\nOne set of page proofs (as PDF files) will be sent by e-mail to the corresponding author. Please list the corrections and return them via e-mail. If, for any reason, this is not possible, then mark the corrections and any other comments on a printout of your proof and return by fax, or scan the pages and e-mail, or by post. Please use this proof only for checking the typesetting, editing, completeness and correctness of the text, tables and figures. Significant<br \/>\nchanges to the article as accepted for publication will not be accepted.<br \/>\nWe will do everything possible to get your article published quickly and accurately. Therefore, it is important to ensure that all of your corrections are sent back to us in one communication: please check carefully before replying, as inclusion of any subsequent corrections cannot be guaranteed.<br \/>\nProofreading is solely your responsibility. Note that Macedonian Pharmaceutical Bulletin may proceed with the publication of your article if no response is received.<\/p>\n<p><em>Offprints<\/em><br \/>\nThe corresponding author, at no cost, will be provided with a PDF file of the article by e-mail. The PDF file is a watermarked version of the published article and includes a cover sheet with the journal cover image.<br \/>\nAdditional paper offprints can also be ordered for an extra charge.<\/p>\n<div id=\"copy_notice\"><strong>Copyright Notice<\/strong><\/div>\n<p>Authors retain copyright and grant the journal right of first publication with the work simultaneously licensed under a <a href=\"http:\/\/creativecommons.org\/licenses\/by\/3.0\/\" target=\"_new\">Creative Commons Attribution License<\/a> that allows others to share the work with an acknowledgement of the work&#8217;s authorship and initial publication in this journal.<\/p>\n",
+            "protected": false
+        },
+        "excerpt": {
+            "rendered": "<p>Types of paper Language Submission declaration Policy and ethics Submission Referees Preparation of manuscripts After acceptance Copyright Notice &nbsp; Types of paper Original scientific papers (full length manuscripts) should contain own unpublished results of completed original scientific research. Short communications also should contain completed but briefly presented results of original scientific research. The article should [&hellip;]<\/p>\n",
+            "protected": false
+        },
+        "author": 1,
+        "featured_media": 0,
+        "parent": 115,
+        "menu_order": 5,
+        "comment_status": "closed",
+        "ping_status": "closed",
+        "template": "",
+        "meta": { "footnotes": "" },
+        "class_list": [
+            "post-11",
+            "page",
+            "type-page",
+            "status-publish",
+            "hentry"
+        ],
+        "_links": {
+            "self": [
+                {
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/pages\/11",
+                    "targetHints": { "allow": ["GET"] }
+                }
+            ],
+            "collection": [
+                {
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/pages"
+                }
+            ],
+            "about": [
+                {
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/types\/page"
+                }
+            ],
+            "author": [
+                {
+                    "embeddable": true,
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/users\/1"
+                }
+            ],
+            "replies": [
+                {
+                    "embeddable": true,
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/comments?post=11"
+                }
+            ],
+            "version-history": [
+                {
+                    "count": 14,
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/pages\/11\/revisions"
+                }
+            ],
+            "predecessor-version": [
+                {
+                    "id": 160,
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/pages\/11\/revisions\/160"
+                }
+            ],
+            "up": [
+                {
+                    "embeddable": true,
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/pages\/115"
+                }
+            ],
+            "wp:attachment": [
+                {
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/media?parent=11"
+                }
+            ],
+            "curies": [
+                {
+                    "name": "wp",
+                    "href": "https:\/\/api.w.org\/{rel}",
+                    "templated": true
+                }
+            ]
+        }
+    },
+    {
+        "id": 4,
+        "date": "2015-05-08T12:09:51",
+        "date_gmt": "2015-05-08T10:09:51",
+        "guid": { "rendered": "http:\/\/bulletin.mfd.org.mk\/?page_id=4" },
+        "modified": "2025-09-05T11:37:49",
+        "modified_gmt": "2025-09-05T09:37:49",
+        "slug": "editors-words",
+        "status": "publish",
+        "type": "page",
+        "link": "https:\/\/bulletin.mfd.org.mk\/",
+        "title": { "rendered": "Editor&#8217;s words" },
+        "content": {
+            "rendered": "<p><em>Macedonian Pharmaceutical Bulletin<\/em>, Online ISSN 1857-8969, is an international, peer-reviewed Journal, published under the auspices of <em>Macedonian Pharmaceutical Association<\/em> in cooperation with <em>Ss. Cyril and Methodius University in Skopje, Faculty of Pharmacy.<\/em><\/p>\n<p>The Macedonian Pharmaceutical Bulletin has a mission to be the premier periodical on basic pharmacy concepts, recent developments in pharmacy in general, with an aim of promoting Research and Development, Post-Graduate Training, and further enhancements in the field of Pharmacy, Medicine, Dental medicine and other life sciences.<\/p>\n<p>The journal publishes original research articles, review papers, short communications, case studies, and professional studies in both basic and applied sciences. Topics of interest include pharmaceutical sciences (such as pharmaceutics, pharmaceutical chemistry, analysis, and technology), as well as related fields like medicine, dental medicine, pharmacology, toxicology, cosmetology, biotechnology, clinical pharmacy, pharmacognosy, phytotherapy, nutrition, immunology, pharmacy practice and more.<\/p>\n<p>Its international readership is reflected by the prestigious international Editorial Board and worldwide reviewers. Macedonian Pharmaceutical Bulletin is an open access journal which means that researchers worldwide will have full access to all the articles published online and be able to download them directly from this website.<\/p>\n<p>The journal is indexed in DOAJ Directory and EBSCO Host &#8211; Academic Search database.<\/p>\n<p>Sincerely,<\/p>\n<p><img decoding=\"async\" src=\"http:\/\/bulletin.mfd.org.mk\/wp-content\/uploads\/2025\/09\/Potpis_Glavas-e1757065020400.png\" \/><\/p>\n<p>Professor Marija Glavas Dodov<\/p>\n",
+            "protected": false
+        },
+        "excerpt": {
+            "rendered": "<p>Macedonian Pharmaceutical Bulletin, Online ISSN 1857-8969, is an international, peer-reviewed Journal, published under the auspices of Macedonian Pharmaceutical Association in cooperation with Ss. Cyril and Methodius University in Skopje, Faculty of Pharmacy. The Macedonian Pharmaceutical Bulletin has a mission to be the premier periodical on basic pharmacy concepts, recent developments in pharmacy in general, with [&hellip;]<\/p>\n",
+            "protected": false
+        },
+        "author": 1,
+        "featured_media": 0,
+        "parent": 0,
+        "menu_order": 0,
+        "comment_status": "closed",
+        "ping_status": "closed",
+        "template": "",
+        "meta": { "footnotes": "" },
+        "class_list": [
+            "post-4",
+            "page",
+            "type-page",
+            "status-publish",
+            "hentry"
+        ],
+        "_links": {
+            "self": [
+                {
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/pages\/4",
+                    "targetHints": { "allow": ["GET"] }
+                }
+            ],
+            "collection": [
+                {
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/pages"
+                }
+            ],
+            "about": [
+                {
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/types\/page"
+                }
+            ],
+            "author": [
+                {
+                    "embeddable": true,
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/users\/1"
+                }
+            ],
+            "replies": [
+                {
+                    "embeddable": true,
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/comments?post=4"
+                }
+            ],
+            "version-history": [
+                {
+                    "count": 10,
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/pages\/4\/revisions"
+                }
+            ],
+            "predecessor-version": [
+                {
+                    "id": 606,
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/pages\/4\/revisions\/606"
+                }
+            ],
+            "wp:attachment": [
+                {
+                    "href": "https:\/\/bulletin.mfd.org.mk\/wp-json\/wp\/v2\/media?parent=4"
+                }
+            ],
+            "curies": [
+                {
+                    "name": "wp",
+                    "href": "https:\/\/api.w.org\/{rel}",
+                    "templated": true
+                }
+            ]
+        }
+    }
+]

@@ -1,0 +1,15 @@
+# Macedonian Pharmaceutical Bulletin
+# Article pages, issues, PDFs, feeds and OAI-PMH are open to all crawlers.
+User-agent: *
+Disallow: /search
+Disallow: /locale/
+Disallow: /login
+Disallow: /register
+Disallow: /forgot-password
+Disallow: /reset-password
+Disallow: /dashboard
+Disallow: /settings
+Disallow: /admin
+Allow: /
+
+Sitemap: https://bulletin.mfd.org.mk/sitemap.xml

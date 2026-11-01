@@ -1,0 +1,38 @@
+{
+    "name": "Macedonian Pharmaceutical Bulletin",
+    "short_name": "Maced. Pharm. Bull.",
+    "description": "Open-access, peer-reviewed journal of the Macedonian Pharmaceutical Association and the Faculty of Pharmacy, Ss. Cyril and Methodius University in Skopje.",
+    "lang": "en",
+    "start_url": "/",
+    "scope": "/",
+    "display": "browser",
+    "theme_color": "#1F3770",
+    "background_color": "#FFFFFF",
+    "icons": [
+        { "src": "/favicon.svg", "type": "image/svg+xml", "sizes": "any" },
+        {
+            "src": "/icon-192.png",
+            "type": "image/png",
+            "sizes": "192x192",
+            "purpose": "any"
+        },
+        {
+            "src": "/icon-512.png",
+            "type": "image/png",
+            "sizes": "512x512",
+            "purpose": "any"
+        },
+        {
+            "src": "/icon-192.png",
+            "type": "image/png",
+            "sizes": "192x192",
+            "purpose": "maskable"
+        },
+        {
+            "src": "/icon-512.png",
+            "type": "image/png",
+            "sizes": "512x512",
+            "purpose": "maskable"
+        }
+    ]
+}
