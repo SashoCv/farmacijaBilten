@@ -192,7 +192,7 @@ export default function SearchPage({
             </section>
 
             <div className="page-wrap pt-8 section-pb md:pt-10">
-                <div className="grid gap-x-6 gap-y-8 lg:grid-cols-12">
+                <div className="grid gap-x-6 gap-y-8 lg:grid-cols-12 lg:gap-x-12">
                     <FilterRail
                         className="lg:col-span-3"
                         active={active}

@@ -330,7 +330,7 @@ function IssueView({ issue, articles, matchCount, filters, issues }: Props) {
                 aria-labelledby={empty ? 'issue-pdf-title' : 'toc-title'}
                 className="bg-white"
             >
-                <div className="page-wrap grid grid-cols-1 gap-x-6 gap-y-14 section-pt section-pb lg:grid-cols-12">
+                <div className="page-wrap grid grid-cols-1 gap-x-6 gap-y-14 section-pt section-pb lg:grid-cols-12 lg:gap-x-12">
                     <div className="min-w-0 lg:col-span-8">
                         {empty ? (
                             <EmptyIssue issue={issue} />

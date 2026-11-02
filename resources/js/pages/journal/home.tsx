@@ -65,7 +65,7 @@ export default function Home({
 
             {/* Masthead + current issue: the right column lines up with the rail below. */}
             <div className="border-b border-line bg-mist">
-                <div className="page-wrap grid gap-x-6 gap-y-6 py-7 md:py-9 lg:grid-cols-12 lg:items-center">
+                <div className="page-wrap grid gap-x-6 gap-y-6 py-7 md:py-9 lg:grid-cols-12 lg:items-center lg:gap-x-12">
                     <HomeHero className="lg:col-span-8" />
                     <CurrentIssueCard
                         issue={currentIssue}
@@ -74,7 +74,7 @@ export default function Home({
                 </div>
             </div>
 
-            <div className="page-wrap grid gap-x-6 gap-y-12 pt-7 pb-10 md:pt-9 md:pb-12 lg:grid-cols-12">
+            <div className="page-wrap grid gap-x-6 gap-y-12 pt-7 pb-10 md:pt-9 md:pb-12 lg:grid-cols-12 lg:gap-x-12">
                 <LatestArticles
                     currentIssue={currentIssue}
                     currentArticles={currentArticles}

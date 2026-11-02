@@ -15,7 +15,7 @@ export function EditorMessage({ quote }: { quote: string }) {
     return (
         <section aria-labelledby="editor-title" className="navy-band">
             <div className="page-wrap py-10 md:py-12">
-                <figure className="m-0 grid gap-x-6 gap-y-4 lg:grid-cols-12">
+                <figure className="m-0 grid gap-x-6 gap-y-4 lg:grid-cols-12 lg:gap-x-12">
                     <h2
                         id="editor-title"
                         className="m-0 pt-2 font-sans text-eyebrow font-semibold tracking-[0.08em] text-sky! uppercase lg:col-span-2"

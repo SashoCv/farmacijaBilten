@@ -30,7 +30,7 @@ export function AimsScope() {
 
     return (
         <section aria-labelledby="scope-title" className="bg-white">
-            <div className="page-wrap grid gap-x-6 gap-y-6 py-10 md:py-12 lg:grid-cols-12">
+            <div className="page-wrap grid gap-x-6 gap-y-6 py-10 md:py-12 lg:grid-cols-12 lg:gap-x-12">
                 <div className="flex flex-col gap-3 lg:col-span-6">
                     <h2
                         id="scope-title"

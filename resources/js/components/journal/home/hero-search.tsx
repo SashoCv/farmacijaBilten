@@ -7,8 +7,8 @@ import { useT } from '@/lib/i18n';
 import { search } from '@/routes';
 
 /**
- * The home page's search field (#hero-search; the header's search button
- * focuses it). One row: field and button, with the label kept for screen
+ * The home page's search field (the header shows no search on home).
+ * One row: field and button, with the label kept for screen
  * readers and the hint shown as the placeholder.
  */
 export function HeroSearch({ className }: { className?: string }) {

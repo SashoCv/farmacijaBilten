@@ -30,9 +30,6 @@ const forAuthors: NavGroup = {
 };
 const about: NavGroup = { key: 'about', label: 'About', items: aboutLinks };
 
-/** Id of the home page's hero search field; the header defers to it on home. */
-const HERO_SEARCH_ID = 'hero-search';
-
 /** Height of the utility bar plus masthead, scrolled away above the sticky nav row. */
 const STICKY_OFFSET = 106;
 
@@ -137,26 +134,6 @@ function useScrollState(enabled: boolean) {
     };
 }
 
-/** Moves focus to the home page's own search field. Returns false if absent. */
-function focusHeroSearch(): boolean {
-    const field = document.getElementById(HERO_SEARCH_ID);
-
-    if (!(field instanceof HTMLElement)) {
-        return false;
-    }
-
-    const reduce = window.matchMedia(
-        '(prefers-reduced-motion: reduce)',
-    ).matches;
-    field.scrollIntoView({
-        block: 'center',
-        behavior: reduce ? 'auto' : 'smooth',
-    });
-    field.focus({ preventScroll: true });
-
-    return true;
-}
-
 export function SiteHeader() {
     const { t, locale } = useT();
     const { component, props } = usePage();
@@ -214,14 +191,6 @@ export function SiteHeader() {
     ];
 
     const onSearchToggle = () => {
-        // On home, the hero already has a search field: never open a second one.
-        if (isHome && focusHeroSearch()) {
-            setSearchOpen(false);
-            setMenuOpen(false);
-
-            return;
-        }
-
         setSearchOpen((open) => !open);
         setMenuOpen(false);
     };
@@ -294,18 +263,17 @@ export function SiteHeader() {
                         </span>
                     </Link>
 
-                    <div className="hidden w-[clamp(200px,22vw,320px)] shrink lg:block">
-                        {isHome ? (
-                            <HeroSearchShortcut />
-                        ) : (
+                    {/* On home, the hero has the search field: no second one here. */}
+                    {!isHome && (
+                        <div className="hidden w-[clamp(200px,22vw,320px)] shrink lg:block">
                             <SearchForm
                                 id="header-search"
                                 size="compact"
                                 label={t('Search the journal')}
                                 placeholder={t('Search articles, authors…')}
                             />
-                        )}
-                    </div>
+                        </div>
+                    )}
 
                     <Link
                         href={submitHref}
@@ -314,21 +282,23 @@ export function SiteHeader() {
                         {t('Submit manuscript')}
                     </Link>
 
-                    <button
-                        ref={searchToggle}
-                        type="button"
-                        aria-label={
-                            searchOpen
-                                ? t('Close search')
-                                : t('Search the journal')
-                        }
-                        aria-expanded={isHome ? undefined : searchOpen}
-                        aria-controls={isHome ? undefined : 'site-search'}
-                        onClick={onSearchToggle}
-                        className="btn-icon border-transparent lg:hidden"
-                    >
-                        {searchOpen ? <CloseIcon /> : <SearchIcon />}
-                    </button>
+                    {!isHome && (
+                        <button
+                            ref={searchToggle}
+                            type="button"
+                            aria-label={
+                                searchOpen
+                                    ? t('Close search')
+                                    : t('Search the journal')
+                            }
+                            aria-expanded={searchOpen}
+                            aria-controls="site-search"
+                            onClick={onSearchToggle}
+                            className="btn-icon border-transparent lg:hidden"
+                        >
+                            {searchOpen ? <CloseIcon /> : <SearchIcon />}
+                        </button>
+                    )}
                     <button
                         ref={menuToggle}
                         type="button"
@@ -427,25 +397,6 @@ function navItemClass(active: boolean): string {
  * On home, the masthead shows a field-shaped button that takes the reader to
  * the hero search, so the page never has two search forms.
  */
-function HeroSearchShortcut() {
-    const { t } = useT();
-
-    return (
-        <button
-            type="button"
-            onClick={() => {
-                if (!focusHeroSearch()) {
-                    router.visit('/search');
-                }
-            }}
-            className="flex h-11 w-full cursor-pointer items-center justify-between gap-3 rounded-md border border-field bg-white pr-3 pl-3.5 text-left text-ui text-ink-muted transition-colors hover:border-brand"
-        >
-            <span className="truncate">{t('Search articles, authors…')}</span>
-            <SearchIcon className="shrink-0" />
-        </button>
-    );
-}
-
 /**
  * Disclosure-style dropdown (button + list of links): the recommended pattern
  * for site navigation, and far lighter than a full ARIA menu.
