@@ -4,6 +4,7 @@ namespace App\Http;
 
 use App\Http\Middleware\HandleInertiaRequests;
 use App\Http\Middleware\SetLocale;
+use App\Journal\Seo\SeoMeta;
 use Illuminate\Http\Exceptions\PostTooLargeException;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -92,7 +93,7 @@ final class ErrorPage
             'status' => $status,
             'context' => $status === 404 ? $context : null,
         ])
-            ->withViewData(['meta' => ['title' => self::title($status, $context), 'robots' => 'noindex,follow']])
+            ->withViewData(['meta' => SeoMeta::forError(self::title($status, $context))])
             ->toResponse($request)
             ->setStatusCode($status);
 

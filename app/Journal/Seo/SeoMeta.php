@@ -155,9 +155,19 @@ final class SeoMeta
     {
         $title = is_string($page['props']['title'] ?? null) ? $page['props']['title'] : null;
 
+        return self::forError($title ?? self::name());
+    }
+
+    /**
+     * Error pages (and pages without their own metadata): a title, not indexed.
+     *
+     * @return array<string, mixed>
+     */
+    public static function forError(string $title): array
+    {
         return [
-            'title' => $title ?? self::name(),
-            'documentTitle' => self::documentTitle($title ?? ''),
+            'title' => $title,
+            'documentTitle' => self::documentTitle($title),
             'description' => null,
             'canonical' => null,
             'robots' => 'noindex,follow',
