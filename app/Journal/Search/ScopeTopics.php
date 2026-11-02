@@ -61,11 +61,10 @@ final class ScopeTopics
             return [];
         }
 
-        return collect(explode(',', $list))
+        return array_values(collect(explode(',', $list))
             ->map(fn (string $topic) => trim((string) preg_replace('/\s*\betc\.?$/u', '', trim($topic)), ' .;'))
             ->filter(fn (string $topic) => mb_strlen($topic) >= 3 && mb_strlen($topic) <= 60)
             ->unique()
-            ->values()
-            ->all();
+            ->all());
     }
 }

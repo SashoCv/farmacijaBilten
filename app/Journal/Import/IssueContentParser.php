@@ -68,6 +68,9 @@ final class IssueContentParser
         $issueOnline = null;
         $warnings = [];
         $raw = [];
+        // Lines after each title and its "Available on-line" date, by $raw index.
+        $posts = [];
+        $dates = [];
         $pending = [];
         $current = null;
 
@@ -118,10 +121,8 @@ final class IssueContentParser
                     'style' => self::styleOf($line['segments'], firstOnly: true),
                     'pdf' => $files[0],
                     'pre' => $pending,
-                    'post' => [],
-                    'date' => null,
                 ];
-                $current = array_key_last($raw);
+                $current = count($raw) - 1;
                 $pending = [];
 
                 continue;
@@ -133,7 +134,7 @@ final class IssueContentParser
 
             if (preg_match('/^(?:early|available)\s*on[\s-]*line\s*:?\s*(.+)$/iu', $text, $m)) {
                 if ($current !== null) {
-                    $raw[$current]['date'] = self::date($m[1]);
+                    $dates[$current] = self::date($m[1]);
                 } elseif ($raw === []) {
                     // "Available on-line 03 November 2017" above the first article: the whole issue.
                     $issueOnline ??= self::date($m[1]);
@@ -145,7 +146,7 @@ final class IssueContentParser
             $pending[] = ['text' => $text, 'html' => $line['html'], 'style' => self::styleOf($line['segments'])];
 
             if ($current !== null) {
-                $raw[$current]['post'][] = $text;
+                $posts[$current][] = $text;
             }
         }
 
@@ -165,7 +166,7 @@ final class IssueContentParser
                 $titleHtml = $line['html'].' '.$titleHtml;
             }
 
-            $authorLines = $authorsBefore ? array_column($pre, 'text') : $item['post'];
+            $authorLines = $authorsBefore ? array_column($pre, 'text') : ($posts[$index] ?? []);
 
             // Link on its own line: the title is the last line before it.
             if ($title === '' && $authorsBefore && $authorLines !== []) {
@@ -205,7 +206,7 @@ final class IssueContentParser
                 'title_html' => $titleHtml,
                 'authors' => array_map(self::fixMixedScript(...), $authors),
                 'pdf' => $item['pdf'],
-                'online_at' => $item['date'],
+                'online_at' => $dates[$index] ?? null,
             ];
         }
 

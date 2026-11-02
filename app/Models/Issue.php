@@ -102,12 +102,15 @@ class Issue extends Model
     /** "Issue 2", "Supplement 1", "Book of Abstracts", or null for a whole volume. */
     public function part(): ?string
     {
-        return match ($this->kind) {
+        $part = match ($this->kind) {
             self::KIND_ISSUE => __('Issue :number', ['number' => $this->number]),
             self::KIND_SUPPLEMENT => __('Supplement :number', ['number' => $this->number]),
             self::KIND_ABSTRACTS => __('Book of Abstracts'),
             default => null,
         };
+
+        // __() returns an array only for group keys, which these are not.
+        return is_string($part) ? $part : null;
     }
 
     public function label(): string

@@ -123,10 +123,9 @@ class BrowseController extends Controller
         $early = Issue::query()->where('is_published', false)->latestFirst()->get();
         $published = Issue::published()->latestFirst()->limit(8)->get();
 
-        return $early->concat($published)
+        return array_values($early->concat($published)
             ->map(fn (Issue $i) => $i->presentSummary())
-            ->values()
-            ->all();
+            ->all());
     }
 
     private static function fileSize(?string $path): ?int

@@ -80,7 +80,7 @@ final class PdfMetadataExtractor
             $layout = self::after($layout, 'Please cite this article as:');
         }
 
-        $lines = array_values(array_map('rtrim', explode("\n", $raw)));
+        $lines = array_map('rtrim', explode("\n", $raw));
 
         [$abstract, $keywords] = $this->abstractAndKeywords($layout);
 
@@ -249,7 +249,7 @@ final class PdfMetadataExtractor
                 }
 
                 if ($trimmed === '') {
-                    if ($current !== '' && count($paragraphs) + 1 > 0 && $i + 1 < $end && trim($lines[$i + 1] ?? '') === '') {
+                    if ($current !== '' && $i + 1 < $end && trim($lines[$i + 1] ?? '') === '') {
                         // Two blank lines: the abstract has ended.
                         break;
                     }
@@ -289,7 +289,7 @@ final class PdfMetadataExtractor
     private function keywords(array $lines, int $index): array
     {
         preg_match('/^\s*(?:Key\s*-?\s*words?|Klu~ni\s+zborovi)\s*:?\s*(.*)$/iu', $lines[$index], $m);
-        $text = trim($m[1]);
+        $text = trim($m[1] ?? '');
 
         // Continuation lines until a blank line or the body starts.
         for ($i = $index + 1; $i < min(count($lines), $index + 4); $i++) {
@@ -303,7 +303,7 @@ final class PdfMetadataExtractor
         }
 
         // Two-column body text can trail on the same line: cut at a wide gap.
-        $text = (string) preg_split('/\s{4,}/u', $text)[0];
+        $text = (preg_split('/\s{4,}/u', $text) ?: [$text])[0];
 
         $words = preg_split('/\s*[,;]\s*/u', rtrim($text, '. ')) ?: [];
         $words = array_map(fn (string $w) => trim($w, " .\t"), $words);
@@ -422,7 +422,7 @@ final class PdfMetadataExtractor
             $raw = self::after($raw, 'Please cite this article as:');
         }
 
-        $lines = array_values(array_map('trim', explode("\n", $raw)));
+        $lines = array_map('trim', explode("\n", $raw));
         $letters = fn (string $s) => (string) preg_replace('/[^\p{L}\p{N}]+/u', '', mb_strtolower($s));
         $target = $letters($title);
 

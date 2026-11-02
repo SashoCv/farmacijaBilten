@@ -94,11 +94,11 @@ final class ArticleSearch
 
         $this->order($query);
 
-        $results = $query
+        $results = array_values($query
             ->forPage($page, self::PER_PAGE)
             ->get()
             ->map(fn (Article $article) => $this->present($article))
-            ->all();
+            ->all());
 
         return ['results' => $results, 'total' => $total, 'page' => $page, 'lastPage' => $lastPage];
     }
@@ -142,18 +142,18 @@ final class ArticleSearch
         $order = array_flip(array_keys(self::KINDS));
 
         return [
-            'kinds' => $kinds
+            'kinds' => array_values($kinds
                 ->filter(fn ($row) => isset($order[$row->value]))
                 ->sortBy(fn ($row) => $order[$row->value])
                 ->map(fn ($row) => ['value' => (string) $row->value, 'count' => (int) $row->aggregate])
-                ->values()->all(),
-            'types' => $types->map(fn ($row) => ['value' => (string) $row->value, 'count' => (int) $row->aggregate])->all(),
-            'years' => $years->map(fn ($row) => ['value' => (int) $row->value, 'count' => (int) $row->aggregate])->all(),
-            'volumes' => $volumes->map(fn ($row) => [
+                ->all()),
+            'types' => array_values($types->map(fn ($row) => ['value' => (string) $row->value, 'count' => (int) $row->aggregate])->all()),
+            'years' => array_values($years->map(fn ($row) => ['value' => (int) $row->value, 'count' => (int) $row->aggregate])->all()),
+            'volumes' => array_values($volumes->map(fn ($row) => [
                 'value' => (int) $row->value,
                 'year' => $row->year === null ? null : (int) $row->year,
                 'count' => (int) $row->aggregate,
-            ])->all(),
+            ])->all()),
         ];
     }
 
@@ -243,7 +243,7 @@ final class ArticleSearch
      * keywords 4, abstract or DOI 1), +1 when it starts a word; +5 when the
      * whole query appears in the title as written.
      *
-     * @return array{0: string, 1: list<string>}
+     * @return array{0: literal-string, 1: list<string>}
      */
     private function scoreSql(): array
     {

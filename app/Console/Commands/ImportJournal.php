@@ -19,7 +19,6 @@ use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
-use Throwable;
 
 /**
  * Mirrors the old WordPress site (bulletin.mfd.org.mk): every issue with its
@@ -292,7 +291,7 @@ class ImportJournal extends Command
             Page::updateOrCreate(['path' => $path], [
                 'wp_id' => $page['id'] ?? null,
                 // Titles are edited after import (journal:repair-pages); keep them.
-                'title' => $existing?->title ?? html_entity_decode($page['title']['rendered'], ENT_QUOTES | ENT_HTML5),
+                'title' => $existing->title ?? html_entity_decode($page['title']['rendered'], ENT_QUOTES | ENT_HTML5),
                 'parent_path' => str_contains($path, '/') ? dirname($path) : null,
                 'position' => (int) ($page['menu_order'] ?? 0),
                 'body' => $clean['html'],
@@ -407,7 +406,7 @@ class ImportJournal extends Command
                 } else {
                     $failed[$path] = $response instanceof Response
                         ? 'HTTP '.$response->status()
-                        : ($response instanceof Throwable ? $response->getMessage() : 'unknown error');
+                        : $response->getMessage();
                 }
 
                 $bar->advance();
