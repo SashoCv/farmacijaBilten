@@ -1,0 +1,530 @@
+/*
+ * SPIKE S2 - print stylesheet for the Macedonian Pharmaceutical Bulletin
+ * (journal template of 71_2_001.pdf, body in ONE column).
+ *
+ * Engine: WeasyPrint (CSS Paged Media + GCPM subset).
+ * Geometry follows docs/backoffice/research/manuscript-template-spec.md H2
+ * (all values TO CONFIRM; they belong in config('manuscript.pdf')).
+ */
+
+/* ---------- fonts (Liberation Serif, SIL OFL 1.1, Latin/Greek/Cyrillic) ---------- */
+@font-face {
+    font-family: 'MPB Serif';
+    src: url('fonts/LiberationSerif-Regular.ttf');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'MPB Serif';
+    src: url('fonts/LiberationSerif-Italic.ttf');
+    font-weight: 400;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'MPB Serif';
+    src: url('fonts/LiberationSerif-Bold.ttf');
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'MPB Serif';
+    src: url('fonts/LiberationSerif-BoldItalic.ttf');
+    font-weight: 700;
+    font-style: italic;
+}
+
+:root {
+    --ms-body-size: 10.5pt;
+    --ms-body-leading: 14.5pt;
+    --ms-small-size: 9pt;
+    --ms-small-leading: 11pt;
+    --ms-indent: 6mm;
+    --ms-th-weight: 700; /* 71_2_001 Table 1 has a bold header; other papers regular */
+    --ms-rule-thick: 1.5pt;
+    --ms-rule-thin: 0.5pt;
+}
+
+/* ---------- page geometry ---------- */
+@page {
+    size: 581.52pt 813.96pt; /* journal trim 205.2 x 287.2 mm */
+    margin: 21.7mm 21mm 23mm 24mm;
+    font-family: 'MPB Serif', serif;
+
+    @footnote {
+        margin-top: 10pt;
+    }
+}
+
+/* page numbering starts at the article's first page (3 here).
+   WeasyPrint: counter-reset on the first page context. */
+@page :first {
+    counter-reset: page 3;
+    margin-top: 23mm; /* journal line at y = 65.6 pt, as in the original */
+    margin-bottom: 18mm; /* no footer on p. 1, so the e-mail footnote sits lower (y = 753 pt) */
+}
+/* An article that starts on an even page: add  html { break-before: left }
+   (tested: the first page then becomes a :left page; no blank page is inserted). */
+
+/* mirrored margins: inner (spine) 24 mm, outer 21 mm */
+@page :right {
+    margin-left: 24mm;
+    margin-right: 21mm;
+}
+@page :left {
+    margin-left: 21mm;
+    margin-right: 24mm;
+}
+
+/* --- running heads and footers ---
+   GCPM running elements (position: running() + element()). The head is a small HTML
+   block, so the italic page number, the centred author/title line and the 0.25 pt rule
+   under the whole head sit in ONE box (no gaps, shared baseline). counter(page) works
+   inside running elements in WeasyPrint. The rule is at y = 19 mm, the body at 21.7 mm. */
+@page :left {
+    @top-center {
+        content: element(headEven);
+        width: 100%;
+        vertical-align: bottom;
+        margin-bottom: 2.7mm;
+    }
+    /* footer on the inner (spine) side: right on even pages */
+    @bottom-right {
+        content: element(footerEn);
+        vertical-align: top;
+        text-align: right;
+        padding-top: 7.4pt;
+    }
+}
+
+@page :right {
+    @top-center {
+        content: element(headOdd);
+        width: 100%;
+        vertical-align: bottom;
+        margin-bottom: 2.7mm;
+    }
+    /* footer on the inner (spine) side: left on odd pages */
+    @bottom-left {
+        content: element(footerMk);
+        vertical-align: top;
+        text-align: left;
+        padding-top: 7.4pt;
+    }
+}
+
+/* first page: no running head and no footer citation line (as in the original 71_2_001).
+   To print the citation line on p. 1 as well, delete the @bottom-left line below. */
+@page :first {
+    @top-center {
+        content: none;
+    }
+    @bottom-left {
+        content: none;
+    }
+}
+
+/* ---------- running elements ---------- */
+.run-head-even {
+    position: running(headEven);
+}
+.run-head-odd {
+    position: running(headOdd);
+}
+.run-head-even,
+.run-head-odd {
+    display: flex;
+    align-items: baseline;
+    border-bottom: 0.25pt solid #000;
+    padding-bottom: 1pt;
+    font-size: 9pt;
+    line-height: 10.5pt;
+}
+.run-head-even .pad,
+.run-head-odd .pad {
+    flex: 0 0 9mm;
+}
+.run-head-even .pn,
+.run-head-odd .pn {
+    flex: 0 0 9mm;
+    font-size: 10pt;
+    font-style: italic;
+}
+.run-head-even .pn {
+    text-align: left;
+}
+.run-head-odd .pn {
+    text-align: right;
+}
+.run-head-even .pn::before,
+.run-head-odd .pn::before {
+    content: counter(page);
+}
+.run-head-even .txt,
+.run-head-odd .txt {
+    flex: 1 1 auto;
+    text-align: center;
+}
+
+.run-footer-en {
+    position: running(footerEn);
+}
+.run-footer-mk {
+    position: running(footerMk);
+}
+.run-footer-en,
+.run-footer-mk {
+    font-size: 10pt;
+    white-space: nowrap;
+}
+.run-footer-en b,
+.run-footer-mk b {
+    font-weight: 700;
+}
+
+/* ---------- base ---------- */
+html {
+    font-family: 'MPB Serif', serif;
+    font-size: var(--ms-body-size);
+    line-height: var(--ms-body-leading);
+    font-kerning: normal;
+    font-variant-ligatures: common-ligatures;
+    color: #000;
+    /* fewer, better hyphenations: words of 6+ letters, at least 3 before / 3 after the
+       break, and only when the line would otherwise be more than 4% short.
+       (WeasyPrint has no hyphenate-limit-lines, so consecutive hyphens are not capped.) */
+    hyphenate-limit-chars: 6 3 3;
+    hyphenate-limit-zone: 4%;
+}
+body {
+    margin: 0;
+}
+p {
+    margin: 0;
+}
+sup,
+sub {
+    font-size: 66%;
+    line-height: 0;
+}
+sup {
+    vertical-align: 0.45em;
+}
+sub {
+    vertical-align: -0.2em;
+}
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* ---------- first page ---------- */
+.ms-journal {
+    text-align: right;
+    font-size: 9.5pt;
+    line-height: 11.4pt;
+    margin: 0 0 72pt;
+}
+.ms-journal .jn,
+.ms-journal .type {
+    font-style: italic;
+}
+.ms-journal b {
+    font-weight: 700;
+}
+
+.ms-title {
+    font-size: 18pt;
+    line-height: 20.7pt;
+    font-weight: 700;
+    text-align: center;
+    margin: 0 0 22pt;
+    hyphens: manual;
+}
+.ms-authors {
+    font-size: 14pt;
+    line-height: 16.2pt;
+    text-align: center;
+    margin: 0 0 16pt;
+}
+.ms-authors sup {
+    font-size: 9pt;
+    vertical-align: 6pt;
+}
+.ms-affils {
+    font-size: 10pt;
+    line-height: 11.5pt;
+    font-style: italic;
+    text-align: center;
+    margin: 0 0 16pt;
+}
+.ms-affils p + p {
+    margin-top: 0;
+}
+.ms-affils sup {
+    font-size: 6.5pt;
+    vertical-align: 4pt;
+}
+.ms-dates {
+    font-size: 9pt;
+    text-align: center;
+    margin: 0 0 18pt;
+}
+
+.ms-front-rule {
+    border: 0;
+    border-top: 0.75pt solid #000;
+    margin: 0;
+}
+.ms-abstract {
+    padding: 14pt 0 12pt;
+}
+.ms-abstract h2 {
+    font-size: 11pt;
+    font-weight: 700;
+    margin: 0 0 8pt;
+}
+.ms-abstract p {
+    font-size: var(--ms-small-size);
+    line-height: var(--ms-small-leading);
+    text-align: justify;
+    text-indent: var(--ms-indent);
+    hyphens: auto;
+}
+.ms-abstract .kw {
+    text-indent: 0;
+    margin-top: 9pt;
+}
+.ms-abstract .kw b {
+    font-weight: 700;
+}
+
+/* corresponding-author footnote (bottom of p. 1) */
+.ms-fn {
+    float: footnote;
+    font-size: 10pt;
+    line-height: 12pt;
+    font-style: normal;
+    font-weight: 400;
+    text-align: left;
+}
+.ms-fn::footnote-call {
+    content: none;
+}
+.ms-fn::footnote-marker {
+    content: none;
+}
+.ms-fn::before {
+    content: '';
+    display: block;
+    width: 33mm;
+    border-top: 0.5pt solid #000;
+    margin-bottom: 3pt;
+}
+
+/* ---------- body (ONE column) ---------- */
+.ms-body {
+    margin-top: 20pt;
+}
+.ms-body p {
+    text-align: justify;
+    text-indent: var(--ms-indent);
+    hyphens: auto;
+    orphans: 2;
+    widows: 2;
+}
+.ms-body h2,
+.ms-refs h2 {
+    font-size: 11pt;
+    font-weight: 700;
+    line-height: 13pt;
+    margin: 20pt 0 9pt;
+    break-after: avoid;
+}
+.ms-body h2:first-child {
+    margin-top: 0;
+}
+.ms-body h3 {
+    font-size: 10.5pt;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 13pt;
+    margin: 12pt 0 6pt;
+    break-after: avoid;
+}
+
+/* ---------- tables (booktabs) ---------- */
+.ms-float {
+    margin: 14pt 0 14pt;
+}
+.ms-float.keep {
+    break-inside: avoid;
+} /* short tables never split */
+.ms-caption {
+    display: flex;
+    font-size: 10pt;
+    line-height: 12pt;
+    margin: 0 0 5pt;
+    break-after: avoid;
+}
+.ms-caption .lbl {
+    flex: 0 0 15mm;
+}
+.ms-caption .txt {
+    flex: 1 1 auto;
+}
+
+table.ms-table {
+    width: 100%;
+    /* separate model with zero spacing: lets the table's own bottom rule be cloned
+     onto every page fragment (box-decoration-break), which the collapse model does not */
+    border-collapse: separate;
+    border-spacing: 0;
+    border-bottom: var(--ms-rule-thick) solid #000;
+    box-decoration-break: clone;
+    font-size: 10pt;
+    line-height: 12pt;
+}
+table.ms-table.small {
+    font-size: 9pt;
+    line-height: 11pt;
+}
+table.ms-table.ms-table-regular {
+    --ms-th-weight: 400;
+}
+/* the thick top rule sits on the header cells, so it repeats with the header */
+table.ms-table thead tr.ms-head th {
+    border-top: var(--ms-rule-thick) solid #000;
+    border-bottom: var(--ms-rule-thin) solid #000;
+    font-weight: var(--ms-th-weight);
+    text-align: left;
+    vertical-align: bottom;
+    padding: 4pt 6pt 3pt;
+}
+table.ms-table td {
+    padding: 3pt 6pt;
+    vertical-align: top;
+    text-align: left;
+}
+table.ms-table tr {
+    break-inside: avoid;
+}
+table.ms-table tr.ms-group td {
+    text-align: center;
+    border-top: var(--ms-rule-thin) solid #000;
+    border-bottom: var(--ms-rule-thin) solid #000;
+}
+table.ms-table tbody tr:first-child.ms-group td {
+    border-top: 0;
+}
+table.ms-table tr.ms-group + tr td {
+    border-top: 0;
+}
+table.ms-table td:first-child,
+table.ms-table th:first-child {
+    padding-left: 2pt;
+}
+
+/* "Table N. (continued)": a caption row in <thead>, so WeasyPrint repeats it on every
+   page the table continues on. On the first page the real caption (positioned, white
+   background, pulled down over it by a negative margin) hides it. */
+table.ms-table thead tr.ms-cont th {
+    font-weight: 400;
+    text-align: left;
+    padding: 0 0 5pt;
+    height: 12pt;
+    line-height: 12pt;
+    font-size: 10pt;
+}
+.ms-float.long .ms-caption {
+    position: relative;
+    z-index: 1;
+    background: #fff;
+    margin-bottom: -17pt; /* = height of the .ms-cont row (12pt line + 5pt) */
+    padding-bottom: 5pt;
+}
+.ms-cont .lbl {
+    display: inline-block;
+    width: 15mm;
+}
+
+.ms-body .ms-table-note {
+    text-indent: 0;
+    text-align: left;
+    font-size: 9pt;
+    line-height: 11pt;
+    margin-top: 3pt;
+    padding-left: 2pt;
+}
+
+/* ---------- end matter ---------- */
+.ms-refs h2 {
+    margin-top: 20pt;
+}
+.ms-refs ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.ms-refs li {
+    font-size: var(--ms-small-size);
+    line-height: var(--ms-small-leading);
+    text-align: justify;
+    padding-left: 15pt;
+    text-indent: -15pt;
+    hyphens: auto;
+    break-inside: avoid;
+}
+/* URLs and DOIs: the renderer inserts <wbr> after "/" and before "." so they break at
+   sensible points; overflow-wrap is only a safety net for very long tokens. */
+.ms-refs .url {
+    hyphens: none;
+    overflow-wrap: anywhere;
+}
+
+/* Summary (Резиме) */
+/* Liberation Serif has Macedonian/Serbian italic forms (locl MKD: т, п, г, д, б look like
+   т̄, п̄ ...). The original (Times New Roman in Word) prints the Russian forms; switch locl
+   off for parity. Delete this rule to get the standard Macedonian italic forms. */
+:lang(mk) {
+    font-feature-settings: 'locl' 0;
+}
+.ms-summary {
+    break-before: page;
+}
+.ms-summary .sum-rule {
+    border: 0;
+    border-top: 0.5pt solid #000;
+    margin: 0 0 16pt;
+}
+.ms-summary .sum-label {
+    font-size: 11pt;
+    font-weight: 700;
+    text-align: center;
+    margin: 0 0 22pt;
+}
+.ms-summary .ms-title {
+    margin-bottom: 16pt;
+}
+.ms-summary .kw {
+    font-size: 10pt;
+    text-indent: 0;
+    margin: 4pt 0 12pt;
+}
+.ms-summary .kw b {
+    font-weight: 700;
+}
+.ms-summary .abs {
+    font-size: 10pt;
+    line-height: 12.5pt;
+    text-align: justify;
+    text-indent: var(--ms-indent);
+    hyphens: auto;
+}
+.ms-summary .sum-end {
+    border: 0;
+    border-top: 0.5pt solid #000;
+    margin: 14pt 0 0;
+}
+table.ms-table thead tr.ms-head th:first-child {
+    padding-left: 2pt;
+}

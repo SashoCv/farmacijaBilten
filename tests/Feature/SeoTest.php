@@ -11,11 +11,13 @@ use App\Journal\Seo\Text;
 use App\Models\Article;
 use App\Models\Issue;
 use App\Models\Page;
+use App\Models\User;
 use DOMDocument;
 use DOMXPath;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Inertia\Ssr\Gateway;
 use Inertia\Ssr\Response as SsrResponse;
+use Inertia\Testing\AssertableInertia;
 use SimpleXMLElement;
 use Tests\TestCase;
 
@@ -25,6 +27,9 @@ use Tests\TestCase;
  */
 class SeoTest extends TestCase
 {
+    /** What feed readers send. */
+    private const FEED_READER = ['Accept' => 'application/atom+xml, application/rss+xml;q=0.9, */*;q=0.8'];
+
     use RefreshDatabase;
 
     private Issue $current;
@@ -241,12 +246,17 @@ class SeoTest extends TestCase
         $this->assertStringContainsString('href="'.url('/feed/early-online').'"', $html);
     }
 
-    public function test_journal_and_sign_in_pages_stay_light(): void
+    public function test_every_page_stays_light(): void
     {
         $this->withUnencryptedCookie('appearance', 'dark');
 
         $this->assertStringNotContainsString('class="dark"', $this->get('/')->getContent());
         $this->assertStringNotContainsString('class="dark"', $this->get('/login')->getContent());
+
+        $this->actingAs(User::factory()->author()->create());
+        $html = $this->get('/dashboard')->getContent();
+        $this->assertStringNotContainsString('class="dark"', $html);
+        $this->assertStringContainsString("const appearance = 'light'", $html);
     }
 
     public function test_ssr_head_cannot_duplicate_the_seo_tags(): void
@@ -375,9 +385,41 @@ class SeoTest extends TestCase
 
     // --------------------------------------------------------------- feeds
 
+    public function test_a_browser_opening_a_feed_gets_a_readable_page(): void
+    {
+        $browser = ['Accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'];
+
+        $this->get('/feed/early-online', $browser)
+            ->assertOk()
+            ->assertInertia(fn (AssertableInertia $page) => $page
+                ->component('journal/feed')
+                ->where('feed.kind', 'early-online')
+                ->where('feed.url', $this->base.'/feed/early-online')
+                ->has('feed.entries')
+            );
+
+        // Feed readers, and anything that does not ask for HTML, get Atom.
+        foreach ([
+            ['Accept' => 'application/atom+xml, application/rss+xml;q=0.9, */*;q=0.8'],
+            ['Accept' => '*/*'],
+            ['Accept' => 'application/xml'],
+        ] as $headers) {
+            $this->get('/feed', $headers)
+                ->assertOk()
+                ->assertHeader('Content-Type', 'application/atom+xml; charset=UTF-8');
+        }
+
+        // Caches keep the two formats apart.
+        $this->assertStringContainsString('Accept', (string) $this->get('/feed', ['Accept' => '*/*'])->headers->get('Vary'));
+        $this->assertStringContainsString('Accept', (string) $this->get('/feed', $browser)->headers->get('Vary'));
+
+        $this->get('/feed?format=xml', $browser)->assertHeader('Content-Type', 'application/atom+xml; charset=UTF-8');
+        $this->get('/feed?format=html')->assertInertia(fn (AssertableInertia $page) => $page->where('feed.kind', 'latest'));
+    }
+
     public function test_latest_feed_lists_early_online_first(): void
     {
-        $response = $this->get('/feed')->assertOk()->assertHeader('Content-Type', 'application/atom+xml; charset=UTF-8');
+        $response = $this->get('/feed', self::FEED_READER)->assertOk()->assertHeader('Content-Type', 'application/atom+xml; charset=UTF-8');
         $feed = $this->xml($response->getContent());
         $feed->registerXPathNamespace('a', 'http://www.w3.org/2005/Atom');
 
@@ -408,7 +450,7 @@ class SeoTest extends TestCase
 
     public function test_early_online_feed(): void
     {
-        $feed = $this->xml($this->get('/feed/early-online')->assertOk()->getContent());
+        $feed = $this->xml($this->get('/feed/early-online', self::FEED_READER)->assertOk()->getContent());
         $feed->registerXPathNamespace('a', 'http://www.w3.org/2005/Atom');
 
         $this->assertCount(1, $feed->xpath('/a:feed/a:entry'));

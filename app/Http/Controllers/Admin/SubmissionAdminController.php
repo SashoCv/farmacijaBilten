@@ -14,8 +14,7 @@ use Symfony\Component\HttpFoundation\StreamedResponse;
  * Editors' list of manuscripts sent through the website: the safety net for
  * e-mail that bounces or never leaves the queue.
  *
- * Access: signed-in, verified users. Public registration is disabled (WS10),
- * so accounts exist only for editors (`php artisan journal:create-editor`).
+ * Access: the editorial office (role:admin, routes/backoffice.php).
  */
 class SubmissionAdminController extends Controller
 {

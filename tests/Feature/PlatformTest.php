@@ -321,12 +321,13 @@ class PlatformTest extends TestCase
 
     public function test_auth_surface_is_restricted(): void
     {
-        $this->get('/register')->assertNotFound();
+        $this->get('/register')->assertOk()->assertInertia(fn (Assert $page) => $page->component('auth/register'));
         $this->get('/dashboard')->assertRedirect('/login');
         $this->get('/admin/submissions')->assertRedirect('/login');
+        $this->get('/admin/users')->assertRedirect('/login');
         $this->get('/login')->assertOk()->assertInertia(fn (Assert $page) => $page->component('auth/login'));
 
-        $this->assertSame('/admin/submissions', config('fortify.home'));
+        $this->assertSame('/dashboard', config('fortify.home'));
     }
 
     /* Operations commands ------------------------------------------------ */
@@ -339,6 +340,16 @@ class PlatformTest extends TestCase
 
         $user = User::where('email', 'editor@example.org')->firstOrFail();
         $this->assertNotNull($user->email_verified_at);
+        $this->assertTrue($user->isAdmin());
+        $this->assertSame('Editor', $user->given_name);
+
+        // An existing account (an author) is promoted without a new password.
+        $author = User::factory()->author()->create(['email' => 'author@example.org']);
+        $hash = $author->password;
+        $this->artisan('journal:editor', ['email' => 'author@example.org'])->assertSuccessful();
+        $author->refresh();
+        $this->assertSame(['admin', 'author'], $author->roleNames());
+        $this->assertSame($hash, $author->password);
 
         $this->artisan('journal:editor', ['email' => 'x@example.org', '--name' => 'X'])
             ->expectsQuestion('Password (at least 12 characters)', 'short')

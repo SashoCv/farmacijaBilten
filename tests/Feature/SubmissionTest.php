@@ -26,6 +26,9 @@ class SubmissionTest extends TestCase
     {
         parent::setUp();
 
+        // These tests cover the old public form, now off by default.
+        config(['journal.guest_submissions' => true]);
+
         // routes/submissions.php is required from routes/web.php; load it here
         // too in case this branch runs before that line lands.
         if (! Route::has('submissions.file')) {
@@ -311,7 +314,7 @@ class SubmissionTest extends TestCase
         ]));
         $this->post(route('submissions.store'), $this->payload(['title' => 'Second manuscript']));
 
-        $editor = User::factory()->create();
+        $editor = User::factory()->admin()->create();
 
         $this->actingAs($editor)
             ->get('/admin/submissions')
@@ -338,7 +341,7 @@ class SubmissionTest extends TestCase
     {
         $this->post(route('submissions.store'), $this->payload(['title' => '=HYPERLINK("http://evil")', 'name' => 'Ана Авторка']));
 
-        $response = $this->actingAs(User::factory()->create())->get('/admin/submissions/export');
+        $response = $this->actingAs(User::factory()->admin()->create())->get('/admin/submissions/export');
 
         $response->assertOk();
         $this->assertStringStartsWith('text/csv', $response->headers->get('Content-Type'));
@@ -349,27 +352,5 @@ class SubmissionTest extends TestCase
         $this->assertStringContainsString('Ана Авторка', $csv);
         // Formula neutralised.
         $this->assertStringContainsString("'=HYPERLINK", $csv);
-    }
-
-    public function test_the_create_editor_command_creates_and_updates_a_verified_user(): void
-    {
-        $this->artisan('journal:create-editor', ['email' => 'Editor@Example.org', 'name' => 'Marija Editor'])
-            ->expectsOutputToContain('Password:')
-            ->assertSuccessful();
-
-        $user = User::sole();
-        $this->assertSame('editor@example.org', $user->email);
-        $this->assertNotNull($user->email_verified_at);
-        $hash = $user->password;
-
-        $this->artisan('journal:create-editor', ['email' => 'editor@example.org', 'name' => 'Marija G. Editor'])
-            ->assertSuccessful();
-
-        $user->refresh();
-        $this->assertSame(1, User::count());
-        $this->assertSame('Marija G. Editor', $user->name);
-        $this->assertNotSame($hash, $user->password);
-
-        $this->artisan('journal:create-editor', ['email' => 'not-an-email', 'name' => 'X'])->assertFailed();
     }
 }

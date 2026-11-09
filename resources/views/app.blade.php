@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 @php
     $component = $page['component'] ?? '';
-    // The public journal and the sign-in pages are designed light-only;
-    // the appearance setting applies to the signed-in app.
-    $forceLight = str_starts_with($component, 'journal/') || str_starts_with($component, 'auth/');
+    // Light only, everywhere: the journal, the sign-in pages and the
+    // manuscript system (owner's decision, 2026-11-09).
+    $forceLight = true;
     $isJournal = str_starts_with($component, 'journal/');
 
     // SEO metadata from the controller (SeoMeta::for*()); pages without it are not indexed.

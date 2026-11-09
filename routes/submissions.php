@@ -18,7 +18,7 @@ Route::get('submissions/{submission}/files/{file}', SubmissionFileController::cl
     ->middleware(['signed', 'throttle:60,1'])
     ->name('submissions.file');
 
-Route::middleware(['auth', 'verified'])->group(function () {
+Route::middleware(['auth', 'verified', 'role:admin', 'admin.2fa'])->group(function () {
     Route::get('admin/submissions/export', [SubmissionAdminController::class, 'export'])
         ->name('admin.submissions.export');
 });

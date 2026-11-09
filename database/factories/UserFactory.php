@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Enums\Role;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
@@ -24,8 +25,17 @@ class UserFactory extends Factory
      */
     public function definition(): array
     {
+        $given = fake()->firstName();
+        $family = fake()->lastName();
+
         return [
-            'name' => fake()->name(),
+            'name' => "{$given} {$family}",
+            'given_name' => $given,
+            'family_name' => $family,
+            'affiliation' => 'Faculty of Pharmacy, Ss. Cyril and Methodius University in Skopje',
+            'country_code' => 'MK',
+            'locale' => 'en',
+            'privacy_accepted_at' => now(),
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => static::$password ??= Hash::make('password'),
@@ -56,5 +66,35 @@ class UserFactory extends Factory
             'two_factor_recovery_codes' => encrypt(json_encode(['recovery-code-1'])),
             'two_factor_confirmed_at' => now(),
         ]);
+    }
+
+    /** Grants the given roles after the user is created. */
+    public function withRoles(Role ...$roles): static
+    {
+        return $this->afterCreating(function (User $user) use ($roles) {
+            foreach ($roles as $role) {
+                $user->roles()->firstOrCreate(['role' => $role]);
+            }
+        });
+    }
+
+    public function admin(): static
+    {
+        return $this->withRoles(Role::Admin);
+    }
+
+    public function author(): static
+    {
+        return $this->withRoles(Role::Author);
+    }
+
+    public function reviewer(): static
+    {
+        return $this->withRoles(Role::Reviewer);
+    }
+
+    public function deactivated(): static
+    {
+        return $this->state(fn (array $attributes) => ['deactivated_at' => now()]);
     }
 }

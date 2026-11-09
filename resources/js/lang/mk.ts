@@ -709,6 +709,1169 @@ const mk: Record<string, string> = {
         'Секој збор мора да се појави во насловот, имињата на авторите, клучните зборови или апстрактот, по кој било редослед.',
     'Or browse without a search: choose an issue type, article type or year on this page.':
         'Или прегледајте без пребарување: изберете тип на број, тип на труд или година на оваа страница.',
+    // Back-office: accounts and roles (release 1).
+    'Manuscript system': 'Систем за ракописи',
+    Dashboard: 'Контролна табла',
+    'People and roles': 'Луѓе и улоги',
+    'Website submissions': 'Ракописи од веб-формата',
+    'Journal website': 'Веб-страница на списанието',
+    'Choose a country': 'Изберете држава',
+    'Authors create an account to submit manuscripts. Reviewers join by invitation from the editorial office.':
+        'Авторите отвораат сметка за да поднесуваат ракописи. Рецензентите се приклучуваат на покана од редакцијата.',
+    Roles: 'Улоги',
+    Role: 'Улога',
+    'your own role': 'ваша улога',
+    Cancel: 'Откажи',
+    'Save roles': 'Зачувај улоги',
+    'A deactivated account cannot sign in. Its manuscripts, reviews and history are kept.':
+        'Деактивирана сметка не може да се најави. Нејзините ракописи, рецензии и историја се чуваат.',
+    'This account is deactivated and cannot sign in.':
+        'Оваа сметка е деактивирана и не може да се најави.',
+    'Deactivate account': 'Деактивирај ја сметката',
+    'Reactivate account': 'Повторно активирај ја сметката',
+    'Authors sign up themselves and reviewers join by invitation. Here you add or remove roles and deactivate accounts.':
+        'Авторите сами се регистрираат, а рецензентите доаѓаат на покана. Тука додавате или отстранувате улоги и деактивирате сметки.',
+    'Name, e-mail, institution or ORCID': 'Име, е-пошта, институција или ORCID',
+    'All roles': 'Сите улоги',
+    Status: 'Статус',
+    All: 'Сите',
+    Active: 'Активни',
+    Deactivated: 'Деактивирана',
+    '{count} people': 'Вкупно: {count}',
+    Person: 'Лице',
+    Institution: 'Институција',
+    Since: 'Од',
+    Actions: 'Дејства',
+    'No one matches these filters.': 'Никој не одговара на овие филтри.',
+    'Two-factor authentication on': 'Вклучена двофакторска најава',
+    'E-mail not confirmed': 'Е-поштата не е потврдена',
+    Edit: 'Уреди',
+    'New author?': 'Нов автор?',
+    'Create an author account': 'Отворете авторска сметка',
+    Name: 'Име',
+    'Title (optional)': 'Звање (по избор)',
+    None: 'Без',
+    'Given name': 'Име',
+    'Family name': 'Презиме',
+    'Institution / affiliation': 'Институција / афилијација',
+    'As it should appear under your name, e.g. Faculty of Pharmacy, Ss. Cyril and Methodius University in Skopje.':
+        'Како што треба да стои под вашето име, на пр. Фармацевтски факултет, Универзитет „Св. Кирил и Методиј“ во Скопје.',
+    Country: 'Држава',
+    'ORCID iD (optional)': 'ORCID iD (по избор)',
+    'Printed with your name in published papers.':
+        'Се печати со вашето име во објавените трудови.',
+    'Sign-in': 'Најава',
+    'We send a link to confirm it. Decisions and reviews arrive at this address.':
+        'Ќе испратиме линк за потврда. Одлуките и рецензиите стигнуваат на оваа адреса.',
+    'Repeat the password': 'Повторете ја лозинката',
+    'I agree that the journal keeps my details to handle my manuscripts and reviews.':
+        'Се согласувам списанието да ги чува моите податоци за обработка на моите ракописи и рецензии.',
+    'Privacy statement': 'Изјава за приватност',
+    'Create account': 'Отвори сметка',
+    'Already have an account?': 'Веќе имате сметка?',
+    'Welcome, {name}': 'Добредојдовте, {name}',
+    'Your roles: {roles}': 'Ваши улоги: {roles}',
+    'Your account has no role yet. The editorial office will assign one.':
+        'Вашата сметка сè уште нема улога. Редакцијата ќе ви додели.',
+    'The editorial office pages need two-factor authentication.':
+        'За страниците на редакцијата потребна е двофакторска најава.',
+    'Set it up now': 'Поставете ја сега',
+    'People, roles and manuscripts sent through the website.':
+        'Луѓе, улоги и ракописи испратени преку веб-страницата.',
+    Reviewers: 'Рецензенти',
+    Author: 'Автор',
+    Reviewer: 'Рецензент',
+    'Unconfirmed e-mail addresses': 'Непотврдени е-адреси',
+    '{count} this week': '{count} оваа недела',
+    'My manuscripts': 'Мои ракописи',
+    'Write on the journal template, submit, and follow the review.':
+        'Пишувајте на шаблонот на списанието, поднесете и следете ја рецензијата.',
+    'Online writing and submission open soon. Until then, send your manuscript with the form on the website.':
+        'Пишувањето и поднесувањето преку системот наскоро се отвораат. Дотогаш, испратете го ракописот преку формата на веб-страницата.',
+    'My reviews': 'Мои рецензии',
+    'Invitations from the editorial office and the manuscripts you review.':
+        'Покани од редакцијата и ракописите што ги рецензирате.',
+    'No review invitations at the moment. We will e-mail you when the editorial office invites you.':
+        'Во моментов нема покани за рецензија. Ќе ви пишеме кога редакцијата ќе ве покани.',
+    'Profile settings': 'Поставки на профилот',
+    Profile: 'Профил',
+    'Your name and institution as they appear on manuscripts and reviews.':
+        'Вашето име и институција како што се прикажуваат на ракописите и рецензиите.',
+    'Your e-mail address is not confirmed yet.':
+        'Вашата е-адреса сè уште не е потврдена.',
+    'Send the confirmation link again.':
+        'Испратете го линкот за потврда повторно.',
+    'A new confirmation link has been sent to your e-mail address.':
+        'На вашата е-адреса е испратен нов линк за потврда.',
+    'Department (optional)': 'Катедра / оддел (по избор)',
+    'City (optional)': 'Град (по избор)',
+    'Phone (optional)': 'Телефон (по избор)',
+    'Only the editorial office sees it; needed for the corresponding author.':
+        'Го гледа само редакцијата; потребен е за авторот за кореспонденција.',
+    'Areas of expertise (optional)': 'Области на експертиза (по избор)',
+    'Keywords, separated by commas. They help the editorial office choose reviewers.':
+        'Клучни зборови, одделени со запирки. Ѝ помагаат на редакцијата да избере рецензенти.',
+    'Language of e-mails': 'Јазик на е-пораките',
+    Save: 'Зачувај',
+    "Sign in to the Bulletin's manuscript system.":
+        'Најавете се во системот за ракописи на Билтенот.',
+    'With an account you write and submit manuscripts on the journal template and follow them through review.':
+        'Со сметка пишувате и поднесувате ракописи на шаблонот на списанието и ги следите низ рецензијата.',
+
+    // Back-office: author manuscript editor
+    Submitted: 'Поднесен',
+    'Under review': 'Во рецензија',
+    'Revision requested': 'Побарана ревизија',
+    Resubmitted: 'Повторно поднесен',
+    'In production': 'Во продукција',
+    Rejected: 'Одбиен',
+    Withdrawn: 'Повлечен',
+    'Untitled manuscript': 'Ракопис без наслов',
+    English: 'англиски',
+    Macedonian: 'македонски',
+    'The work has not been published before and is not under consideration elsewhere.':
+        'Трудот не е претходно објавен и не е во постапка за објавување на друго место.',
+    'All authors have approved the manuscript and agree with its submission.':
+        'Сите автори го одобриле ракописот и се согласни тој да биде поднесен.',
+    'Permission has been obtained for any material reproduced from other sources.':
+        'Добиена е дозвола за секој материјал преземен од други извори.',
+    'The manuscript has been spell- and grammar-checked.':
+        'Ракописот е проверен правописно и граматички.',
+    'All references in the text are in the reference list and vice versa.':
+        'Сите цитати во текстот се во листата на литература и обратно.',
+    'Insert symbol': 'Вметни симбол',
+    Symbol: 'Симбол',
+    Greek: 'Грчки букви',
+    'Operators and signs': 'Оператори и знаци',
+    'Quotation marks': 'Наводници',
+    alpha: 'алфа',
+    beta: 'бета',
+    gamma: 'гама',
+    delta: 'делта',
+    'capital delta': 'голема делта',
+    epsilon: 'епсилон',
+    theta: 'тета',
+    kappa: 'капа',
+    lambda: 'ламбда',
+    'micro sign (units: µg, µL)': 'знак за микро (единици: µg, µL)',
+    'Greek mu': 'грчко ми',
+    pi: 'пи',
+    rho: 'ро',
+    sigma: 'сигма',
+    'capital sigma': 'голема сигма',
+    tau: 'тау',
+    phi: 'фи',
+    chi: 'хи',
+    omega: 'омега',
+    'capital omega': 'голема омега',
+    'plus-minus': 'плус-минус',
+    multiplication: 'множење',
+    division: 'делење',
+    'minus sign': 'знак минус',
+    'en dash (ranges)': 'кратка црта (опсези)',
+    'less than or equal': 'помало или еднакво',
+    'greater than or equal': 'поголемо или еднакво',
+    approximately: 'приближно',
+    'not equal': 'не е еднакво',
+    tilde: 'тилда',
+    'right arrow': 'стрелка надесно',
+    equilibrium: 'рамнотежа',
+    'square root': 'квадратен корен',
+    summation: 'сума',
+    'middle dot': 'средна точка',
+    'per mille': 'промил',
+    degree: 'степен',
+    prime: 'прим',
+    'double prime': 'двоен прим',
+    apostrophe: 'апостроф',
+    'left double quote': 'лев двоен наводник',
+    'right double quote': 'десен двоен наводник',
+    'low double quote (Macedonian)': 'долен двоен наводник (македонски)',
+    'Formatting toolbar (Alt+F10 from the text, Escape to return)':
+        'Алатки за форматирање (Alt+F10 од текстот, Escape за враќање)',
+    History: 'Историја',
+    'Undo (Ctrl+Z)': 'Врати (Ctrl+Z)',
+    'Redo (Ctrl+Shift+Z)': 'Повтори (Ctrl+Shift+Z)',
+    Text: 'Текст',
+    'Bold (Ctrl+B)': 'Задебелено (Ctrl+B)',
+    'Italic (Ctrl+I)': 'Курзив (Ctrl+I)',
+    'Subscript (Ctrl+,)': 'Долен индекс (Ctrl+,)',
+    'Superscript (Ctrl+.)': 'Горен индекс (Ctrl+.)',
+    Paragraph: 'Пасус',
+    'Subheading (italic, level 2)': 'Поднаслов (курзив, ниво 2)',
+    'Bulleted list': 'Листа со точки',
+    'Numbered list': 'Нумерирана листа',
+    'Insert table': 'Вметни табела',
+    Rows: 'Редови',
+    Cols: 'Колони',
+    'Insert a {rows} × {cols} table': 'Вметни табела {rows} × {cols}',
+    Insert: 'Вметни',
+    'Add row above': 'Додај ред над',
+    'Add row below': 'Додај ред под',
+    'Delete row': 'Избриши ред',
+    Row: 'Ред',
+    'Header row (toggle for the selected rows)':
+        'Заглавие (вклучи/исклучи за избраните редови)',
+    Header: 'Заглавие',
+    Columns: 'Колони',
+    'Add column left': 'Додај колона лево',
+    'Add column right': 'Додај колона десно',
+    'Delete column': 'Избриши колона',
+    Col: 'Колона',
+    'Align column left': 'Порамни ја колоната лево',
+    'Center column': 'Центрирај ја колоната',
+    'Align column right': 'Порамни ја колоната десно',
+    Cells: 'Ќелии',
+    'Merge selected cells (select with Shift+arrows or drag)':
+        'Спои ги избраните ќелии (изберете со Shift+стрелки или со влечење)',
+    Merge: 'Спои',
+    'Split merged cell': 'Раздели ја споената ќелија',
+    Split: 'Раздели',
+    'Table notes and table': 'Белешки под табелата и табела',
+    'Add a note under the table': 'Додај белешка под табелата',
+    Note: 'Белешка',
+    'Note marker': 'Ознака на белешката',
+    'Note marker (cursor in a note)':
+        'Ознака на белешката (курсорот во белешка)',
+    'no marker': 'без ознака',
+    'Delete table (with caption and notes)':
+        'Избриши ја табелата (со насловот и белешките)',
+    Table: 'Табела',
+    'Table caption (no final period)':
+        'Наслов на табелата (без точка на крајот)',
+    'Table note': 'Белешка под табелата',
+    'Add author': 'Додај автор',
+    'Add the authors in the order they are printed. Mark the corresponding author.':
+        'Додајте ги авторите по редоследот по кој се печатат. Означете го авторот за кореспонденција.',
+    'Author {n}': 'Автор {n}',
+    'Author {n}: {name}': 'Автор {n}: {name}',
+    'Move {name} up': 'Помести го/ја {name} нагоре',
+    'Move up': 'Помести нагоре',
+    'Move {name} down': 'Помести го/ја {name} надолу',
+    'Move down': 'Помести надолу',
+    'Remove {name}': 'Отстрани го/ја {name}',
+    Remove: 'Отстрани',
+    'Given name in the {summary}': 'Име во делот {summary}',
+    'Family name in the {summary}': 'Презиме во делот {summary}',
+    'E-mail (required)': 'Е-пошта (задолжително)',
+    'This is not a valid e-mail address.': 'Ова не е валидна е-адреса.',
+    'Required for the corresponding author.':
+        'Задолжително за авторот за кореспонденција.',
+    'Phone (required)': 'Телефон (задолжително)',
+    'Required for the corresponding author, with the country code.':
+        'Задолжително за авторот за кореспонденција, со позивниот број на земјата.',
+    'Only the editorial office sees it.': 'Го гледа само редакцијата.',
+    'Use the form 0000-0000-0000-0000.':
+        'Користете го обликот 0000-0000-0000-0000.',
+    'Corresponding author (marked *)':
+        'Автор за кореспонденција (означен со *)',
+    'Affiliations of this author': 'Афилијации на овој автор',
+    'Add an affiliation below first.': 'Прво додајте афилијација подолу.',
+    'Affiliation {n} (not filled in yet)':
+        'Афилијација {n} (сè уште не е пополнета)',
+    'Choose at least one affiliation.': 'Изберете барем една афилијација.',
+    'Add affiliation': 'Додај афилијација',
+    'Full postal address: department, institution, street, postal code, city, country.':
+        'Целосна поштенска адреса: катедра, институција, улица, поштенски број, град, држава.',
+    'Affiliation {n}': 'Афилијација {n}',
+    'The same in the {summary}': 'Истото во делот {summary}',
+    'Move affiliation {n} up': 'Помести ја афилијацијата {n} нагоре',
+    'Move affiliation {n} down': 'Помести ја афилијацијата {n} надолу',
+    'Remove affiliation {n}': 'Отстрани ја афилијацијата {n}',
+    'Error:': 'Грешка:',
+    'Warning:': 'Предупредување:',
+    'Key words in order of importance': 'Клучни зборови по важност',
+    'Move key word "{word}" earlier':
+        'Помести го клучниот збор „{word}“ понапред',
+    'Move earlier': 'Помести понапред',
+    'Remove key word "{word}"': 'Отстрани го клучниот збор „{word}“',
+    'Maximum reached': 'Достигнат е максимумот',
+    'Type a key word, then Enter': 'Внесете клучен збор, па Enter',
+    '{min}–{max} key words, the most important first ({count} so far).':
+        '{min}–{max} клучни зборови, најважниот прв (досега {count}).',
+    Preview: 'Преглед',
+    'The last saved version, as the journal will print it (one column).':
+        'Последната зачувана верзија, како што ќе ја отпечати списанието (во една колона).',
+    'Saving and preparing the preview…':
+        'Зачувување и подготовка на прегледот…',
+    'The preview could not be loaded. Check your connection and try again.':
+        'Прегледот не можеше да се вчита. Проверете ја врската и обидете се повторно.',
+    'Section {n}': 'Дел {n}',
+    'Section heading': 'Наслов на делот',
+    'Move section "{name}" up': 'Помести го делот „{name}“ нагоре',
+    'Move section "{name}" down': 'Помести го делот „{name}“ надолу',
+    'Remove section "{name}"': 'Отстрани го делот „{name}“',
+    'A review needs at least one section of its own.':
+        'Прегледниот труд има потреба од барем еден свој дел.',
+    'Choose the heading': 'Изберете наслов',
+    'This section is not part of the template of this article type. Move its text to another section, then remove it.':
+        'Овој дел не е во шаблонот за овој тип труд. Преместете го текстот во друг дел, па отстранете го.',
+    '{section}: text': '{section}: текст',
+    'Write the {section} here, or paste it from Word.':
+        'Тука напишете го делот „{section}“ или залепете го од Word.',
+    'Add a section': 'Додај дел',
+    'A review has sections of its own between the Introduction and the Conclusion.':
+        'Прегледниот труд има свои делови меѓу Воведот и Заклучокот.',
+    'Remove this section?': 'Да се отстрани овој дел?',
+    'The section "{name}" and all its text will be removed.':
+        'Делот „{name}“ и целиот негов текст ќе бидат отстранети.',
+    'Untitled section': 'Дел без наслов',
+    'Remove section': 'Отстрани го делот',
+    'Saved {time}': 'Зачувано во {time}',
+    'All changes saved': 'Сите промени се зачувани',
+    'Unsaved changes': 'Незачувани промени',
+    'Saving…': 'Се зачувува…',
+    'Not saved — retrying': 'Не е зачувано — нов обид',
+    'Not saved — session expired': 'Не е зачувано — сесијата истече',
+    'Not saved': 'Не е зачувано',
+    'Changed in another window': 'Променето во друг прозорец',
+    Checks: 'Проверки',
+    'No problems found. The manuscript is ready to submit.':
+        'Нема пронајдени проблеми. Ракописот е подготвен за поднесување.',
+    '{errors} to fix, {warnings} to consider.':
+        '{errors} за поправање, {warnings} за разгледување.',
+    '1 error': '1 грешка',
+    '{count} errors': '{count} грешки',
+    '1 warning': '1 предупредување',
+    '{count} warnings': '{count} предупредувања',
+    'Submit the revised manuscript': 'Поднесете го ревидираниот ракопис',
+    'Submit the manuscript': 'Поднесете го ракописот',
+    'Only the editorial office sees this page; it is not sent to the reviewers. After you submit, the manuscript can no longer be changed unless the editors ask for a revision.':
+        'Оваа страница ја гледа само редакцијата; не се испраќа до рецензентите. По поднесувањето, ракописот повеќе не може да се менува, освен ако уредниците побараат ревизија.',
+    'Suggest {count} experts in the field who are not from your institution and have not worked with you recently. The editors decide whether to invite them.':
+        'Предложете {count} стручњаци од областа кои не се од вашата институција и неодамна не работеле со вас. Уредниците одлучуваат дали ќе ги поканат.',
+    'Reviewer {n}': 'Рецензент {n}',
+    'Institution and address': 'Институција и адреса',
+    'Give the name, institution and e-mail address of every suggested reviewer.':
+        'Наведете име, институција и е-адреса за секој предложен рецензент.',
+    'Cover letter (optional)': 'Придружно писмо (по избор)',
+    'Submission declaration': 'Изјава при поднесување',
+    'Confirm every statement to submit.':
+        'Потврдете ја секоја изјава за да поднесете.',
+    'The manuscript was not sent:': 'Ракописот не е испратен:',
+    'Back to the manuscript': 'Назад кон ракописот',
+    'Send to the editorial office': 'Испрати до редакцијата',
+    '{words} words — {over} over the limit of {limit}.':
+        '{words} зборови — {over} над ограничувањето од {limit}.',
+    '{words} of {limit} words': '{words} од {limit} зборови',
+    'Formatting: {field}': 'Форматирање: {field}',
+    'Click in the text to format it':
+        'Кликнете во текстот за да го форматирате',
+    'The manuscript could not be saved. Check the message at the top of the page and try again.':
+        'Ракописот не можеше да се зачува. Погледнете ја пораката на врвот на страницата и обидете се повторно.',
+    'Submit the revision…': 'Поднесете ја ревизијата…',
+    'Submit…': 'Поднесете…',
+    'Fix the errors listed below to submit ({count} left).':
+        'Поправете ги грешките подолу за да поднесете (преостануваат {count}).',
+    'Next you suggest reviewers and confirm the declaration.':
+        'Потоа предлагате рецензенти и ја потврдувате изјавата.',
+    'History and read-only view': 'Историја и приказ само за читање',
+    'Delete draft': 'Избриши го нацртот',
+    'Manuscript status and checks': 'Статус и проверки на ракописот',
+    'Checks ({count})': 'Проверки ({count})',
+    'Revise the manuscript': 'Ревидирајте го ракописот',
+    'Write the manuscript': 'Пишување на ракописот',
+    Reload: 'Вчитај повторно',
+    'Changed in another window — reload. Autosave has stopped here; your latest text is kept in this browser and offered after the reload.':
+        'Променето во друг прозорец — вчитајте повторно. Автоматското зачувување тука запре; вашиот последен текст се чува во овој прелистувач и ќе ви биде понуден по повторното вчитување.',
+    'Sign in (new tab)': 'Најава (нова картичка)',
+    'Your session expired — sign in again in a new tab; your changes are kept here and saved as soon as you are back.':
+        'Вашата сесија истече — најавете се повторно во нова картичка; промените се чуваат тука и ќе се зачуваат штом ќе се вратите.',
+    'Not saved — retrying in {seconds} s. Your changes are kept in this browser.':
+        'Не е зачувано — нов обид за {seconds} с. Промените се чуваат во овој прелистувач.',
+    'The server refused to save the manuscript. Your changes are kept in this browser.':
+        'Серверот одби да го зачува ракописот. Промените се чуваат во овој прелистувач.',
+    'This browser cannot keep a backup copy (private mode or full storage). Keep this tab open until the changes are saved.':
+        'Овој прелистувач не може да чува резервна копија (приватен режим или полна меморија). Држете ја картичката отворена додека промените не се зачуваат.',
+    Restore: 'Врати ги',
+    'Keep the saved version': 'Задржи ја зачуваната верзија',
+    'This browser has changes from {time} that did not reach the server. Restore them?':
+        'Овој прелистувач има промени од {time} што не стигнаа до серверот. Да се вратат?',
+    'Written in {language}': 'Напишан на {language}',
+    'Title of the manuscript': 'Наслов на ракописот',
+    'Running title (optional, printed at the top of odd pages)':
+        'Краток наслов (по избор, се печати горе на непарните страници)',
+    '{count} of {max} characters': '{count} од {max} знаци',
+    'The abstract: aim, methods, main results and conclusion, without references.':
+        'Апстрактот: цел, методи, главни резултати и заклучок, без цитати.',
+    'Key words': 'Клучни зборови',
+    Acknowledgements: 'Благодарност',
+    'People and institutions you thank (not the funding, which goes below).':
+        'Лица и институции на кои им се заблагодарувате (не финансирањето, тоа е подолу).',
+    'Funders and grant numbers, or: This research received no specific funding.':
+        'Финансиери и броеви на проекти, или: Ова истражување не доби посебно финансирање.',
+    'One reference per paragraph, in alphabetical order of the first author, then by year. All authors, no italics:':
+        'Една референца во пасус, по азбучен ред на првиот автор, па по година. Сите автори, без курзив:',
+    'Paste or type the reference list, one reference per paragraph.':
+        'Залепете ја или напишете ја листата на литература, една референца во пасус.',
+    'The summary in {language}: title, key words and abstract. Names and addresses come from the authors above.':
+        'Резимето на {language}: наслов, клучни зборови и апстракт. Имињата и адресите се земаат од авторите погоре.',
+    'Title in {language}': 'Наслов на {language}',
+    'Abstract in {language}': 'Апстракт на {language}',
+    'Delete this draft?': 'Да се избрише нацртот?',
+    'The draft and everything written in it will be deleted. This cannot be undone.':
+        'Нацртот и сè што е напишано во него ќе бидат избришани. Ова не може да се врати.',
+    'Loading the editor…': 'Се вчитува уредувачот…',
+    'New manuscript': 'Нов ракопис',
+    'Choose the type of paper. The editor opens with the sections of that type, in the journal’s layout.':
+        'Изберете го типот на трудот. Уредувачот се отвора со деловите на тој тип, во изгледот на списанието.',
+    'Language of the manuscript': 'Јазик на ракописот',
+    'Start writing': 'Започнете со пишување',
+    'No manuscripts yet': 'Сè уште нема ракописи',
+    'Start a manuscript above. You write it here, section by section, on the journal’s template; tables are set in the journal’s style.':
+        'Започнете ракопис погоре. Го пишувате тука, дел по дел, на шаблонот на списанието; табелите се во стилот на списанието.',
+    'Every change is saved automatically. You can stop and continue later.':
+        'Секоја промена се зачувува автоматски. Може да прекинете и да продолжите подоцна.',
+    'The checks list what is still missing. When they are done, submit: the editorial office receives the manuscript and you follow the review here.':
+        'Проверките покажуваат што уште недостасува. Кога ќе се исполнат, поднесете: редакцијата го добива ракописот, а вие ја следите рецензијата тука.',
+    'Submitted {date}': 'Поднесен на {date}',
+    'Last saved {date}': 'Последно зачуван на {date}',
+    'Nothing has happened yet.': 'Сè уште нема настани.',
+    to: 'во',
+    'Reference {reference}': 'Број {reference}',
+    'The manuscript': 'Ракописот',
+    // Back-office: manuscripts (lead).
+    Manuscripts: 'Ракописи',
+    'Create an author account (or sign in).':
+        'Отворете авторска сметка (или најавете се).',
+    'Write the manuscript on the journal template: title page, sections, tables and references. It is saved as you type.':
+        'Напишете го ракописот на шаблонот на списанието: насловна страна, делови, табели и литература. Се зачувува додека пишувате.',
+    'Check the preview and send it. You get a reference number by e-mail.':
+        'Проверете го прегледот и испратете го. Ќе добиете референтен број по е-пошта.',
+    'Follow the review and the decision in your account.':
+        'Следете ја рецензијата и одлуката во вашата сметка.',
+    'Submit through the manuscript system':
+        'Поднесување преку системот за ракописи',
+    'Go to my manuscripts': 'Кон моите ракописи',
+    'Open the manuscript system': 'Отворете го системот за ракописи',
+    'Before you start, read the': 'Пред да почнете, прочитајте ги',
+    'Every manuscript sent through the system. Drafts stay private to their authors.':
+        'Сите ракописи испратени преку системот. Нацртите остануваат приватни за авторите.',
+    'Filter by status': 'Филтер по статус',
+    'Reference, title, author or e-mail':
+        'Референца, наслов, автор или е-пошта',
+    Reference: 'Референца',
+    'Submitted by': 'Поднесен од',
+    'No manuscripts match these filters.':
+        'Ниту еден ракопис не одговара на овие филтри.',
+    'Cover letter': 'Придружно писмо',
+    Confirmed: 'Потврдено',
+    'Not confirmed': 'Непотврдено',
+    'New manuscripts to check': 'Нови ракописи за проверка',
+    'Manuscripts in progress': 'Ракописи во постапка',
+    Drafts: 'Нацрти',
+    'Sent to the journal': 'Испратени до списанието',
+    'Write a new manuscript': 'Напишете нов ракопис',
+    'Accepted for publication': 'Прифатен за објавување',
+    'Published in the journal': 'Објавен во списанието',
+    // Feed page.
+    'Latest articles feed': 'Фид со најнови трудови',
+    'This address is a feed: a feed reader checks it for you and shows each new article as soon as it is published.':
+        'Оваа адреса е фид: програмата за фидови ја проверува наместо вас и ви го покажува секој нов труд веднаш штом ќе биде објавен.',
+    'How to subscribe': 'Како да се претплатите',
+    'Copy the feed address below.': 'Копирајте ја адресата на фидот подолу.',
+    'Paste it into your feed reader as a new subscription, for example {readers}.':
+        'Залепете ја во вашата програма за фидови како нова претплата, на пример {readers}.',
+    'Feed address': 'Адреса на фидот',
+    Copy: 'Копирај',
+    'Feed address copied.': 'Адресата на фидот е копирана.',
+    'Prefer the website?': 'Повеќе сакате веб-страница?',
+    'Early online articles': 'Трудови објавени онлајн однапред',
+    'Latest issue and articles': 'Најнов број и трудови',
+    'Now in the feed': 'Сега во фидот',
+    'No articles at the moment.': 'Во моментов нема трудови.',
+    // Author editor: figures
+    'No image yet.': 'Сè уште нема слика.',
+    'Choose an image': 'Изберете слика',
+    'Uploading the image… {percent} %': 'Се прикачува сликата… {percent} %',
+    'Uploading the image…': 'Се прикачува сликата…',
+    'The image was not uploaded: {reason}': 'Сликата не е прикачена: {reason}',
+    'Choose another file': 'Изберете друга датотека',
+    Dismiss: 'Затвори',
+    'Figure width': 'Ширина на сликата',
+    Width: 'Ширина',
+    '{percent} % of the text width': '{percent} % од ширината на текстот',
+    'Replace image': 'Замени ја сликата',
+    'Delete figure': 'Избриши ја сликата',
+    'Describe image': 'Опис на сликата',
+    'Short description for readers who cannot see the image':
+        'Краток опис за читателите што не можат да ја видат сликата',
+    Figures: 'Слики',
+    'Insert figure (image)': 'Вметни слика',
+    Figure: 'Слика',
+    'Figure width (cursor in a figure caption)':
+        'Ширина на сликата (курсорот во насловот на сликата)',
+    'Alt text': 'Алт. текст',
+    'the connection failed. Check it and try again.':
+        'врската не успеа. Проверете ја и обидете се повторно.',
+    'the file is not a usable image.': 'датотеката не е употреблива слика.',
+    'the file is too large (at most 15 MB).':
+        'датотеката е преголема (најмногу 15 MB).',
+    'your session expired. Sign in again in a new tab, then try again.':
+        'сесијата истече. Најавете се повторно во нова картичка, па обидете се пак.',
+    'this manuscript can no longer be changed.':
+        'овој ракопис повеќе не може да се менува.',
+    'the server could not store it. Try again.':
+        'серверот не можеше да ја зачува. Обидете се повторно.',
+    'use a PNG, JPEG, WebP or GIF image.':
+        'користете слика PNG, JPEG, WebP или GIF.',
+    'Figure caption (no final period)':
+        'Наслов на сликата (без точка на крајот)',
+    'Download Word (.docx)': 'Преземи во Word (.docx)',
+    // Publication details.
+    'Publication details': 'Податоци за објавување',
+    'First page': 'Прва страница',
+    'Last page': 'Последна страница',
+    'Article no.': 'Бр. на труд',
+    'Suggest DOI': 'Предложи DOI',
+    'Fill in volume, issue, year and the article number first.':
+        'Прво внесете том, број, година и број на трудот.',
+    'Journal pattern: {pattern}': 'Шема на списанието: {pattern}',
+    'Save publication details': 'Зачувај ги податоците за објавување',
+    'Publication details updated': 'Ажурирани податоци за објавување',
+    // Peer review: reviewer, editor and author pages, dashboard
+    'Sent to reviewers': 'Испратен на рецензенти',
+    'Reviewer invited': 'Поканет рецензент',
+    'Reviewer accepted': 'Рецензентот прифати',
+    'Reviewer declined': 'Рецензентот одби',
+    'Invitation withdrawn': 'Поканата е повлечена',
+    'Accept as it is': 'Прифати',
+    'Minor revision': 'Мала ревизија',
+    'Major revision': 'Голема ревизија',
+    Reject: 'Одбиј',
+    'Minor revision requested': 'Побарана мала ревизија',
+    'Major revision requested': 'Побарана голема ревизија',
+    'Rejected after review': 'Одбиен по рецензијата',
+    Reviewing: 'Рецензира',
+    'No answer (expired)': 'Без одговор (истечено)',
+    'The manuscript can be published as it is.':
+        'Ракописот може да се објави каков што е.',
+    'Small corrections; no new review needed.':
+        'Мали корекции; не е потребна нова рецензија.',
+    'Substantial changes; another review is needed.':
+        'Суштински измени; потребна е нова рецензија.',
+    'The manuscript is not suitable for the journal.':
+        'Ракописот не е соодветен за списанието.',
+    'No manuscripts yet.': 'Сè уште нема ракописи.',
+    Decided: 'Одлучено',
+    '{month}: {received} received, {decided} decided':
+        '{month}: примени {received}, одлучени {decided}',
+    'Last 12 months: {received} manuscripts received and {decided} decisions made. The table below has the numbers per month.':
+        'Последните 12 месеци: примени {received} ракописи и донесени {decided} одлуки. Табелата подолу ги има бројките по месеци.',
+    'Show as a table': 'Прикажи како табела',
+    Month: 'Месец',
+    'Review overdue': 'Рецензијата доцни',
+    'Invitation not answered in time': 'Поканата не е одговорена навреме',
+    'Reviews are in: ready for a decision':
+        'Рецензиите пристигнаа: подготвено за одлука',
+    'Revision received': 'Примена ревизија',
+    'New submission to check': 'Нов ракопис за проверка',
+    'Needs reviewers': 'Потребни се рецензенти',
+    '{count} days': '{count} дена',
+    'Manuscripts received': 'Примени ракописи',
+    'This year': 'Оваа година',
+    'Acceptance rate': 'Стапка на прифаќање',
+    '{accepted} accepted · {rejected} rejected':
+        '{accepted} прифатени · {rejected} одбиени',
+    'To the first decision': 'До првата одлука',
+    'on average, from receipt': 'просечно, од приемот',
+    'Needs your attention': 'Бара ваше внимание',
+    'Nothing is waiting for the editorial office.':
+        'Ништо не чека на редакцијата.',
+    Overdue: 'Доцни',
+    'due {date}': 'рок {date}',
+    'since {date}': 'од {date}',
+    'Received and decided, last 12 months':
+        'Примени и одлучени, последните 12 месеци',
+    'Manuscripts by status': 'Ракописи по статус',
+    'Manuscripts by type': 'Ракописи по тип',
+    Reviews: 'Рецензии',
+    'All reviewers': 'Сите рецензенти',
+    'Invitations awaiting an answer': 'Покани што чекаат одговор',
+    'Reviews in progress': 'Рецензии во тек',
+    'Reviews received': 'Примени рецензии',
+    'Invitations declined': 'Одбиени покани',
+    'Average time to review': 'Просечно време за рецензија',
+    'Response to the reviewers': 'Одговор до рецензентите',
+    'Answer every comment point by point and say what you changed and where. Under anonymous review, do not sign it or name the authors.':
+        'Одговорете на секој коментар точка по точка и наведете што и каде сте промениле. Кај анонимна рецензија не потпишувајте се и не ги наведувајте авторите.',
+    'Write your response to the reviewers to submit the revision.':
+        'Напишете го одговорот до рецензентите за да ја поднесете ревизијата.',
+    'Suggested by the authors': 'Предложени од авторите',
+    invited: 'поканет',
+    'Find a reviewer in the journal’s list':
+        'Најдете рецензент во списокот на списанието',
+    'Name, e-mail, institution or expertise':
+        'Име, е-пошта, институција или експертиза',
+    'No one in the list matches. Type the e-mail address below.':
+        'Никој од списокот не одговара. Внесете ја е-адресата подолу.',
+    'Days to answer the invitation': 'Денови за одговор на поканата',
+    'Days to send the review': 'Денови за испраќање на рецензијата',
+    'Personal message (optional)': 'Лична порака (по избор)',
+    'Added to the invitation e-mail, above the title and abstract.':
+        'Се додава во е-поканата, над насловот и апстрактот.',
+    'Send the invitation': 'Испрати ја поканата',
+    Invited: 'Поканет',
+    'Answer by': 'Одговор до',
+    Answered: 'Одговорено',
+    'Review received': 'Рецензијата е примена',
+    'Review due': 'Рок за рецензијата',
+    'None declared': 'Нема пријавено',
+    'Hide review': 'Сокриј ја рецензијата',
+    'Read review': 'Прочитај ја рецензијата',
+    Remind: 'Потсети',
+    Withdraw: 'Повлечи',
+    '{count} reviewer(s) of this round have not sent a review yet.':
+        '{count} рецензент(и) од овој круг сè уште не испратиле рецензија.',
+    Decision: 'Одлука',
+    'Letter to the authors': 'Писмо до авторите',
+    'Start again from the template': 'Започни одново од шаблонот',
+    'Prepared from the template with the reviewers’ comments to the authors (never the confidential comments). Written in the language of the manuscript ({language}); edit it as needed.':
+        'Подготвено од шаблонот со коментарите на рецензентите до авторите (никогаш доверливите коментари). Напишано на јазикот на ракописот ({language}); изменете го по потреба.',
+    'Send the decision…': 'Испрати ја одлуката…',
+    'Send this decision?': 'Да се испрати оваа одлука?',
+    '"{decision}" and the letter are e-mailed to the authors and shown on their manuscript page. This cannot be undone.':
+        '„{decision}“ и писмото се испраќаат по е-пошта до авторите и се прикажуваат на страницата на ракописот. Ова не може да се врати.',
+    'Send the decision': 'Испрати ја одлуката',
+    'Round {n}': 'Круг {n}',
+    '{received} of {active} reviews received':
+        'Примени {received} од {active} рецензии',
+    'Double-anonymous: reviewers do not see the authors.':
+        'Двојно анонимна: рецензентите не ги гледаат авторите.',
+    'Single-anonymous: reviewers see the authors.':
+        'Еднострано анонимна: рецензентите ги гледаат авторите.',
+    'Invite a reviewer': 'Покани рецензент',
+    'Reviewers can be invited once the manuscript is submitted.':
+        'Рецензенти може да се поканат откако ракописот ќе биде поднесен.',
+    'No reviewers invited in this round yet.':
+        'Во овој круг сè уште нема поканети рецензенти.',
+    'Name and e-mail': 'Име и е-пошта',
+    Dates: 'Датуми',
+    'Competing interests': 'Конфликт на интереси',
+    'Decisions sent': 'Испратени одлуки',
+    'Withdraw this invitation?': 'Да се повлече поканата?',
+    '{name} ({email}) is told by e-mail that the review is no longer needed.':
+        '{name} ({email}) ќе добие е-порака дека рецензијата повеќе не е потребна.',
+    'The reviewer': 'Рецензентот',
+    'Withdraw the invitation': 'Повлечи ја поканата',
+    'Shared with the authors': 'Споделено со авторите',
+    'Editorial office only': 'Само за редакцијата',
+    'Delete {name}': 'Избриши {name}',
+    'Allowed file types: {types}.': 'Дозволени типови датотеки: {types}.',
+    'The file is larger than {mb} MB.': 'Датотеката е поголема од {mb} MB.',
+    'Choose a recommendation.': 'Изберете препорака.',
+    'Write your comments to the authors.':
+        'Напишете ги коментарите до авторите.',
+    'Your review': 'Вашата рецензија',
+    'Draft saved {time}': 'Нацртот е зачуван {time}',
+    Recommendation: 'Препорака',
+    'Your recommendation is advice; the editor makes the decision.':
+        'Вашата препорака е совет; одлуката ја носи уредникот.',
+    'Comments to the authors': 'Коментари до авторите',
+    'Sent to the authors with the decision, under "Reviewer" and a number. Do not sign them.':
+        'Се испраќаат до авторите со одлуката, под „Рецензент“ и број. Не потпишувајте ги.',
+    'Confidential comments to the editor (optional)':
+        'Доверливи коментари до уредникот (по избор)',
+    'Never shown to the authors.': 'Никогаш не се прикажуваат на авторите.',
+    'Files (optional)': 'Датотеки (по избор)',
+    'Share with the authors': 'Сподели со авторите',
+    'Uploading… {percent} %': 'Се прикачува… {percent} %',
+    'Attach a file': 'Прикачи датотека',
+    'Up to {mb} MB: {types}.': 'До {mb} MB: {types}.',
+    'File properties (the author field of a Word or PDF file) can reveal your name; remove it before you share a file with the authors.':
+        'Својствата на датотеката (полето автор во Word или PDF) може да го откријат вашето име; отстранете го пред да ја споделите со авторите.',
+    'Save draft': 'Зачувај нацрт',
+    'Submit review…': 'Испрати ја рецензијата…',
+    'Submit your review?': 'Да се испрати рецензијата?',
+    'After you submit, the review can no longer be changed. The editorial office is notified.':
+        'По испраќањето рецензијата повеќе не може да се менува. Редакцијата добива известување.',
+    '{count} words': '{count} зборови',
+    'Confidential comments': 'Доверливи коментари',
+    Yes: 'Да',
+    Files: 'Датотеки',
+    'Back to the review': 'Назад кон рецензијата',
+    'Submit review': 'Испрати ја рецензијата',
+    'Confidential comments to the editor': 'Доверливи коментари до уредникот',
+    'Overdue by 1 day': 'Доцни 1 ден',
+    'Overdue by {count} days': 'Доцни {count} дена',
+    'Due today': 'Рокот е денес',
+    'Due tomorrow': 'Рокот е утре',
+    'Due in {count} days': 'Рок за {count} дена',
+    'The connection failed. Check it and try again.':
+        'Врската не успеа. Проверете ја и обидете се повторно.',
+    'Your session expired. Sign in again in a new tab, then try again.':
+        'Сесијата истече. Најавете се повторно во нова картичка, па обидете се пак.',
+    'This can no longer be changed.': 'Ова повеќе не може да се менува.',
+    'The file is too large.': 'Датотеката е преголема.',
+    'Something went wrong. Try again.':
+        'Нешто тргна наопаку. Обидете се повторно.',
+    'version {n}': 'верзија {n}',
+    'No invitations yet.': 'Сè уште нема покани.',
+    'Sent {date}': 'Испратено {date}',
+    'OVERDUE since {date}': 'ДОЦНИ од {date}',
+    'Everyone invited to review, with their invitations: who is reviewing what, what is overdue and how quickly they answer.':
+        'Сите поканети да рецензираат, со нивните покани: кој што рецензира, што доцни и колку брзо одговараат.',
+    Show: 'Прикажи',
+    'With an open invitation or review': 'Со отворена покана или рецензија',
+    'With something overdue ({count})': 'Со нешто што доцни ({count})',
+    '{count} reviewers': '{count} рецензенти',
+    'Institution and expertise': 'Институција и експертиза',
+    Declined: 'Одбиени',
+    Sent: 'Испратени',
+    Expired: 'Истечени',
+    'Average days': 'Просечно денови',
+    'Last activity': 'Последна активност',
+    Invitations: 'Покани',
+    'No reviewers have been invited yet.': 'Сè уште нема поканети рецензенти.',
+    'No account yet': 'Сè уште нема сметка',
+    'Invitations ({count})': 'Покани ({count})',
+    'Create your reviewer account': 'Создајте рецензентска сметка',
+    'The account is for {email}. With it you answer the invitation, read the manuscript and send your review.':
+        'Сметката е за {email}. Со неа одговарате на поканата, го читате ракописот и ја испраќате рецензијата.',
+    'Create account and continue': 'Создај сметка и продолжи',
+    'Invitation to review': 'Покана за рецензија',
+    'The editorial office invites you to review a manuscript for the journal.':
+        'Редакцијата ве поканува да рецензирате ракопис за списанието.',
+    'Message from the editorial office': 'Порака од редакцијата',
+    'Read the abstract': 'Прочитајте го апстрактот',
+    'You already have an account with {email}. Sign in to answer the invitation.':
+        'Веќе имате сметка со {email}. Најавете се за да одговорите на поканата.',
+    'You are signed in as {current}, but the invitation was sent to {email}. Sign out, then open the link in the e-mail again.':
+        'Најавени сте како {current}, а поканата е испратена на {email}. Одјавете се, па повторно отворете ја врската од е-поштата.',
+    'Sign out': 'Одјави се',
+    'This invitation is no longer open: it was answered, withdrawn or has expired. If you think this is a mistake, write to the editorial office.':
+        'Оваа покана повеќе не е отворена: одговорена е, повлечена или истечена. Ако мислите дека е грешка, пишете ѝ на редакцијата.',
+    'Decisions and reviews': 'Одлуки и рецензии',
+    'Letter from the editorial office': 'Писмо од редакцијата',
+    'The editors ask you to revise the manuscript.':
+        'Уредниците бараат да го ревидирате ракописот.',
+    'Read the decision and the reviews below, revise the text and answer each comment in your response to the reviewers.':
+        'Прочитајте ги одлуката и рецензиите подолу, ревидирајте го текстот и одговорете на секој коментар во одговорот до рецензентите.',
+    'Revision due': 'Рок за ревизијата',
+    'Invitations to answer': 'Покани за одговор',
+    'Reviews sent': 'Испратени рецензии',
+    'Open my reviews': 'Отвори ги моите рецензии',
+    Respond: 'Одговори',
+    'Write the review': 'Напиши рецензија',
+    'No reviews yet': 'Сè уште нема рецензии',
+    'Read the abstract, then accept or decline. The editorial office waits for your answer.':
+        'Прочитајте го апстрактот, па прифатете или одбијте. Редакцијата го чека вашиот одговор.',
+    'Declined, withdrawn or expired': 'Одбиени, повлечени или истечени',
+    'Choose one of the two statements.': 'Изберете една од двете изјави.',
+    'Describe the competing interests.': 'Опишете го конфликтот на интереси.',
+    'I have no competing interests.': 'Немам конфликт на интереси.',
+    'I have competing interests (describe them below).':
+        'Имам конфликт на интереси (опишете го подолу).',
+    'By accepting you agree to keep the manuscript confidential and not to use it for your own work.':
+        'Со прифаќањето се согласувате ракописот да го чувате доверлив и да не го користите за сопствена работа.',
+    'Accept and start the review': 'Прифати и започни ја рецензијата',
+    Decline: 'Одбиј',
+    'Reason (optional)': 'Причина (по избор)',
+    'e.g. outside my field, no time now; you may suggest a colleague.':
+        'на пр. надвор од мојата област, немам време сега; може да предложите колега.',
+    'Decline the invitation': 'Одбиј ја поканата',
+    'You are Reviewer {n}': 'Вие сте Рецензент {n}',
+    'Title page and abstract': 'Насловна страница и апстракт',
+    'Will you review this manuscript?': 'Дали ќе го рецензирате овој ракопис?',
+    'You see the title page and the abstract. The full text opens when you accept.':
+        'Ги гледате насловната страница и апстрактот. Целиот текст се отвора кога ќе прифатите.',
+    'The authors’ response to the reviewers':
+        'Одговорот на авторите до рецензентите',
+    'Thank you. Your review was sent on {date}; the editorial office will make the decision.':
+        'Ви благодариме. Рецензијата е испратена на {date}; редакцијата ќе ја донесе одлуката.',
+    'You declined this invitation. Thank you for letting us know.':
+        'Ја одбивте оваа покана. Ви благодариме што нè известивте.',
+    'The editorial office withdrew this invitation. You do not need to do anything.':
+        'Редакцијата ја повлече оваа покана. Не треба ништо да правите.',
+    'The invitation expired without an answer. If you would still like to review, write to the editorial office.':
+        'Поканата истече без одговор. Ако сè уште сакате да рецензирате, пишете ѝ на редакцијата.',
+    'Back to my reviews': 'Назад кон моите рецензии',
+    'Make a decision…': 'Донесете одлука…',
+    'All reviews of this round are in.':
+        'Сите рецензии од овој круг пристигнаа.',
+    'You can decide now or wait for the reviews; the letter is prepared with the reviews received.':
+        'Може да одлучите сега или да ги почекате рецензиите; писмото се подготвува со примените рецензии.',
+    'Old website form': 'Стара веб-форма',
+    'What is this page?': 'Што е оваа страница?',
+    'Before the manuscript system, authors sent a file through a simple form on the website, without an account. Those manuscripts are kept here, with their files, for the record. The form is now closed: new manuscripts are written and sent in the system, under Manuscripts.':
+        'Пред системот за ракописи, авторите праќаа фајл преку едноставна форма на веб-страницата, без сметка. Тие ракописи се чуваат тука, со нивните фајлови, за евиденција. Формата сега е затворена: новите ракописи се пишуваат и праќаат во системот, под Ракописи.',
+    'Go to Manuscripts': 'Кон Ракописи',
+    '1 reviewer': '1 рецензент',
+    'Returned for corrections': 'Вратен за поправки',
+    'Accept for publication': 'Прифати за објавување',
+    'Request a minor revision': 'Побарај мала ревизија',
+    'Request a major revision': 'Побарај голема ревизија',
+    'Return to the authors for corrections': 'Врати им на авторите за поправки',
+    'Notes (editorial office only)': 'Белешки (само за редакцијата)',
+    'Never shown to the authors or the reviewers.':
+        'Никогаш не се прикажуваат на авторите и рецензентите.',
+    'New note': 'Нова белешка',
+    'Write a note for the editorial office…':
+        'Напишете белешка за редакцијата…',
+    'Add note': 'Додај белешка',
+    'Actions on this manuscript': 'Дејства за овој ракопис',
+    'Invite reviewers': 'Покани рецензенти',
+    'Decision…': 'Одлука…',
+    'Only before the review starts (submitted or resubmitted).':
+        'Само пред да почне рецензијата (поднесен или повторно поднесен).',
+    'No review actions in this status; notes and publication details stay available.':
+        'Во овој статус нема дејства за рецензија; белешките и податоците за објавување остануваат достапни.',
+    'Actions for {reference}': 'Дејства за {reference}',
+    Open: 'Отвори',
+    'The editorial office returned the manuscript for corrections.':
+        'Редакцијата го врати ракописот за поправки.',
+    'Read the letter below, correct the manuscript and submit it again.':
+        'Прочитајте го писмото подолу, поправете го ракописот и поднесете го повторно.',
+    'No manuscripts in this period yet.':
+        'Во овој период сè уште нема ракописи.',
+    'Messages from the editorial office': 'Пораки од редакцијата',
+    Notes: 'Белешки',
+    'Internal unless you send a note to the authors; reviewers never see notes.':
+        'Интерни, освен ако белешката не ја испратите до авторите; рецензентите никогаш не ги гледаат белешките.',
+    'Who sees this note': 'Кој ја гледа белешката',
+    'Only the editorial office': 'Само редакцијата',
+    'Send to the authors (by e-mail)': 'Испрати до авторите (по е-пошта)',
+    'Send to the authors': 'Испрати до авторите',
+    'Sent to the authors': 'Испратено до авторите',
+    Internal: 'Интерно',
+    'Choose a decision…': 'Изберете одлука…',
+    // Archive (published articles, metadata only)
+    'No DOI': 'Нема DOI',
+    registered: 'регистриран',
+    'not registered': 'нерегистриран',
+    'not checked': 'непроверен',
+    Untitled: 'Без наслов',
+    'no abstract': 'нема апстракт',
+    'no key words': 'нема клучни зборови',
+    'no PDF': 'нема PDF',
+    'corrected by the editorial office': 'поправено од редакцијата',
+    'Edit data': 'Уреди податоци',
+    'Open PDF': 'Отвори PDF',
+    'Public page': 'Јавна страница',
+    'Move {item} up': 'Помести „{item}“ нагоре',
+    'Move {item} down': 'Помести „{item}“ надолу',
+    'Remove {item}': 'Отстрани „{item}“',
+    'corrected by hand': 'рачно поправено',
+    'Correct the published data': 'Поправка на објавените податоци',
+    'Only the data shown on the website and sent to indexing services changes; the PDF stays as published. Fields you correct are marked "corrected by hand" and are kept if the old site is imported again.':
+        'Се менуваат само податоците што се прикажуваат на веб-страницата и се праќаат на индексните служби; PDF-от останува каков што е објавен. Полињата што ќе ги поправите се означуваат „рачно поправено“ и се задржуваат ако старата страница повторно се увезе.',
+    'In the printed order, e.g. "Ana Petrova".':
+        'По печатениот редослед, на пр. „Ана Петрова“.',
+    'Not set': 'Не е поставено',
+    'A changed DOI is checked again with Crossref.':
+        'Променет DOI повторно се проверува во Crossref.',
+    'Online date': 'Датум на објавување онлајн',
+    'Plain text; an empty line starts a new paragraph.':
+        'Обичен текст; празен ред започнува нов пасус.',
+    'Save the corrections': 'Зачувај ги поправките',
+    'Saved.': 'Зачувано.',
+    'Not saved: correct the marked fields.':
+        'Не е зачувано: поправете ги означените полиња.',
+    'Published version (original PDF, old layout)':
+        'Објавена верзија (оригинален PDF, стар изглед)',
+    'Open in a new tab': 'Отвори во нова картичка',
+    'This article has no PDF on the site.': 'Овој труд нема PDF на страницата.',
+    'Corrections history': 'Историја на поправки',
+    'No corrections yet: the data is as imported from the old site.':
+        'Сè уште нема поправки: податоците се како што се увезени од старата страница.',
+    before: 'пред',
+    after: 'потоа',
+    'The published volumes. Each article’s original PDF (old two-column layout) is the official version and is never changed here; you correct the data the website shows and that search and indexing services use.':
+        'Објавените томови. Оригиналниот PDF на секој труд (стар изглед во две колони) е официјалната верзија и тука никогаш не се менува; ги поправате податоците што ги прикажува веб-страницата и што ги користат пребарувањето и индексните служби.',
+    'DOIs not registered': 'Нерегистрирани DOI',
+    'Without an abstract': 'Без апстракт',
+    'Without key words': 'Без клучни зборови',
+    'Find an article': 'Најдете труд',
+    'Title, author, key word, abstract or exact DOI':
+        'Наслов, автор, клучен збор, апстракт или точен DOI',
+    'Results for “{q}”': 'Резултати за „{q}“',
+    'No article matches. Try fewer words.':
+        'Ниеден труд не одговара. Обидете се со помалку зборови.',
+    'Only the first 50 matches are shown.':
+        'Прикажани се само првите 50 резултати.',
+    'Volumes and issues': 'Томови и броеви',
+    'Volume {n}': 'Том {n}',
+    'Early online (issue not complete)': 'Рано онлајн (бројот не е комплетен)',
+    'The PDFs are the published versions in the old layout. Edit data corrects only what the website and indexing show.':
+        'PDF-овите се објавените верзии во стариот изглед. „Уреди податоци“ поправа само што прикажуваат веб-страницата и индексирањето.',
+    'This issue has no articles.': 'Овој број нема трудови.',
+    // Archive, read-only.
+    'Archived · old layout': 'Архивиран · стар распоред',
+    'Archived articles, published as PDFs in the old layout. They are shown as they are and cannot be edited.':
+        'Архивирани трудови, објавени како PDF во стариот распоред. Се прикажуваат какви што се и не можат да се уредуваат.',
+    'The published volumes, archived as they appeared: each article is its original PDF in the old two-column layout. They are shown as they are and cannot be edited; new manuscripts use the new template.':
+        'Објавените томови, архивирани какви што излегле: секој труд е неговиот оригинален PDF во стариот распоред во две колони. Се прикажуваат какви што се и не можат да се уредуваат; новите ракописи го користат новиот шаблон.',
+    'Open the PDF in a new tab': 'Отвори го PDF-от во ново јазиче',
+    'Published before the manuscript system, in the old two-column layout. The original PDF is the published version; the article is shown as it is and cannot be edited.':
+        'Објавен пред системот за ракописи, во стариот распоред во две колони. Оригиналниот PDF е објавената верзија; трудот се прикажува каков што е и не може да се уредува.',
+    'Article data': 'Податоци за трудот',
+    'No PDF for this article.': 'Нема PDF за овој труд.',
+    Type: 'Тип',
+    // Issues and publishing
+    'Archive and issues': 'Архива и броеви',
+    Kind: 'Вид',
+    Number: 'Број',
+    'The issue starts "in preparation": the articles you publish in it appear on the website under Early online until you close it.':
+        'Бројот почнува „во подготовка“: трудовите што ги објавувате во него се појавуваат на веб-страницата под Рано онлајн додека не го затворите.',
+    'Open the issue': 'Отвори го бројот',
+    'Placed in': 'Ставен во',
+    'Not placed in an issue yet.': 'Сè уште не е ставен во број.',
+    'No issue is open. Open one under Archive and issues.':
+        'Нема отворен број. Отворете еден во Архива и броеви.',
+    'Not in an issue': 'Не е во број',
+    'Published on the website': 'Објавен на веб-страницата',
+    'Fill in the publication details (DOI, pages) before publishing.':
+        'Пред објавување пополнете ги податоците за објавување (DOI, страници).',
+    'Final PDF': 'Конечен PDF',
+    'Publish online…': 'Објави онлајн…',
+    'Publish this article online?': 'Да се објави трудот онлајн?',
+    'The article will appear on the website under Early online with this PDF; the authors are notified.':
+        'Трудот ќе се појави на веб-страницата под Рано онлајн со овој PDF; авторите добиваат известување.',
+    'File: {name}': 'Датотека: {name}',
+    'Publishing…': 'Се објавува…',
+    'Publish online': 'Објави онлајн',
+    'Issues in preparation': 'Броеви во подготовка',
+    'Place accepted manuscripts in an open issue, publish each online with its final PDF, then close the issue to publish it.':
+        'Ставете ги прифатените ракописи во отворен број, објавете го секој онлајн со конечниот PDF, па затворете го бројот за да го објавите.',
+    'New issue': 'Нов број',
+    'No issue is open. Open one to place accepted manuscripts in it.':
+        'Нема отворен број. Отворете еден за да ставите прифатени ракописи во него.',
+    'in preparation': 'во подготовка',
+    Manage: 'Управувај',
+    'Closed — published': 'Затворен — објавен',
+    'In preparation (articles appear under Early online)':
+        'Во подготовка (трудовите се појавуваат под Рано онлајн)',
+    'Archive view': 'Приказ во архивата',
+    'Close the issue…': 'Затвори го бројот…',
+    'Manuscripts in this issue': 'Ракописи во овој број',
+    'In the order they will be printed. Fill in the DOI and pages in each manuscript’s publication details before publishing.':
+        'По редоследот по кој ќе се печатат. Пред објавување пополнете ги DOI и страниците во податоците за објавување на секој ракопис.',
+    'No manuscripts placed in this issue yet.':
+        'Во овој број сè уште нема ракописи.',
+    'DOI missing': 'недостасува DOI',
+    'pages missing': 'недостасуваат страници',
+    'Fill in the publication details': 'Пополнете ги податоците за објавување',
+    'Published — view on the website': 'Објавен — види на веб-страницата',
+    'Accepted manuscripts waiting for an issue':
+        'Прифатени ракописи што чекаат број',
+    'No accepted manuscript is waiting.': 'Нема прифатен ракопис што чека.',
+    'Add to this issue': 'Додај во овој број',
+    'Articles in this issue': 'Трудови во овој број',
+    'No articles published in this issue yet.':
+        'Во овој број сè уште нема објавени трудови.',
+    'Published from the system': 'Објавен од системот',
+    'Close this issue?': 'Да се затвори бројот?',
+    'The issue becomes the current published issue on the website and can no longer take manuscripts. Publish every manuscript in it first.':
+        'Бројот станува тековен објавен број на веб-страницата и повеќе не прима ракописи. Прво објавете го секој ракопис во него.',
+    'Close and publish the issue': 'Затвори и објави го бројот',
+    'Place in an issue': 'Стави во број',
+    'Issue and publishing': 'Број и објавување',
+    'Placed in an issue': 'Ставен во број',
+    'Removed from the issue': 'Отстранет од бројот',
+    PDF: 'PDF',
+    'Volume, issue and year are filled in when the manuscript is placed in an issue (above).':
+        'Томот, бројот и годината се пополнуваат кога ракописот ќе се стави во број (погоре).',
+    'The pages of the article in the printed issue, e.g. 3 and 11: printed as “71 (2) 3 – 11 (2025)” on the article and in citations.':
+        'Страниците на трудот во печатениот број, на пр. 3 и 11: се печатат како „71 (2) 3 – 11 (2025)“ на трудот и во цитатите.',
+    'Place the manuscript in an issue and enter the article number first.':
+        'Прво ставете го ракописот во број и внесете го бројот на трудот.',
+    // E-mail templates and the author's status summary
+    'E-mail templates': 'Шаблони за е-пораки',
+    'E-mail template': 'Шаблон за е-порака',
+    'Reset to the original wording': 'Врати го оригиналниот текст',
+    'Save both languages': 'Зачувај ги двата јазика',
+    Customised: 'Прилагоден',
+    'Original wording': 'Оригинален текст',
+    Subject: 'Наслов на пораката',
+    'Text of the e-mail': 'Текст на е-пораката',
+    'Use the original text (not saved until you save)':
+        'Користи го оригиналниот текст (не се зачувува додека не зачувате)',
+    Placeholders: 'Ознаки за замена',
+    'Click one to insert it where the cursor is.':
+        'Кликнете на ознака за да ја вметнете каде што е курсорот.',
+    'Where the button goes': 'Каде оди копчето',
+    'Separate paragraphs with an empty line.':
+        'Пасусите одделете ги со празен ред.',
+    '{button} places the button; without it the button goes at the end.':
+        '{button} го поставува копчето; без него копчето оди на крајот.',
+    '**bold** makes text bold.': '**задебелено** го задебелува текстот.',
+    'A placeholder with no value (e.g. an empty message) is left out.':
+        'Ознака без вредност (на пр. празна порака) се изоставува.',
+    'Preview ({language})': 'Преглед ({language})',
+    Refresh: 'Освежи',
+    'Preparing the preview…': 'Се подготвува прегледот…',
+    'Preview of the e-mail': 'Преглед на е-пораката',
+    'The preview fills the placeholders with sample values.':
+        'Прегледот ги пополнува ознаките со примерни вредности.',
+    'Reset to the original wording?': 'Да се врати оригиналниот текст?',
+    'The changes in both languages are removed and the system sends the original text again.':
+        'Промените на двата јазика се бришат и системот повторно го испраќа оригиналниот текст.',
+    Reset: 'Врати',
+    'These are the e-mails the system sends. Change the wording in English and Macedonian; {placeholders} are filled in automatically.':
+        'Ова се е-пораките што ги испраќа системот. Сменете го текстот на англиски и македонски; {placeholders} се пополнуваат автоматски.',
+    'Subject: {subject}': 'Наслов: {subject}',
+    'Open to see the article': 'Отворете за да го видите трудот',
+    'Where your manuscript is': 'Каде е вашиот ракопис',
+    Online: 'Онлајн',
+    'Published online on {date}': 'Објавен онлајн на {date}',
+    'View your article on the journal website':
+        'Видете го вашиот труд на веб-страницата на списанието',
+    'To authors': 'До авторите',
+    'To reviewers': 'До рецензентите',
+    'To the editorial office': 'До редакцијата',
+    'Finish the manuscript and send it to the journal.':
+        'Довршете го ракописот и испратете го до списанието.',
+    'The editorial office is checking the manuscript before review.':
+        'Редакцијата го проверува ракописот пред рецензијата.',
+    'The manuscript is with the reviewers; the editorial office will write to you with the decision.':
+        'Ракописот е кај рецензентите; редакцијата ќе ви пише со одлуката.',
+    'Revise the manuscript and submit it again.':
+        'Ревидирајте го ракописот и поднесете го повторно.',
+    'The editorial office is checking your revision.':
+        'Редакцијата ја проверува вашата ревизија.',
+    'Accepted: the manuscript is being prepared for publication.':
+        'Прифатен: ракописот се подготвува за објавување.',
+    'The manuscript is being prepared for publication.':
+        'Ракописот се подготвува за објавување.',
+    'Published online: you can see the article on the journal website.':
+        'Објавен онлајн: трудот можете да го видите на веб-страницата на списанието.',
+    'The manuscript was not accepted for publication.':
+        'Ракописот не е прифатен за објавување.',
+    'The manuscript was withdrawn.': 'Ракописот е повлечен.',
+    'Receipt sent to the author who submitted a manuscript.':
+        'Потврда за прием до авторот што поднел ракопис.',
+    'Name of the recipient': 'Име на примачот',
+    'Reference (MPB-2026-0001)': 'Број на ракописот (MPB-2026-0001)',
+    'Name of the journal': 'Име на списанието',
+    'The editorial decision with the letter written by the editor.':
+        'Уредничката одлука со писмото што го напишал уредникот.',
+    'The decision (e.g. Minor revision requested)':
+        'Одлуката (на пр. Побарана мала ревизија)',
+    'The letter written in the decision form':
+        'Писмото напишано во формуларот за одлука',
+    'A message the editorial office sends to the authors (a note marked "Send to the authors").':
+        'Порака што редакцијата ја испраќа до авторите (белешка означена „Испрати до авторите“).',
+    'The text of the message': 'Текстот на пораката',
+    'The article is published online.': 'Трудот е објавен онлајн.',
+    'Volume and issue': 'Том и број',
+    'DOI link': 'DOI-врска',
+    'Invitation to review, with the personal sign-in link.':
+        'Покана за рецензија, со личната врска за најава.',
+    'Date to answer by': 'Датум до кој треба да се одговори',
+    'Date the review is due': 'Рок за рецензијата',
+    'The personal note added when inviting (may be empty)':
+        'Личната белешка додадена при поканувањето (може да е празна)',
+    'Reminder to answer an invitation (sent automatically or by the editorial office).':
+        'Потсетник да се одговори на покана (автоматски или од редакцијата).',
+    'Reminder that the review is due soon or overdue.':
+        'Потсетник дека рокот за рецензијата е близу или поминал.',
+    'The editorial office withdrew an invitation.':
+        'Редакцијата повлече покана.',
+    'To the editorial office: a new manuscript arrived.':
+        'До редакцијата: пристигна нов ракопис.',
+    'Submitting author': 'Авторот што поднесува',
+    'To the editorial office: the authors sent a revised manuscript.':
+        'До редакцијата: авторите испратија ревидиран ракопис.',
+    'To the editorial office: a reviewer accepted.':
+        'До редакцијата: рецензент прифати.',
+    'Name of the reviewer': 'Име на рецензентот',
+    'To the editorial office: a reviewer declined.':
+        'До редакцијата: рецензент одби.',
+    'Reason given (may be empty)': 'Наведена причина (може да е празна)',
+    'To the editorial office: a review was submitted.':
+        'До редакцијата: испратена е рецензија.',
+    'The PDF is made automatically from the manuscript, in the journal layout, with the page numbers, DOI and citation.':
+        'PDF-от се прави автоматски од ракописот, во изгледот на списанието, со броевите на страниците, DOI и цитатот.',
+    'Preview the PDF': 'Преглед на PDF',
+    'Upload our own final PDF instead': 'Наместо тоа, прикачи наш финален PDF',
+    'The PDF is made from the manuscript and the article appears on the website under Early online; the authors are notified. Making the PDF takes a few seconds.':
+        'PDF-от се прави од ракописот и трудот се појавува на веб-страницата под Early online; авторите се известуваат. Изработката на PDF трае неколку секунди.',
+    'Fill in the DOI before publishing. If the first page is empty, the article starts on the page after the last article in the issue.':
+        'Пред објавување внесете го DOI. Ако првата страница е празна, трудот почнува на страницата по последниот труд во бројот.',
+    'PDF (journal layout)': 'PDF (изглед на списанието)',
+    'DOI check': 'Проверка на DOI',
+    'A DOI works only after the publisher deposits it at Crossref, the DOI registration agency. The system downloads the list of every DOI deposited under the journal’s prefix {prefix} and compares it with the articles. A DOI that is not on that list does not open at doi.org: readers and indexing services cannot follow it.':
+        'DOI работи дури откако издавачот ќе го депонира кај Crossref, агенцијата за регистрација на DOI. Системот ја презема листата на сите DOI депонирани под префиксот на списанието {prefix} и ја споредува со трудовите. DOI што го нема на таа листа не се отвора на doi.org: читателите и индексните бази не можат да стигнат до трудот.',
+    'Last compared with Crossref: {date}.':
+        'Последна споредба со Crossref: {date}.',
+    'Not compared with Crossref yet.': 'Сè уште не е споредено со Crossref.',
+    'Each DOI can be checked by hand with the links next to it: doi.org opens the article when the DOI is registered and shows “DOI not found” when it is not.':
+        'Секое DOI може да се провери и рачно со линковите до него: doi.org го отвора трудот ако DOI е регистрирано, а покажува „DOI not found“ ако не е.',
+    'Not registered: {count}': 'Нерегистрирани: {count}',
+    'all {count} articles': 'сите {count} трудови',
+    '{count} of {total} articles': '{count} од {total} трудови',
+    'Crossref has: {doi}': 'Кај Crossref: {doi}',
+    'Open at doi.org': 'Отвори на doi.org',
+    'Search at Crossref': 'Барај во Crossref',
+    'Registered with a mistake ({count})': 'Регистрирани со грешка ({count})',
+    'These DOIs were deposited with a typo, most often the prefix written twice. They work, but only in the mistyped form, which the website uses for its links. The publisher can ask Crossref to correct them.':
+        'Овие DOI се депонирани со печатна грешка, најчесто префиксот е напишан двапати. Работат, но само во погрешната форма, која веб-страницата ја користи за линковите. Издавачот може да побара од Crossref да ги поправи.',
+    Printed: 'Испечатено',
+    Registered: 'Регистрирано',
+    'See which and why': 'Види кои и зошто',
+    'Not found at Crossref': 'Го нема кај Crossref (не е депонирано)',
+    'This DOI is registered for a different PDF':
+        'Ова DOI е регистрирано за друг PDF (друг труд)',
+    "This PDF is registered under another article's DOI":
+        'Овој PDF е регистриран под DOI на друг труд',
+    'This PDF is registered under a mistyped DOI':
+        'Овој PDF е регистриран под погрешно напишано DOI',
+    'Crossref settings': 'Поставки за Crossref',
+    'Crossref account connected — TEST system: deposits are checked but nothing is registered.':
+        'Crossref сметката е поврзана — ТЕСТ систем: депонирањата се проверуваат, но ништо не се регистрира.',
+    'Crossref account connected: deposits are sent from here.':
+        'Crossref сметката е поврзана: депонирањата се праќаат од тука.',
+    'No Crossref account is entered (below). Until then, download the XML of an issue and upload it at Crossref (doi.crossref.org → Submissions → Upload, type Metadata).':
+        'Не е внесена Crossref сметка (подолу). Дотогаш, симнете го XML-фајлот за бројот и прикачете го кај Crossref (doi.crossref.org → Submissions → Upload, тип Metadata).',
+    'DOIs lead to the article PDF, as in all earlier deposits.':
+        'DOI-ата водат до PDF-от на трудот, како кај сите досегашни депонирања.',
+    'DOIs lead to the article page on the website.':
+        'DOI-ата водат до страницата на трудот на веб-сајтот.',
+    'Depositor (person or institution)': 'Депонент (лице или институција)',
+    'Depositor e-mail (Crossref sends the results there)':
+        'Е-адреса на депонентот (Crossref таму ги праќа резултатите)',
+    'Register the DOI automatically when an article is published online':
+        'Автоматски регистрирај го DOI-то кога трудот ќе се објави онлајн',
+    'Nothing to deposit here.': 'Нема што да се депонира.',
+    'Crossref XML ({count} DOIs)': 'Crossref XML ({count} DOI)',
+    'Send to Crossref': 'Испрати до Crossref',
+    'waiting to be sent': 'чека да се испрати',
+    'sent, waiting for Crossref': 'испратено, се чека Crossref',
+    'partly registered': 'делумно регистрирано',
+    failed: 'неуспешно',
+    Deposits: 'Депонирања',
+    '{count} DOIs': '{count} DOI',
+    test: 'тест',
+    'automatic, on publishing': 'автоматски, при објавување',
+    'Articles whose DOI is registered for another PDF are left out: check them by hand first.':
+        'Трудовите чие DOI е регистрирано за друг PDF се изоставени: прво проверете ги рачно.',
+    'DOI registration (Crossref)': 'Регистрација на DOI (Crossref)',
+    'A DOI works only after it is deposited at Crossref. Download the file and upload it at Crossref, or send it from here when the Crossref account is set up.':
+        'DOI работи дури откако ќе се депонира кај Crossref. Симнете го фајлот и прикачете го кај Crossref, или испратете го од тука кога Crossref сметката е поставена.',
+    'DOI check and Crossref settings': 'Проверка на DOI и поставки за Crossref',
+    'These DOIs were deposited at Crossref with a typo, most often the prefix written twice. The DOI printed on the article does not open; only the mistyped form does (the website links to it for now). The fix: deposit the issue again, which registers the DOIs as printed. Afterwards the publisher can ask Crossref support to alias the mistyped DOIs to the right ones.':
+        'Овие DOI се депонирани кај Crossref со печатна грешка, најчесто префиксот е напишан двапати. DOI-то испечатено на трудот не се отвора; се отвора само погрешната форма (засега сајтот води до неа). Решение: бројот повторно се депонира, со што DOI-ата се регистрираат како што се испечатени. Потоа издавачот може да побара од Crossref support погрешните DOI да се поврзат (alias) со точните.',
+    'Printed (does not open)': 'Испечатено (не се отвора)',
+    'Registered (opens)': 'Регистрирано (се отвора)',
+    'Open printed at doi.org': 'Отвори го испечатеното на doi.org',
+    'Open registered at doi.org': 'Отвори го регистрираното на doi.org',
+    'Crossref account': 'Crossref сметка',
+    'With the account entered here the system sends the deposits to Crossref itself (the buttons “Send to Crossref” and the automatic registration on publishing). Use the account of the Macedonian Pharmaceutical Association (member 18202), best a separate role for this system. The password is stored encrypted and is never shown again.':
+        'Со сметката внесена тука системот сам ги праќа депонирањата до Crossref (копчињата „Испрати до Crossref“ и автоматската регистрација при објавување). Користете ја сметката на Македонското фармацевтско друштво (член 18202), најдобро посебна улога (role) за овој систем. Лозинката се чува шифрирана и никогаш повеќе не се прикажува.',
+    'An account is set on the server (.env). An account entered here takes its place.':
+        'На серверот е поставена сметка (.env). Сметката внесена тука ја заменува.',
+    'Crossref username': 'Crossref корисничко име',
+    'Crossref password': 'Crossref лозинка',
+    'Saved — leave empty to keep it': 'Зачувана — оставете празно за да остане',
+    'Where deposits go': 'Каде одат депонирањата',
+    'Test system': 'Тест-систем',
+    '— Crossref checks the file and answers, but registers nothing. Start here.':
+        '— Crossref го проверува фајлот и одговара, но ништо не регистрира. Почнете од тука.',
+    Live: 'Вистински',
+    '— the DOIs are really registered (Crossref charges its fee per DOI).':
+        '— DOI-ата навистина се регистрираат (Crossref наплатува такса по DOI).',
+    'Save the account': 'Зачувај ја сметката',
+    'Remove the account': 'Отстрани ја сметката',
 };
 
 export default mk;

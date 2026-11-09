@@ -1,0 +1,270 @@
+/*
+ * The whole article as App\Manuscripts\Rendering\ManuscriptRenderer writes it
+ * (preview, read-only pages, later the PDF): first page, one-column text,
+ * back matter and the summary in the other language. Builds on manuscript.css
+ * (fonts, paper, tables); everything is scoped to `.ms`.
+ */
+
+.ms .ms-article {
+    text-align: justify;
+}
+
+/* --- First page ------------------------------------------------------ */
+
+.ms .ms-front {
+    text-align: center;
+    padding-bottom: 2mm;
+}
+
+.ms .ms-front p {
+    text-indent: 0;
+}
+
+/* Journal block, top right (as printed): journal, ISSN, DOI, type. */
+.ms .ms-journal {
+    margin: 0 0 14mm;
+    font-size: 9pt;
+    line-height: 11pt;
+    text-align: right;
+}
+
+.ms .ms-journal p {
+    margin: 0;
+    text-align: right;
+}
+
+.ms .ms-type {
+    font-style: italic;
+}
+
+.ms .ms-title {
+    margin: 0 auto 6mm;
+    max-width: 140mm;
+    font-size: 16pt;
+    line-height: 19pt;
+    font-weight: 700;
+    text-align: center;
+    hyphens: manual;
+}
+
+.ms .ms-authors {
+    margin: 0 0 3mm;
+    font-size: 12pt;
+    line-height: 16pt;
+    text-align: center;
+}
+
+.ms .ms-authors sup,
+.ms .ms-affiliations sup {
+    font-size: 0.7em;
+    line-height: 0;
+}
+
+.ms .ms-affiliations {
+    margin: 0 auto 4mm;
+    max-width: 140mm;
+    font-size: 9.5pt;
+    line-height: 12pt;
+    font-style: italic;
+    text-align: center;
+}
+
+.ms .ms-affiliations p {
+    margin: 0 0 1mm;
+    text-align: center;
+    text-indent: 0;
+}
+
+.ms .ms-dates {
+    margin: 4mm 0;
+    font-size: 9.5pt;
+    text-align: center;
+}
+
+/* The corresponding author's e-mail: a first-page footnote in print; on
+   screen it closes the first page, under a short rule. */
+.ms .ms-correspondence {
+    margin: 6mm 0 0;
+    padding-top: 1.5mm;
+    width: 45mm;
+    border-top: 0.5pt solid var(--ms-ink);
+    font-size: 9pt;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.ms .ms-abstract {
+    margin-top: 5mm;
+    padding: 4mm 0;
+    border-top: 0.75pt solid var(--ms-ink);
+    border-bottom: 0.75pt solid var(--ms-ink);
+    font-size: 9pt;
+    line-height: 12pt;
+    text-align: justify;
+}
+
+.ms .ms-abstract h2 {
+    margin: 0 0 2mm;
+    font-size: 10.5pt;
+    font-weight: 700;
+    text-align: left;
+}
+
+.ms .ms-abstract p {
+    margin: 0;
+    text-indent: 6mm;
+}
+
+.ms .ms-abstract p.ms-keywords,
+.ms .ms-summary p.ms-keywords {
+    margin-top: 3mm;
+    text-indent: 0;
+    text-align: left;
+}
+
+/* --- Text ------------------------------------------------------------ */
+
+.ms .ms-text {
+    margin-top: 4mm;
+}
+
+.ms .ms-section h2,
+.ms .ms-summary h2 {
+    margin: 6mm 0 3mm;
+    font-size: 11pt;
+    font-weight: 700;
+    text-align: left;
+    break-after: avoid;
+}
+
+.ms .ms-section h3 {
+    margin: 4mm 0 2mm;
+    font-size: 10.5pt;
+    font-weight: 400;
+    font-style: italic;
+    text-align: left;
+    break-after: avoid;
+}
+
+.ms .ms-section > p,
+.ms .ms-summary > p {
+    margin: 0;
+    text-indent: 6mm;
+}
+
+.ms .ms-section ul,
+.ms .ms-section ol {
+    margin: 2mm 0;
+    padding-left: 8mm;
+}
+
+.ms .ms-reference-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 9pt;
+    line-height: 11pt;
+}
+
+.ms .ms-reference-list li {
+    margin: 0 0 1.5mm;
+    padding-left: 5mm;
+    text-indent: -5mm;
+}
+
+/* --- Summary in the other language ----------------------------------- */
+
+.ms .ms-summary {
+    margin-top: 10mm;
+    padding-top: 6mm;
+    border-top: 0.75pt solid var(--ms-ink);
+}
+
+.ms .ms-summary .ms-summary-title {
+    margin: 0 0 3mm;
+    font-weight: 700;
+    text-align: center;
+    text-indent: 0;
+}
+
+.ms .ms-summary .ms-authors {
+    font-size: 10.5pt;
+}
+
+/* Fields not filled in yet (preview only). */
+.ms .ms-missing {
+    color: var(--ms-muted);
+    font-weight: 400;
+    font-style: italic;
+}
+
+/* --- Figures (renderer output; the editor styles its own node view) ---- */
+
+.ms {
+    counter-reset: ms-table ms-figure;
+}
+
+.ms .ms-figure {
+    counter-increment: ms-figure;
+    margin: 5mm auto;
+    text-align: center;
+    break-inside: avoid;
+}
+
+.ms .ms-figure img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+}
+
+.ms .ms-w-25 img {
+    width: 25%;
+}
+
+.ms .ms-w-50 img {
+    width: 50%;
+}
+
+.ms .ms-w-75 img {
+    width: 75%;
+}
+
+.ms .ms-w-100 img {
+    width: 100%;
+}
+
+/* "Fig. 1." below the image, hanging indent like table captions. */
+.ms .ms-figure-caption {
+    margin: 3mm 0 0;
+    padding-left: var(--ms-caption-indent);
+    text-indent: calc(-1 * var(--ms-caption-indent));
+    font-size: 10pt;
+    line-height: 13pt;
+    /* Long captions are justified, as printed (73_1_002 Fig. 1). */
+    text-align: justify;
+}
+
+.ms .ms-figure-caption::before {
+    content: var(--ms-figure-label) ' ' counter(ms-figure) '.';
+    display: inline-block;
+    min-width: var(--ms-caption-indent);
+    text-indent: 0;
+}
+
+.ms {
+    --ms-figure-label: 'Fig.';
+}
+
+.ms:lang(mk),
+.ms [lang='mk'] {
+    --ms-figure-label: 'Слика';
+}
+
+.ms .ms-figure-missing {
+    display: block;
+    padding: 10mm;
+    border: 1px dashed var(--ms-muted);
+    color: var(--ms-muted);
+    font-style: italic;
+}

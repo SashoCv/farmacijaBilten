@@ -1,6 +1,5 @@
 import { Form, Head } from '@inertiajs/react';
 import InputError from '@/components/input-error';
-import PasskeyVerify from '@/components/passkey-verify';
 import PasswordInput from '@/components/password-input';
 import TextLink from '@/components/text-link';
 import { Button } from '@/components/ui/button';
@@ -9,15 +8,21 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Spinner } from '@/components/ui/spinner';
 import { useT } from '@/lib/i18n';
+import { register } from '@/routes';
 import { store } from '@/routes/login';
 import { request } from '@/routes/password';
 
 type Props = {
     status?: string;
     canResetPassword: boolean;
+    canRegister: boolean;
 };
 
-export default function Login({ status, canResetPassword }: Props) {
+export default function Login({
+    status,
+    canResetPassword,
+    canRegister,
+}: Props) {
     const { t } = useT();
 
     return (
@@ -32,12 +37,6 @@ export default function Login({ status, canResetPassword }: Props) {
                     {status}
                 </p>
             )}
-
-            <PasskeyVerify
-                label={t('Sign in with a passkey')}
-                loadingLabel={t('Signing in…')}
-                separator={t('Or sign in with e-mail')}
-            />
 
             <Form
                 {...store.form()}
@@ -126,6 +125,15 @@ export default function Login({ status, canResetPassword }: Props) {
                             {processing && <Spinner />}
                             {t('Sign in')}
                         </Button>
+
+                        {canRegister && (
+                            <p className="m-0 border-t border-line pt-5 text-center text-ui text-ink-soft">
+                                {t('New author?')}{' '}
+                                <TextLink href={register()}>
+                                    {t('Create an author account')}
+                                </TextLink>
+                            </p>
+                        )}
                     </>
                 )}
             </Form>
@@ -135,5 +143,5 @@ export default function Login({ status, canResetPassword }: Props) {
 
 Login.layout = {
     title: 'Sign in',
-    description: 'Use the e-mail address and password of your editor account.',
+    description: "Sign in to the Bulletin's manuscript system.",
 };

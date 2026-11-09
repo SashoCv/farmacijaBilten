@@ -77,6 +77,21 @@ sudo apt install -y nodejs
 curl -sS https://getcomposer.org/installer | php && sudo mv composer.phar /usr/local/bin/composer
 ```
 
+- **WeasyPrint 70** (Python): makes the article PDFs in the journal layout
+  ("Publish online" and "PDF (journal layout)"). Installed in its own
+  virtual environment; the app finds it through `WEASYPRINT_PYTHON` in `.env`.
+  Without it, publishing still works by uploading a final PDF.
+
+```bash
+sudo apt install -y python3-venv libpango-1.0-0 libpangoft2-1.0-0 libharfbuzz-subset0
+sudo python3 -m venv /opt/weasyprint
+sudo /opt/weasyprint/bin/pip install weasyprint==70.0
+# .env
+WEASYPRINT_PYTHON=/opt/weasyprint/bin/python
+# check: prints 70.0
+/opt/weasyprint/bin/python -c 'import weasyprint; print(weasyprint.__version__)'
+```
+
 ## 3. First installation
 
 The paths below assume the app lives in `/var/www/bulletin` and runs as
@@ -170,17 +185,20 @@ sudo supervisorctl reread && sudo supervisorctl update
 sudo crontab -u www-data deploy/crontab
 ```
 
-### 3.6 Editor accounts
+### 3.6 Accounts
 
-Public registration is switched off: only the editorial office has accounts.
-Create each editor from the console (asks for a password of 12+ characters):
+Authors create their own account at `/register`, and reviewers join by
+invitation. The editorial office (the admin role) is created from the console,
+which asks for a password of 12+ characters:
 
 ```bash
 php artisan journal:editor editor@example.org --name="Full Name"
 ```
 
-Editors sign in at `/login` and land on `/admin/submissions`. Ask them to
-turn on two-factor authentication under _Settings → Security_.
+Run on an existing account, the command only adds the admin role. Everyone
+lands on `/dashboard` after signing in. In production, admins must turn on
+two-factor authentication or add a passkey (_Settings → Security_) before
+the editorial office pages open (`JOURNAL_ADMIN_REQUIRES_2FA`).
 
 ### 3.7 Check
 
@@ -263,7 +281,8 @@ it is not installed yet.
   settings in `config/http.php`). nginx adds the same headers to static
   files. `X-Powered-By` is removed and `expose_php=Off`.
 - Requests for any host other than `APP_URL`'s are rejected in production.
-- Sign-in is rate-limited (5 attempts a minute), registration is off, and the
+- Sign-in is rate-limited (5 attempts a minute), sign-up to 5 accounts an hour
+  per address (`JOURNAL_REGISTRATIONS_PER_HOUR`), and the
   submission form accepts 5 posts an hour per address.
 - Never serve production with `php artisan serve` (it leaks a file handle per
   PDF request and stops at about 1,024); always nginx + PHP-FPM.

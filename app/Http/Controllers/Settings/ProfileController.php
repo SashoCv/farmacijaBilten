@@ -5,7 +5,8 @@ namespace App\Http\Controllers\Settings;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Settings\ProfileDeleteRequest;
 use App\Http\Requests\Settings\ProfileUpdateRequest;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\User;
+use App\Support\Countries;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -19,9 +20,19 @@ class ProfileController extends Controller
      */
     public function edit(Request $request): Response
     {
+        /** @var User $user */
+        $user = $request->user();
+
         return Inertia::render('settings/profile', [
-            'mustVerifyEmail' => $request->user() instanceof MustVerifyEmail,
+            // User implements MustVerifyEmail: e-mail confirmation is always on.
+            'mustVerifyEmail' => true,
             'status' => $request->session()->get('status'),
+            'profile' => $user->only([
+                'given_name', 'family_name', 'academic_title', 'affiliation', 'department',
+                'city', 'country_code', 'phone', 'orcid', 'expertise', 'locale',
+            ]),
+            'countries' => Countries::CODES,
+            'academicTitles' => User::ACADEMIC_TITLES,
         ]);
     }
 

@@ -28,7 +28,7 @@ class ProfileUpdateTest extends TestCase
         $response = $this
             ->actingAs($user)
             ->patch(route('profile.update'), [
-                'name' => 'Test User',
+                ...$this->profile(),
                 'email' => 'test@example.com',
             ]);
 
@@ -39,6 +39,9 @@ class ProfileUpdateTest extends TestCase
         $user->refresh();
 
         $this->assertSame('Test User', $user->name);
+        $this->assertSame('Faculty of Pharmacy', $user->affiliation);
+        $this->assertSame('0000-0002-1825-0097', $user->orcid);
+        $this->assertSame('mk', $user->preferredLocale());
         $this->assertSame('test@example.com', $user->email);
         $this->assertNull($user->email_verified_at);
     }
@@ -50,7 +53,7 @@ class ProfileUpdateTest extends TestCase
         $response = $this
             ->actingAs($user)
             ->patch(route('profile.update'), [
-                'name' => 'Test User',
+                ...$this->profile(),
                 'email' => $user->email,
             ]);
 
@@ -95,5 +98,33 @@ class ProfileUpdateTest extends TestCase
             ->assertRedirect(route('profile.edit'));
 
         $this->assertNotNull($user->fresh());
+    }
+
+    public function test_profile_rejects_an_invalid_orcid_and_country()
+    {
+        $user = User::factory()->create();
+
+        $this->actingAs($user)
+            ->patch(route('profile.update'), [
+                ...$this->profile(),
+                'email' => $user->email,
+                'orcid' => '0000-0002-1825-0098',
+                'country_code' => 'XX',
+            ])
+            ->assertSessionHasErrors(['orcid', 'country_code']);
+    }
+
+    /** @return array<string, string> */
+    private function profile(): array
+    {
+        return [
+            'given_name' => 'Test',
+            'family_name' => 'User',
+            'academic_title' => 'Dr',
+            'affiliation' => 'Faculty of Pharmacy',
+            'country_code' => 'MK',
+            'orcid' => '0000-0002-1825-0097',
+            'locale' => 'mk',
+        ];
     }
 }

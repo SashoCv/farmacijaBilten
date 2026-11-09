@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\Admin\SubmissionAdminController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\BrowseController;
 use App\Http\Controllers\FeedController;
@@ -79,13 +78,11 @@ Route::controller(LegacyRedirectController::class)->group(function () {
         ->where('post', 'volume-[a-z0-9-]+|\d+-supp-\d+|\d+_\d+_\d+-[a-z0-9-]+');
 });
 
-Route::middleware(['auth', 'verified'])->group(function () {
-    // Editors land on the submissions list after signing in.
-    Route::redirect('dashboard', '/admin/submissions')->name('dashboard');
-
-    Route::get('admin/submissions', [SubmissionAdminController::class, 'index'])
-        ->name('admin.submissions.index');
-});
-
+require __DIR__.'/backoffice.php';
 require __DIR__.'/settings.php';
 require __DIR__.'/submissions.php';
+
+// Back-office prototypes (release 0 spikes): local development only.
+if (app()->environment('local')) {
+    require __DIR__.'/lab.php';
+}

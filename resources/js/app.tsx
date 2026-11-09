@@ -17,11 +17,6 @@ type Layout = NonNullable<ResolvedComponent['layout']>;
 
 const pages = import.meta.glob<PageModule>('./pages/**/*.tsx');
 
-/** Pages designed light-only: the public journal and the sign-in screens. */
-function isLightOnly(component: string): boolean {
-    return component.startsWith('journal/') || component.startsWith('auth/');
-}
-
 /**
  * Layouts are code-split and fetched in parallel with the page, so the public
  * journal never downloads the signed-in app's sidebar, icons or dialogs.
@@ -99,10 +94,8 @@ void createInertiaApp({
     },
     strictMode: true,
     withApp(app, { ssr, page }) {
-        // The signed-in app follows the reader's light/dark preference; the
-        // journal and sign-in pages stay light (their layouts restore the
-        // preference when the reader moves on to the app).
-        if (!ssr && !isLightOnly(page.component)) {
+        // Light only, everywhere (clears a `dark` class left by an old visit).
+        if (!ssr) {
             initializeTheme();
         }
 

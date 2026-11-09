@@ -1,0 +1,241 @@
+/*
+ * The article as a PDF in the journal layout (WeasyPrint, CSS Paged Media).
+ * Loaded after manuscript.css and manuscript-article.css by
+ * App\Manuscripts\Rendering\PdfRenderer; geometry from the spike
+ * (docs/backoffice/spikes/pdf), measured on 71_2_001: journal trim
+ * 205.2 × 287.2 mm, mirrored margins, running heads, citation footer, the
+ * corresponding author's e-mail as a first-page footnote, body in ONE column.
+ * The renderer adds the @font-face rules and the first page number.
+ */
+
+@page {
+    size: 581.52pt 813.96pt;
+    margin: 21.7mm 21mm 23mm 24mm;
+    font-family: 'MPB Serif', serif;
+
+    @footnote {
+        margin-top: 10pt;
+    }
+}
+
+@page :first {
+    margin-top: 23mm;
+    margin-bottom: 18mm;
+
+    @top-center {
+        content: none;
+    }
+
+    /* The corresponding author's e-mail (PdfRenderer: .run-note). */
+    @bottom-center {
+        content: element(firstNote);
+        width: 100%;
+        vertical-align: top;
+        text-align: left;
+        padding-top: 4pt;
+    }
+
+    @bottom-left {
+        content: none;
+    }
+
+    @bottom-right {
+        content: none;
+    }
+}
+
+@page :right {
+    margin-left: 24mm;
+    margin-right: 21mm;
+
+    @top-center {
+        content: element(headOdd);
+        width: 100%;
+        vertical-align: bottom;
+        margin-bottom: 2.7mm;
+    }
+
+    @bottom-left {
+        content: element(footerMk);
+        vertical-align: top;
+        text-align: left;
+        padding-top: 7.4pt;
+    }
+}
+
+@page :left {
+    margin-left: 21mm;
+    margin-right: 24mm;
+
+    @top-center {
+        content: element(headEven);
+        width: 100%;
+        vertical-align: bottom;
+        margin-bottom: 2.7mm;
+    }
+
+    @bottom-right {
+        content: element(footerEn);
+        vertical-align: top;
+        text-align: right;
+        padding-top: 7.4pt;
+    }
+}
+
+/* --- Running heads and footers ------------------------------------------ */
+
+.run-head-even {
+    position: running(headEven);
+}
+
+.run-head-odd {
+    position: running(headOdd);
+}
+
+.run-head-even,
+.run-head-odd {
+    display: flex;
+    align-items: baseline;
+    border-bottom: 0.25pt solid #000;
+    padding-bottom: 1pt;
+    font-size: 9pt;
+    line-height: 10.5pt;
+}
+
+.run-head-even .pad,
+.run-head-odd .pad {
+    flex: 0 0 9mm;
+}
+
+.run-head-even .pn,
+.run-head-odd .pn {
+    flex: 0 0 9mm;
+    font-size: 10pt;
+    font-style: italic;
+}
+
+.run-head-odd .pn {
+    text-align: right;
+}
+
+.run-head-even .pn::before,
+.run-head-odd .pn::before {
+    content: counter(page);
+}
+
+.run-head-even .txt,
+.run-head-odd .txt {
+    flex: 1 1 auto;
+    text-align: center;
+}
+
+.run-footer-en {
+    position: running(footerEn);
+}
+
+.run-footer-mk {
+    position: running(footerMk);
+}
+
+.run-footer-en,
+.run-footer-mk {
+    font-size: 10pt;
+    white-space: nowrap;
+}
+
+/* --- Base ------------------------------------------------------------------ */
+
+html {
+    font-family: 'MPB Serif', serif;
+    font-kerning: normal;
+    hyphenate-limit-chars: 6 3 3;
+    hyphenate-limit-zone: 4%;
+}
+
+body {
+    margin: 0;
+}
+
+.ms {
+    --ms-font: 'MPB Serif', serif;
+    font-family: 'MPB Serif', serif;
+    background: none;
+}
+
+/* The screen "paper" is the page itself. */
+.ms .ms-article {
+    max-width: none;
+}
+
+/* The corresponding author's e-mail, at the foot of page 1. */
+.run-note {
+    position: running(firstNote);
+    font-size: 10pt;
+    line-height: 12pt;
+}
+
+.run-note:empty {
+    display: none;
+}
+
+.run-note::before {
+    content: '';
+    display: block;
+    width: 33mm;
+    border-top: 0.5pt solid #000;
+    margin-bottom: 3pt;
+}
+
+/* Headings stay with their text; tables and figures are not split when short. */
+.ms h2,
+.ms h3 {
+    break-after: avoid;
+}
+
+.ms .ms-figure {
+    break-inside: avoid;
+}
+
+.ms .ms-table-block table {
+    break-inside: auto;
+}
+
+.ms thead {
+    display: table-header-group;
+}
+
+/* The summary in the other language starts on a new page, as printed. */
+.ms .ms-summary {
+    break-before: page;
+    border-top: 0;
+    margin-top: 0;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* WeasyPrint paints a gradient over the whole box whatever its
+   background-size, so the hairlines of manuscript.css are drawn here with a
+   one-pixel SVG, which it does scale to 100% × 0.5 pt. */
+.ms table {
+    background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='1' preserveAspectRatio='none'%3E%3Crect width='10' height='1'/%3E%3C/svg%3E"),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='1' preserveAspectRatio='none'%3E%3Crect width='10' height='1'/%3E%3C/svg%3E"),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='1' preserveAspectRatio='none'%3E%3Crect width='10' height='1'/%3E%3C/svg%3E"),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='1' preserveAspectRatio='none'%3E%3Crect width='10' height='1'/%3E%3C/svg%3E"),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='1' preserveAspectRatio='none'%3E%3Crect width='10' height='1'/%3E%3C/svg%3E"),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='1' preserveAspectRatio='none'%3E%3Crect width='10' height='1'/%3E%3C/svg%3E");
+    background-size: 100% 0.5pt;
+}
+
+.ms tr:not(:has(> td)) > th[colspan]:not([colspan='1']),
+.ms thead > tr:not(:last-child) > th[colspan]:not([colspan='1']) {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='1' preserveAspectRatio='none'%3E%3Crect width='10' height='1'/%3E%3C/svg%3E");
+    background-size: 94% 0.5pt;
+}
+
+.ms tr:has(+ tr > td) > th[colspan]:not([colspan='1']) {
+    background-image: none;
+}

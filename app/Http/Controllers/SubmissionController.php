@@ -18,6 +18,11 @@ class SubmissionController extends Controller
 {
     public function store(Request $request): RedirectResponse
     {
+        // The public form is closed: authors sign in and write in the system.
+        if (! config('journal.guest_submissions')) {
+            return redirect()->route('register');
+        }
+
         // Bots fill every field; people never see this one.
         if (filled($request->input('website'))) {
             return back();

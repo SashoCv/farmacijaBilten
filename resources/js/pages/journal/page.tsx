@@ -19,6 +19,8 @@ import {
 import type { TocItem } from '@/components/journal/page-toc';
 import { SectionNav, localTitle } from '@/components/journal/section-nav';
 import type { SectionData } from '@/components/journal/section-nav';
+import { SubmitWithAccount } from '@/components/journal/submit-with-account';
+import type { SubmitAccess } from '@/components/journal/submit-with-account';
 import { SubmissionForm } from '@/components/journal/submission-form';
 import type { SubmissionConfig } from '@/components/journal/submission-form';
 import { useT } from '@/lib/i18n';
@@ -45,6 +47,7 @@ type Props = {
     toc?: TocItem[];
     section: SectionData | null;
     submission: SubmissionConfig | null;
+    submitAccess?: SubmitAccess | null;
     /** Files linked from the downloads page. */
     files?: DownloadFile[];
 };
@@ -59,6 +62,7 @@ export default function ContentPage({
     toc = [],
     section,
     submission,
+    submitAccess,
     files,
 }: Props) {
     const { t, locale } = useT();
@@ -121,6 +125,8 @@ export default function ContentPage({
 
                         {isSubmit && submission ? (
                             <SubmissionForm config={submission} />
+                        ) : isSubmit && submitAccess ? (
+                            <SubmitWithAccount access={submitAccess} />
                         ) : files ? (
                             <DownloadList files={files} locale={locale} />
                         ) : (

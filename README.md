@@ -32,7 +32,7 @@ This repository is the rebuild of [bulletin.mfd.org.mk](https://bulletin.mfd.org
 
 ## Stack
 
-- **Backend:** Laravel 13 (PHP 8.3+), SQLite, Laravel Fortify (editor sign-in).
+- **Backend:** Laravel 13 (PHP 8.3+), SQLite, Laravel Fortify (sign-in for authors, reviewers and the editorial office).
 - **Frontend:** React 19 + Inertia 3 with server-side rendering, TypeScript, Tailwind CSS 4, Vite+.
 - **PDF tooling:** `pdftotext`, `pdfinfo` and `pdftoppm` from poppler-utils.
 
@@ -65,17 +65,17 @@ The app runs at http://127.0.0.1:8000.
 
 ### Useful commands
 
-| Command                                          | Purpose                                                     |
-| ------------------------------------------------ | ----------------------------------------------------------- |
-| `php artisan test`                               | Run the test suite                                          |
-| `npm run types:check`                            | TypeScript                                                  |
-| `npm run check`                                  | Lint and formatting (JS/TS)                                 |
-| `composer run lint`                              | PHP formatting (Pint)                                       |
-| `npm run i18n:check`                             | Fail if any interface string lacks a Macedonian translation |
-| `npm run build:ssr`                              | Production build (client + SSR)                             |
-| `php artisan journal:create-editor EMAIL "Name"` | Create an editor account (public registration is off)       |
-| `php artisan journal:verify-data`                | Check the imported data for problems                        |
-| `php artisan journal:smoke`                      | Check a live article page (SSR, meta tags, assets)          |
+| Command                                          | Purpose                                                                |
+| ------------------------------------------------ | ---------------------------------------------------------------------- |
+| `php artisan test`                               | Run the test suite                                                     |
+| `npm run types:check`                            | TypeScript                                                             |
+| `npm run check`                                  | Lint and formatting (JS/TS)                                            |
+| `composer run lint`                              | PHP formatting (Pint)                                                  |
+| `npm run i18n:check`                             | Fail if any interface string lacks a Macedonian translation            |
+| `npm run build:ssr`                              | Production build (client + SSR)                                        |
+| `php artisan journal:editor EMAIL --name="Name"` | Create an editorial office (admin) account, or promote an existing one |
+| `php artisan journal:verify-data`                | Check the imported data for problems                                   |
+| `php artisan journal:smoke`                      | Check a live article page (SSR, meta tags, assets)                     |
 
 ## Project layout
 
@@ -94,7 +94,7 @@ The app runs at http://127.0.0.1:8000.
 ## Status
 
 - **Public website:** done.
-- **Editorial back-office** (the application behind the sign-in): to be built next.
+- **Editorial back-office** (the application behind the sign-in): in progress, see [docs/backoffice](docs/backoffice/README.md). Accounts and roles (admin, author, reviewer) are done.
 - **Waiting on the editorial office:**
     - Confirm the facts marked `TO CONFIRM` in `config/journal.php`: address, current editors, licence version, APC, review model.
     - Supply official logos and the covers that are missing.

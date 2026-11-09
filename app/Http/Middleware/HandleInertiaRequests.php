@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use App\Journal\Journal;
 use App\Journal\Seo\SeoMeta;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
 
@@ -40,8 +41,10 @@ class HandleInertiaRequests extends Middleware
         return [
             ...parent::share($request),
             'name' => config('app.name'),
+            // Only what the pages need (`User` in resources/js/types/auth.ts),
+            // never the whole model.
             'auth' => [
-                'user' => $request->user(),
+                'user' => fn () => $request->user() instanceof User ? $request->user()->presentForAuth() : null,
             ],
             'locale' => app()->getLocale(),
             'currentIssueSlug' => Journal::currentIssueSlug(),

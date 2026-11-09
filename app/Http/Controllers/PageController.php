@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\Role;
 use App\Journal\Seo\SeoMeta;
 use App\Models\Article;
 use App\Models\BoardMember;
@@ -35,10 +36,18 @@ class PageController extends Controller
 
         $props = [
             ...$this->pageProps($page),
-            'submission' => $page->path === 'submit-your-paper' ? [
+            'submission' => $page->path === 'submit-your-paper' && config('journal.guest_submissions') ? [
                 ...Submission::formConfig(),
                 // Reference of the manuscript just sent, shown as a confirmation.
                 'received' => session('submitted'),
+            ] : null,
+            // Submitting needs an account: where to go from this page.
+            'submitAccess' => $page->path === 'submit-your-paper' && ! config('journal.guest_submissions') ? [
+                'signedIn' => auth()->check(),
+                'isAuthor' => auth()->user()?->hasRole(Role::Author) ?? false,
+                'register' => route('register'),
+                'login' => route('login'),
+                'manuscripts' => route('author.manuscripts.index'),
             ] : null,
         ];
 

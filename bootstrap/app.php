@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\ErrorPage;
+use App\Http\Middleware\EnsureAdminTwoFactor;
+use App\Http\Middleware\EnsureUserHasRole;
 use App\Http\Middleware\HandleAppearance;
 use App\Http\Middleware\HandleInertiaRequests;
 use App\Http\Middleware\LegacyPathNormalizer;
@@ -47,6 +49,18 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->trustProxies(at: ['127.0.0.1', '::1']);
 
         $middleware->encryptCookies(except: ['appearance', 'sidebar_state', 'locale']);
+
+        $middleware->alias([
+            'role' => EnsureUserHasRole::class,
+            'admin.2fa' => EnsureAdminTwoFactor::class,
+        ]);
+
+        // Manuscript text is saved exactly as typed: spaces next to italic,
+        // sub- and superscript text are part of the text.
+        // (Global middleware: it runs before routing, so match the path.)
+        $manuscriptDraft = fn (Request $request) => $request->isMethod('PUT') && $request->is('author/manuscripts/*/draft');
+        $middleware->trimStrings(except: [$manuscriptDraft]);
+        $middleware->convertEmptyStringsToNull(except: [$manuscriptDraft]);
 
         // OAI-PMH harvesters POST without a session or token.
         $middleware->validateCsrfTokens(except: ['oai']);

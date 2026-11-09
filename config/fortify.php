@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Middleware\ThrottleRegistration;
 use Laravel\Fortify\Features;
 
 return [
@@ -73,8 +74,8 @@ return [
     |
     */
 
-    // Editors land on the submissions list (/dashboard redirects there too).
-    'home' => '/admin/submissions',
+    // Everyone lands on their role-aware dashboard.
+    'home' => '/dashboard',
 
     /*
     |--------------------------------------------------------------------------
@@ -102,7 +103,7 @@ return [
     |
     */
 
-    'middleware' => ['web'],
+    'middleware' => ['web', ThrottleRegistration::class],
 
     /*
     |--------------------------------------------------------------------------
@@ -162,10 +163,8 @@ return [
     */
 
     'features' => [
-        // No public registration: only the editorial office has accounts,
-        // created with `php artisan tinker` (see DEPLOY.md). Authors submit
-        // manuscripts without an account.
-        // Features::registration(),
+        // Authors create their own account; reviewers join by invitation.
+        Features::registration(),
         Features::resetPasswords(),
         Features::emailVerification(),
         Features::twoFactorAuthentication([
@@ -173,9 +172,8 @@ return [
             'confirmPassword' => true,
             // 'window' => 0
         ]),
-        Features::passkeys([
-            'confirmPassword' => true,
-        ]),
+        // Passkeys are off (owner's decision, 2026-11-09): sign-in is e-mail and
+        // password, with an authenticator app as the second factor.
     ],
 
 ];

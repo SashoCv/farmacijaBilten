@@ -25,6 +25,8 @@ return [
     'issn_print' => '1409-8695',
     'issn_online' => '1857-8969',
     'doi_prefix' => '10.33320',
+    // DOI suffix of an article: maced.pharm.bull.{year}.{volume}.{issue, 2 digits}.{article, 3 digits}.
+    'doi_pattern' => 'maced.pharm.bull.{year}.{volume}.{issue}.{number}',
 
     'publisher' => [
         'name_en' => 'Macedonian Pharmaceutical Association',
@@ -142,7 +144,40 @@ return [
     */
     'submissions_email' => env('JOURNAL_SUBMISSIONS_EMAIL'),
 
+    // The old public form (a file upload without an account). Off: authors
+    // now sign in and write the manuscript in the system (docs/backoffice).
+    'guest_submissions' => (bool) env('JOURNAL_GUEST_SUBMISSIONS', false),
+
     // Largest manuscript file accepted, in kilobytes.
     'submission_max_kb' => (int) env('JOURNAL_SUBMISSION_MAX_KB', 20480),
+
+    /*
+    | Back-office accounts (docs/backoffice). Admins (the editorial office) must
+    | protect their account with two-factor authentication; on by
+    | default in production.
+    */
+    /*
+    | Peer review. `anonymity`: 'double' (reviewers do not see the authors,
+    | default until the editors confirm; TO CONFIRM) or 'single'. Days are
+    | defaults the editorial office can change per invitation.
+    */
+    'review' => [
+        'anonymity' => env('JOURNAL_REVIEW_ANONYMITY', 'double'), // TO CONFIRM
+        'response_days' => 7,
+        'review_days' => 21,
+        'revision_days' => 30, // IFA: revisions back "in not more than 30 days"
+        // Reminders: a reviewer is reminded at most once in this many days.
+        'reminder_interval_days' => 5,
+        // Unanswered invitations expire this many days after their answer date.
+        'expire_after_days' => 7,
+        'file_max_mb' => 20,
+        'file_extensions' => ['pdf', 'doc', 'docx', 'odt', 'rtf', 'txt', 'xls', 'xlsx', 'png', 'jpg', 'jpeg'],
+    ],
+
+    'security' => [
+        'admin_requires_2fa' => (bool) env('JOURNAL_ADMIN_REQUIRES_2FA', env('APP_ENV') === 'production'),
+        // New author accounts per IP address per hour.
+        'registrations_per_hour' => (int) env('JOURNAL_REGISTRATIONS_PER_HOUR', 5),
+    ],
 
 ];

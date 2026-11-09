@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\Role;
 use App\Models\Article;
 use App\Models\User;
 use Illuminate\Console\Command;
@@ -29,6 +30,9 @@ Schedule::command('auth:clear-resets')->daily()->at('03:20');
 // Models that define prunable() (none yet; harmless when there are none).
 Schedule::command('model:prune')->daily()->at('03:25');
 
+// Peer review: reminders and expiry of unanswered invitations, each morning.
+Schedule::command('journal:review-reminders')->dailyAt('08:00')->timezone('Europe/Skopje');
+
 // Keep the SQLite query planner statistics fresh.
 Schedule::call(fn () => DB::statement('PRAGMA optimize'))
     ->name('sqlite-optimize')
@@ -43,12 +47,18 @@ Schedule::call(fn () => DB::statement('PRAGMA optimize'))
 
 Artisan::command('journal:editor {email} {--name=}', function (string $email) {
     /** @var Command $this */
-    $name = $this->option('name') ?: $this->ask('Full name');
-    $password = $this->secret('Password (at least 12 characters)');
+    $email = mb_strtolower(trim($email));
+    $existing = User::where('email', $email)->first();
+    $name = $this->option('name') ?: ($existing === null ? $this->ask('Full name') : $existing->name);
+    $password = $existing === null ? $this->secret('Password (at least 12 characters)') : null;
 
     $validator = Validator::make(
         ['email' => $email, 'name' => $name, 'password' => $password],
-        ['email' => ['required', 'email'], 'name' => ['required', 'string', 'max:255'], 'password' => ['required', 'string', 'min:12']],
+        [
+            'email' => ['required', 'email'],
+            'name' => ['required', 'string', 'max:255'],
+            'password' => $existing === null ? ['required', 'string', 'min:12'] : ['nullable'],
+        ],
     );
 
     if ($validator->fails()) {
@@ -59,20 +69,28 @@ Artisan::command('journal:editor {email} {--name=}', function (string $email) {
         return 1;
     }
 
-    $user = User::where('email', strtolower($email))->first() ?? new User;
-    $created = ! $user->exists;
+    $user = $existing ?? new User;
+    [$given, $family] = array_pad(preg_split('/\s+/u', trim((string) $name), 2) ?: [], 2, null);
 
     $user->forceFill([
-        'email' => strtolower($email),
+        'email' => $email,
         'name' => $name,
-        'password' => $password,
+        'given_name' => $user->given_name ?? $given,
+        'family_name' => $user->family_name ?? $family,
         'email_verified_at' => $user->email_verified_at ?? now(),
+        ...($password !== null ? ['password' => $password] : []),
     ])->save();
 
-    $this->info(($created ? 'Created' : 'Updated')." editor account {$user->email}. Sign in at ".url('/login'));
+    $user->grantRole(Role::Admin);
+
+    $this->info(($existing ? 'Gave the editorial office role to' : 'Created the editorial office account')." {$user->email}. Sign in at ".url('/login'));
+
+    if (config('journal.security.admin_requires_2fa')) {
+        $this->warn('After signing in, turn on two-factor authentication (Settings → Security): the editorial office pages require it.');
+    }
 
     return 0;
-})->purpose('Create or update an editorial-office account (public registration is off)');
+})->purpose('Create an editorial-office (admin) account, or give the admin role to an existing one');
 
 Artisan::command('journal:smoke {--url= : Base URL, defaults to APP_URL}', function () {
     /** @var Command $this */
@@ -120,3 +138,6 @@ Artisan::command('journal:smoke {--url= : Base URL, defaults to APP_URL}', funct
 
     return 0;
 })->purpose('Fetch an article page over HTTP and check SSR, scholarly meta tags, assets and headers');
+
+// Crossref: results of the deposits sent from the back-office (only when the account is set).
+Schedule::command('journal:crossref-results')->everyTenMinutes()->withoutOverlapping();

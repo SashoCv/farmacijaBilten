@@ -3,8 +3,8 @@ import { useEffect } from 'react';
 import type { CSSProperties, ReactNode } from 'react';
 import { LogoMark } from '@/components/journal/icons';
 import { initializeTheme } from '@/hooks/use-appearance';
+import { cn } from '@/lib/utils';
 import { useT } from '@/lib/i18n';
-import { submitHref } from '@/lib/site-links';
 import { home } from '@/routes';
 
 /**
@@ -39,16 +39,19 @@ const journalTokens = {
 type Props = {
     title?: string;
     description?: string;
+    /** The sign-up form is longer and uses two columns on wide screens. */
+    wide?: boolean;
     children: ReactNode;
 };
 
 /**
- * Editorial office sign-in: a centred 400px card on the mist surface, under
+ * Sign-in to the manuscript system: a centred card on the mist surface, under
  * the journal's mark and name, with a way back to the journal.
  */
 export default function AuthLayout({
     title = '',
     description = '',
+    wide = false,
     children,
 }: Props) {
     const { t, locale } = useT();
@@ -77,7 +80,12 @@ export default function AuthLayout({
                 id="main"
                 className="flex flex-1 flex-col items-center justify-start px-4 pt-10 pb-12 sm:justify-center sm:py-16"
             >
-                <div className="w-full max-w-[400px]">
+                <div
+                    className={cn(
+                        'w-full',
+                        wide ? 'max-w-[640px]' : 'max-w-[400px]',
+                    )}
+                >
                     <Link
                         href={home()}
                         className="mx-auto mb-8 flex w-fit items-center gap-3 text-ink no-underline hover:text-ink"
@@ -100,9 +108,7 @@ export default function AuthLayout({
                         aria-labelledby="auth-title"
                         className="rounded-lg border border-line-card bg-white px-6 py-7 sm:px-8 sm:py-8"
                     >
-                        <p className="eyebrow">
-                            {t('Editorial office sign-in')}
-                        </p>
+                        <p className="eyebrow">{t('Manuscript system')}</p>
                         <h1
                             id="auth-title"
                             className="mt-2 mb-0 font-serif text-h3 leading-snug font-medium text-ink"
@@ -119,11 +125,8 @@ export default function AuthLayout({
 
                     <p className="mt-5 mb-0 px-2 text-center text-meta leading-relaxed text-ink-muted">
                         {t(
-                            'Accounts are for the editorial office only. Authors submit manuscripts without an account.',
-                        )}{' '}
-                        <Link href={submitHref} className="link-u font-normal">
-                            {t('Submit manuscript')}
-                        </Link>
+                            'Authors create an account to submit manuscripts. Reviewers join by invitation from the editorial office.',
+                        )}
                     </p>
 
                     <p className="mt-6 mb-0 text-center">

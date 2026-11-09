@@ -40,7 +40,14 @@ export default function EditorialBoardPage({
     const title = localTitle(page, locale);
 
     if (members.length === 0) {
-        return <ContentPage page={page} section={section} submission={null} />;
+        return (
+            <ContentPage
+                page={page}
+                section={section}
+                submission={null}
+                submitAccess={null}
+            />
+        );
     }
 
     const editors = members.filter((m) => EDITOR_GROUPS.includes(m.group));

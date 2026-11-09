@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Manuscripts\ReferenceNumber;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Carbon;
@@ -77,13 +78,9 @@ class Submission extends Model
 
     protected static function booted(): void
     {
-        // The reference needs the id, so it is written right after the insert.
-        static::created(function (Submission $submission) {
-            if ($submission->reference === null) {
-                $submission->forceFill([
-                    'reference' => self::formatReference($submission->id, $submission->created_at ?? now()),
-                ])->saveQuietly();
-            }
+        // Numbered per year, shared with the manuscript system (ReferenceNumber).
+        static::creating(function (Submission $submission) {
+            $submission->reference ??= ReferenceNumber::next($submission->created_at ?? now());
         });
     }
 
@@ -91,12 +88,6 @@ class Submission extends Model
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
-    }
-
-    /** "MPB-2026-0042": year of submission and the row id, zero-padded. */
-    public static function formatReference(int $id, \DateTimeInterface $date): string
-    {
-        return sprintf('MPB-%s-%04d', $date->format('Y'), $id);
     }
 
     /**

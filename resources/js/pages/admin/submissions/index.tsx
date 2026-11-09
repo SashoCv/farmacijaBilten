@@ -8,6 +8,7 @@ import {
     Search,
 } from 'lucide-react';
 import { useT } from '@/lib/i18n';
+import { index as adminManuscripts } from '@/routes/admin/manuscripts';
 
 /** One row, from App\Models\Submission::presentForAdmin(). */
 export type AdminSubmission = {
@@ -198,7 +199,7 @@ export default function SubmissionsIndex({
 
     return (
         <>
-            <Head title={t('Submissions')} />
+            <Head title={t('Old website form')} />
 
             {/* The journal palette is light-only, so the page keeps its own surface in dark mode. */}
             <div className="flex-1 bg-white text-ink">
@@ -209,7 +210,7 @@ export default function SubmissionsIndex({
                                 {t('Editorial office')}
                             </p>
                             <h1 className="m-0 font-serif text-[30px] leading-tight font-medium md:text-[36px]">
-                                {t('Submissions')}
+                                {t('Old website form')}
                             </h1>
                             <p className="m-0 text-[15px] text-ink-muted">
                                 {totalAll === 0
@@ -266,6 +267,26 @@ export default function SubmissionsIndex({
                             </div>
                         )}
                     </header>
+
+                    <div
+                        role="note"
+                        className="rounded-lg border border-line-card bg-tint px-4 py-3 text-[15px] leading-relaxed text-ink"
+                    >
+                        <p className="m-0 font-semibold">
+                            {t('What is this page?')}
+                        </p>
+                        <p className="m-0 mt-1 text-ink-soft">
+                            {t(
+                                'Before the manuscript system, authors sent a file through a simple form on the website, without an account. Those manuscripts are kept here, with their files, for the record. The form is now closed: new manuscripts are written and sent in the system, under Manuscripts.',
+                            )}{' '}
+                            <Link
+                                href={adminManuscripts()}
+                                className="font-semibold underline underline-offset-4"
+                            >
+                                {t('Go to Manuscripts')}
+                            </Link>
+                        </p>
+                    </div>
 
                     {totalAll === 0 ? (
                         <div className="flex flex-col items-center gap-3 rounded-lg border border-dashed border-control bg-mist px-6 py-16 text-center">
