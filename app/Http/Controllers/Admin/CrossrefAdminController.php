@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Crossref\Crossref;
 use App\Http\Controllers\Controller;
+use App\Models\Article;
+use App\Models\CrossrefDeposit;
 use App\Models\Issue;
 use App\Models\Setting;
 use App\Models\User;
@@ -90,6 +92,60 @@ class CrossrefAdminController extends Controller
             'Content-Disposition' => 'attachment; filename="crossref-'.$issue->slug.'.xml"',
             'Cache-Control' => 'private, no-store',
         ]);
+    }
+
+    /** The deposit file of one article. */
+    public function articleXml(Issue $issue, string $number): Response
+    {
+        $article = $this->pendingArticle($issue, $number);
+        $xml = Crossref::xml($issue, collect([$article]), Crossref::batchId($issue));
+
+        return response($xml, 200, [
+            'Content-Type' => 'application/xml; charset=UTF-8',
+            'Content-Disposition' => 'attachment; filename="crossref-'.$issue->slug.'-'.$article->number.'.xml"',
+            'Cache-Control' => 'private, no-store',
+        ]);
+    }
+
+    /** Send one article's DOI to Crossref. */
+    public function articleDeposit(Request $request, Issue $issue, string $number): RedirectResponse
+    {
+        /** @var User $user */
+        $user = $request->user();
+        $article = $this->pendingArticle($issue, $number);
+        Crossref::deposit($issue, collect([$article]), 'button', $user);
+
+        Inertia::flash('toast', ['type' => 'success', 'message' => __(':doi sent to Crossref. The result comes within minutes.', ['doi' => $article->doi])]);
+
+        return back();
+    }
+
+    /** An article of the issue whose DOI may be deposited (not registered, not to check by hand). */
+    private function pendingArticle(Issue $issue, string $number): Article
+    {
+        $article = Crossref::pending($issue)->first(fn (Article $a) => $a->number === $number);
+
+        if ($article === null) {
+            abort_unless($issue->articles()->where('number', $number)->exists(), 404);
+
+            throw ValidationException::withMessages(['crossref' => __('This DOI is already registered, or it must be checked by hand first.')]);
+        }
+
+        return $article;
+    }
+
+    /** Ask Crossref for the result of a sent deposit now. */
+    public function check(CrossrefDeposit $deposit): RedirectResponse
+    {
+        if ($deposit->status === 'sent') {
+            Crossref::check($deposit);
+        }
+
+        Inertia::flash('toast', $deposit->status === 'sent'
+            ? ['type' => 'info', 'message' => __('Crossref is still processing the deposit. Try again in a few minutes.')]
+            : ['type' => $deposit->status === 'succeeded' ? 'success' : 'error', 'message' => __('Crossref has answered: see the deposit.')]);
+
+        return back();
     }
 
     public function deposit(Request $request, Issue $issue): RedirectResponse

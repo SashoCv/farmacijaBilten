@@ -1872,6 +1872,14 @@ const mk: Record<string, string> = {
         '— DOI-ата навистина се регистрираат (Crossref наплатува такса по DOI).',
     'Save the account': 'Зачувај ја сметката',
     'Remove the account': 'Отстрани ја сметката',
+    'e-mail/role': 'е-адреса/улога',
+    'If you sign in to Crossref with your e-mail address, add the role after a slash: e-mail/role. The role is shown when you sign in at doi.crossref.org.':
+        'Ако во Crossref се најавувате со е-адреса, по коса црта додадете ја улогата (role): е-адреса/улога. Улогата се гледа кога ќе се најавите на doi.crossref.org.',
+    'Crossref processes deposits in its queue, usually within minutes; the system asks every ten minutes.':
+        'Crossref ги обработува депонирањата во својот ред, обично за неколку минути; системот прашува на секои десет минути.',
+    'Ask Crossref now': 'Прашај го Crossref сега',
+    XML: 'XML',
+    'Send this one': 'Испрати го овој',
 };
 
 export default mk;

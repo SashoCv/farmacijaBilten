@@ -111,9 +111,11 @@ class CrossrefTest extends TestCase
     {
         $admin = User::factory()->admin()->create();
 
-        $this->actingAs($admin)->from('/admin/archive-dois')->get('/admin/crossref/issues/72-s1/xml')
-            ->assertRedirect('/admin/archive-dois')
-            ->assertSessionHasErrors('crossref');
+        // Until set, the depositor is the publisher with the editorial mailbox.
+        $this->assertSame('Macedonian Pharmaceutical Association', Crossref::depositorName());
+        $this->assertSame('macpharmbull@ff.ukim.edu.mk', Crossref::depositorEmail());
+        $default = $this->actingAs($admin)->get('/admin/crossref/issues/72-s1/xml')->assertOk();
+        $this->assertStringContainsString('<email_address>macpharmbull@ff.ukim.edu.mk</email_address>', (string) $default->getContent());
 
         $this->actingAs($admin)->put('/admin/crossref/settings', [
             'depositor_name' => 'Editorial office', 'depositor_email' => 'bulletin@example.org', 'auto' => '0',
@@ -151,7 +153,7 @@ class CrossrefTest extends TestCase
         $this->actingAs($admin)->post('/admin/crossref/issues/72-s1/deposit')->assertSessionHasNoErrors();
 
         $deposit = CrossrefDeposit::sole();
-        $this->assertSame('sent', $deposit->status);
+        $this->assertSame('sent', $deposit->status, (string) $deposit->message);
         $this->assertSame(['10.33320/maced.pharm.bull.2026.72.03.001'], $deposit->dois);
         $this->assertFalse($deposit->test);
 
@@ -198,6 +200,7 @@ class CrossrefTest extends TestCase
 
         $this->assertSame('failed', $deposit->fresh()->status);
         $this->assertStringContainsString('Unauthorized', (string) $deposit->fresh()->message);
+        $this->assertStringContainsString('did not accept the username or password', (string) $deposit->fresh()->message);
     }
 
     public function test_a_doi_registered_only_with_a_doubled_prefix_is_deposited_as_printed(): void
@@ -263,5 +266,48 @@ class CrossrefTest extends TestCase
 
         $author = User::factory()->author()->create();
         $this->actingAs($author)->put('/admin/crossref/account', ['username' => 'x', 'password' => 'y', 'mode' => 'live'])->assertForbidden();
+    }
+
+    public function test_crossref_answers_are_shown_in_words(): void
+    {
+        $this->assertStringContainsString('e-mail/role', Crossref::explain(401, Crossref::plainText('<html><h2>FAILURE</h2><p>FAILURE Your XML batch submission failed. [Wrong credentials. Incorrect username or password.]</p></html>')));
+
+        $page = Crossref::plainText('<html><head><script>var _paq = window._paq || [];</script><style>p{}</style></head><body><h1>Sign in</h1></body></html>');
+        $this->assertSame('Sign in', $page);
+        $this->assertStringContainsString('web page instead of a deposit answer', Crossref::explain(200, $page));
+        // A refused login comes back as Crossref's home page with HTTP 401.
+        $this->assertStringContainsString('did not accept the username or password', Crossref::explain(401, 'Welcome to Crossref. Home Users Submissions'));
+    }
+
+    public function test_a_single_article_is_downloaded_or_sent_on_its_own(): void
+    {
+        config(['crossref.username' => 'mfd/bulletin', 'crossref.password' => 'secret']);
+        Http::fake(['test.crossref.org/*' => Http::response('<h2>SUCCESS</h2>')]);
+        Article::create([
+            'issue_id' => $this->issue->id, 'number' => '004', 'position' => 4,
+            'title' => 'Another one', 'authors' => ['B. C.'],
+            'doi' => '10.33320/maced.pharm.bull.2026.72.03.004', 'doi_registered' => false,
+            'pdf' => 'volumes/Volume 72_3/72_3_004.pdf',
+        ]);
+        $admin = User::factory()->admin()->create();
+
+        $this->actingAs($admin)->get('/admin/archive-dois')->assertInertia(fn (Assert $page) => $page
+            ->where('groups.0.pending', 2)
+            ->where('groups.0.articles.0.number', '001')
+            ->whereNot('groups.0.articles.0.depositUrl', null)
+        );
+
+        $xml = (string) $this->actingAs($admin)->get('/admin/crossref/issues/72-s1/articles/004/xml')->assertOk()->getContent();
+        $this->assertSame([], Crossref::validate($xml));
+        $this->assertStringContainsString('72.03.004</doi>', $xml);
+        $this->assertStringNotContainsString('72.03.001</doi>', $xml);
+
+        $this->actingAs($admin)->post('/admin/crossref/issues/72-s1/articles/004/deposit')->assertSessionHasNoErrors();
+        $this->assertSame(['10.33320/maced.pharm.bull.2026.72.03.004'], CrossrefDeposit::sole()->dois);
+
+        // Registered already, or not in the issue.
+        $this->actingAs($admin)->from('/admin/archive-dois')->post('/admin/crossref/issues/72-s1/articles/002/deposit')->assertSessionHasErrors('crossref');
+        $this->actingAs($admin)->post('/admin/crossref/issues/72-s1/articles/999/deposit')->assertNotFound();
+        $this->actingAs(User::factory()->author()->create())->post('/admin/crossref/issues/72-s1/articles/004/deposit')->assertForbidden();
     }
 }

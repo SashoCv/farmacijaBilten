@@ -7,6 +7,7 @@ use App\Enums\DecisionType;
 use App\Enums\ManuscriptStatus;
 use App\Enums\Recommendation;
 use App\Enums\Role;
+use App\Mail\EditorialOffice;
 use App\Models\Manuscript;
 use App\Models\ManuscriptDecision;
 use App\Models\ReviewAssignment;
@@ -327,10 +328,6 @@ final class ReviewWorkflow
 
     private static function mailEditors(\Illuminate\Notifications\Notification $notification): void
     {
-        $editors = User::withRole(Role::Admin)->active()->get();
-
-        if ($editors->isNotEmpty()) {
-            Notification::send($editors, $notification);
-        }
+        EditorialOffice::notify($notification);
     }
 }

@@ -126,6 +126,11 @@ Route::middleware(['auth', 'verified', 'role:admin', 'admin.2fa'])
         Route::get('crossref/issues/{issue}/xml', [CrossrefAdminController::class, 'xml'])->name('crossref.xml');
         Route::post('crossref/issues/{issue}/deposit', [CrossrefAdminController::class, 'deposit'])
             ->middleware('throttle:10,1')->name('crossref.deposit');
+        Route::get('crossref/issues/{issue}/articles/{number}/xml', [CrossrefAdminController::class, 'articleXml'])->name('crossref.article.xml');
+        Route::post('crossref/issues/{issue}/articles/{number}/deposit', [CrossrefAdminController::class, 'articleDeposit'])
+            ->middleware('throttle:30,1')->name('crossref.article.deposit');
+        Route::post('crossref/deposits/{deposit}/check', [CrossrefAdminController::class, 'check'])
+            ->middleware('throttle:20,1')->name('crossref.check');
         Route::get('archive/{issue}', [ArchiveAdminController::class, 'issue'])->name('archive.issue');
         Route::get('archive/{issue}/{number}', [ArchiveAdminController::class, 'show'])->name('archive.article');
         Route::post('manuscripts/{manuscript}/decision', [ReviewAdminController::class, 'decide'])->name('manuscripts.decision');

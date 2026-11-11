@@ -272,7 +272,7 @@ class PagesTest extends TestCase
             ->where('page.title', 'Contact')
             ->missing('page.body')
             ->where('journal.address.street', config('journal.address.street'))
-            ->where('journal.editorialEmail', 'magl@ff.ukim.edu.mk'));
+            ->where('journal.editorialEmail', 'macpharmbull@ff.ukim.edu.mk'));
 
         // The old contact text ("Majka Tereza 17") is not sent to the page.
         $response->assertDontSee('Majka Tereza 17');

@@ -4,7 +4,7 @@ namespace App\Manuscripts;
 
 use App\Enums\DecisionType;
 use App\Enums\ManuscriptStatus;
-use App\Enums\Role;
+use App\Mail\EditorialOffice;
 use App\Models\Manuscript;
 use App\Models\ManuscriptDraft;
 use App\Models\ManuscriptEvent;
@@ -12,7 +12,6 @@ use App\Models\User;
 use App\Notifications\Manuscripts\ManuscriptReceived;
 use App\Notifications\Manuscripts\NewManuscriptForEditors;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Notification;
 use Illuminate\Validation\ValidationException;
 use Symfony\Component\HttpKernel\Exception\ConflictHttpException;
 
@@ -151,11 +150,7 @@ final class ManuscriptWorkflow
 
             $manuscript->submitter->notify(new ManuscriptReceived($manuscript));
 
-            $editors = User::withRole(Role::Admin)->active()->get();
-
-            if ($editors->isNotEmpty()) {
-                Notification::send($editors, new NewManuscriptForEditors($manuscript));
-            }
+            EditorialOffice::notify(new NewManuscriptForEditors($manuscript));
         });
 
         return $manuscript;
@@ -225,11 +220,7 @@ final class ManuscriptWorkflow
 
             $this->record($manuscript, $user, 'resubmitted', ManuscriptStatus::RevisionRequested, $to, ['version' => $version->number]);
 
-            $editors = User::withRole(Role::Admin)->active()->get();
-
-            if ($editors->isNotEmpty()) {
-                Notification::send($editors, new NewManuscriptForEditors($manuscript, revision: true));
-            }
+            EditorialOffice::notify(new NewManuscriptForEditors($manuscript, revision: true));
         });
 
         return $manuscript;

@@ -278,7 +278,9 @@ class ManuscriptTest extends TestCase
         $this->assertSame($author->id, $event->actor_id);
 
         Notification::assertSentTo($author, ManuscriptReceived::class);
-        Notification::assertSentTo($editor, NewManuscriptForEditors::class);
+        // To the editorial mailbox, in Macedonian; not to each editor's own address.
+        Notification::assertSentOnDemand(NewManuscriptForEditors::class, fn ($n, $channels, $notifiable) => ($notifiable->routes['mail'] ?? null) === ['macpharmbull@ff.ukim.edu.mk' => config('journal.name_en')] && $n->locale === 'mk');
+        Notification::assertNotSentTo($editor, NewManuscriptForEditors::class);
 
         // Sent once: a second click changes nothing, and the text is locked.
         $this->actingAs($author)->post("/author/manuscripts/{$m->public_id}/submit")->assertForbidden();

@@ -119,6 +119,10 @@ export type ArchiveDoisProps = {
             /** The DOI Crossref has for this PDF, when it differs. */
             crossrefDoi: string | null;
             url: string;
+            /** GET: this article's deposit file; null when it may not be deposited. */
+            xmlUrl: string | null;
+            /** POST (Inertia): send this article's DOI to Crossref. */
+            depositUrl: string | null;
         }[];
     }[];
     /**
@@ -137,6 +141,8 @@ export type ArchiveDoisProps = {
             doi: string;
             registeredAs: string;
             url: string;
+            xmlUrl: string | null;
+            depositUrl: string | null;
         }[];
     }[];
     indexUrl: string;
@@ -177,6 +183,8 @@ export type CrossrefDepositRow = {
     trigger: string;
     test: boolean;
     message: string | null;
+    /** POST: ask Crossref for the result now (sent deposits only). */
+    checkUrl: string | null;
     by: string | null;
     at: string | null;
 };

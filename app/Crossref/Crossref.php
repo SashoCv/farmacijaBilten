@@ -87,9 +87,20 @@ final class Crossref
         return self::connected() && Setting::get(self::SETTING_AUTO) === '1' && self::depositorSet();
     }
 
+    /** The depositor: as set in the back-office, else the publisher and the editorial mailbox. */
+    public static function depositorName(): string
+    {
+        return (string) (Setting::get(self::SETTING_NAME) ?: config('journal.publisher.name_en'));
+    }
+
+    public static function depositorEmail(): string
+    {
+        return (string) (Setting::get(self::SETTING_EMAIL) ?: config('journal.editorial_email'));
+    }
+
     public static function depositorSet(): bool
     {
-        return filled(Setting::get(self::SETTING_NAME)) && filter_var(Setting::get(self::SETTING_EMAIL), FILTER_VALIDATE_EMAIL) !== false;
+        return self::depositorName() !== '' && filter_var(self::depositorEmail(), FILTER_VALIDATE_EMAIL) !== false;
     }
 
     /**
@@ -165,7 +176,7 @@ final class Crossref
             throw ValidationException::withMessages(['crossref' => __('Every DOI in this issue is already registered.')]);
         }
 
-        $xml = (new DepositXml((string) Setting::get(self::SETTING_NAME), (string) Setting::get(self::SETTING_EMAIL)))
+        $xml = (new DepositXml(self::depositorName(), self::depositorEmail()))
             ->build($issue, $articles, $batchId);
 
         $errors = self::validate($xml);
@@ -243,13 +254,13 @@ final class Crossref
                 'login_passwd' => (string) self::password(),
             ]);
 
-        $body = trim(strip_tags($response->body()));
+        $body = self::plainText($response->body());
         // Crossref answers "SUCCESS … Your batch submission was successfully received."
-        $accepted = $response->successful() && stripos($body, 'SUCCESS') !== false;
+        $accepted = $response->successful() && preg_match('/\bSUCCESS\b/', $body) === 1 && stripos($body, 'FAILURE') === false;
 
         $deposit->forceFill([
             'status' => $accepted ? 'sent' : 'failed',
-            'message' => $accepted ? null : Str::limit($body ?: 'HTTP '.$response->status(), 500),
+            'message' => $accepted ? null : self::explain($response->status(), $body),
             'sent_at' => now(),
         ])->save();
     }
@@ -297,6 +308,32 @@ final class Crossref
         if (! $deposit->test && $ok !== []) {
             Article::whereIn('doi', $ok)->update(['doi_registered' => true, 'doi_resolvable' => DB::raw('doi')]);
         }
+    }
+
+    /** The text of an HTML answer, without scripts and styles. */
+    public static function plainText(string $html): string
+    {
+        $text = (string) preg_replace('#<(script|style|noscript)\b[^>]*>.*?</\1>#is', ' ', $html);
+        // Tags become spaces: "<h2>SUCCESS</h2><p>Your…" must not read "SUCCESSYour".
+        $text = html_entity_decode(strip_tags((string) preg_replace('/<[^>]*>/', ' ', $text)), ENT_QUOTES | ENT_HTML5, 'UTF-8');
+
+        return trim((string) preg_replace('/\s+/u', ' ', $text));
+    }
+
+    /** What went wrong, in words the editorial office can act on, with Crossref's own answer. */
+    public static function explain(int $status, string $body): string
+    {
+        $said = Str::limit($body, 400);
+
+        if ($status === 401 || $status === 403 || preg_match('/wrong credentials|incorrect username or password/i', $body)) {
+            return __('Crossref did not accept the username or password.').' '.__('If you sign in to Crossref with your e-mail address, write the username as e-mail/role (the role is shown when you sign in at doi.crossref.org).')."\n[HTTP {$status}] {$said}";
+        }
+
+        if (! preg_match('/SUCCESS|FAILURE/', $body)) {
+            return __('Crossref answered with a web page instead of a deposit answer. Usually the username needs the role (e-mail/role), or the account has no access to the Crossref test system (ask support@crossref.org to enable it).')."\n[HTTP {$status}] {$said}";
+        }
+
+        return "[HTTP {$status}] {$said}";
     }
 
     private static function endpoint(): string

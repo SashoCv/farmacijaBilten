@@ -1,6 +1,7 @@
 import { Head, Link, usePage } from '@inertiajs/react';
 import { ExternalLink } from 'lucide-react';
 import {
+    ArticleDepositButtons,
     CrossrefAccountForm,
     CrossrefSettingsForm,
     DepositButtons,
@@ -172,7 +173,15 @@ export default function ArchiveDois({
                                         {a.crossrefDoi &&
                                             ` — ${t('Crossref has: {doi}', { doi: a.crossrefDoi })}`}
                                     </span>
-                                    <span className="flex flex-wrap gap-3">
+                                    <span className="flex flex-wrap items-center gap-3">
+                                        <ArticleDepositButtons
+                                            xmlUrl={a.xmlUrl}
+                                            depositUrl={
+                                                crossref.connected
+                                                    ? a.depositUrl
+                                                    : null
+                                            }
+                                        />
                                         <Check
                                             href={`https://doi.org/${a.doi}`}
                                         >
@@ -241,7 +250,15 @@ export default function ArchiveDois({
                                                 {t('Registered (opens)')}:{' '}
                                                 {d.registeredAs}
                                             </span>
-                                            <span className="flex flex-wrap gap-3">
+                                            <span className="flex flex-wrap items-center gap-3">
+                                                <ArticleDepositButtons
+                                                    xmlUrl={d.xmlUrl}
+                                                    depositUrl={
+                                                        crossref.connected
+                                                            ? d.depositUrl
+                                                            : null
+                                                    }
+                                                />
                                                 <Check
                                                     href={`https://doi.org/${d.doi}`}
                                                 >

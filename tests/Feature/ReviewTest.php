@@ -194,7 +194,7 @@ class ReviewTest extends TestCase
             ->assertRedirect(route('reviewer.reviews.show', $a));
 
         $this->assertSame(AssignmentStatus::Accepted, $a->fresh()->status);
-        Notification::assertSentTo($this->admin, InvitationAnswered::class);
+        Notification::assertSentOnDemand(InvitationAnswered::class, fn ($n, $channels, $notifiable) => ($notifiable->routes['mail'] ?? null) === ['macpharmbull@ff.ukim.edu.mk' => config('journal.name_en')] && $n->locale === 'mk');
 
         // After accepting: the whole text, still without the authors.
         $this->get(route('reviewer.reviews.show', $a))->assertInertia(fn (Assert $page) => $page
@@ -255,7 +255,7 @@ class ReviewTest extends TestCase
         $this->actingAs($reviewer)->post(route('reviewer.reviews.submit', $a), ['recommendation' => '', 'comments_to_author' => ''])->assertSessionHasErrors(['recommendation', 'comments_to_author']);
         $this->actingAs($reviewer)->post(route('reviewer.reviews.submit', $a), ['recommendation' => 'major_revision', 'comments_to_author' => 'Please add controls.', 'comments_to_editor' => 'Weak paper.'])->assertRedirect();
         $this->assertSame(AssignmentStatus::Submitted, $a->fresh()->status);
-        Notification::assertSentTo($this->admin, ReviewReceived::class);
+        Notification::assertSentOnDemand(ReviewReceived::class, fn ($n, $channels, $notifiable) => ($notifiable->routes['mail'] ?? null) === ['macpharmbull@ff.ukim.edu.mk' => config('journal.name_en')] && $n->locale === 'mk');
 
         // Submitted reviews cannot be changed.
         $this->actingAs($reviewer)->putJson(route('reviewer.reviews.update', $a), ['comments_to_author' => 'changed'])->assertForbidden();

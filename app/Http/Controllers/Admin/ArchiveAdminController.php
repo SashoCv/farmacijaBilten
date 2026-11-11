@@ -99,6 +99,7 @@ class ArchiveAdminController extends Controller
             ->map(function ($articles) use ($reasons) {
                 /** @var Issue $issue */
                 $issue = $articles->first()->issue;
+                $pending = array_values(Crossref::pending($issue)->map(fn (Article $a) => $a->number)->all());
 
                 return [
                     'slug' => $issue->slug,
@@ -108,12 +109,13 @@ class ArchiveAdminController extends Controller
                     'url' => route('admin.archive.issue', $issue),
                     'total' => $issue->articles()->count(),
                     // Not registered and safe to deposit (not the ones to check by hand).
-                    'pending' => Crossref::pending($issue)->count(),
+                    'pending' => count($pending),
                     'xmlUrl' => route('admin.crossref.xml', $issue),
                     'depositUrl' => route('admin.crossref.deposit', $issue),
                     'articles' => $articles->sortBy('number')->map(fn (Article $a) => [
                         'number' => $a->number,
                         'title' => $a->title,
+                        ...self::depositLinks($issue, $a, $pending),
                         'doi' => (string) $a->doi,
                         'problem' => $reasons[$issue->slug.'/'.$a->number]['problem'] ?? 'Not found at Crossref',
                         'crossrefDoi' => $reasons[$issue->slug.'/'.$a->number]['crossrefDoi'] ?? null,
@@ -132,17 +134,19 @@ class ArchiveAdminController extends Controller
             ->map(function ($articles) {
                 /** @var Issue $issue */
                 $issue = $articles->first()->issue;
+                $pending = array_values(Crossref::pending($issue)->map(fn (Article $a) => $a->number)->all());
 
                 return [
                     'slug' => $issue->slug,
                     'label' => $issue->label(),
                     'volume' => $issue->volume,
-                    'pending' => Crossref::pending($issue)->count(),
+                    'pending' => count($pending),
                     'xmlUrl' => route('admin.crossref.xml', $issue),
                     'depositUrl' => route('admin.crossref.deposit', $issue),
                     'articles' => $articles->sortBy('number')->map(fn (Article $a) => [
                         'number' => $a->number,
                         'doi' => (string) $a->doi,
+                        ...self::depositLinks($issue, $a, $pending),
                         'registeredAs' => (string) $a->doi_resolvable,
                         'url' => route('admin.archive.article', [$issue, $a->number]),
                     ])->values()->all(),
@@ -158,8 +162,8 @@ class ArchiveAdminController extends Controller
             'double' => $double,
             'indexUrl' => route('admin.archive.index'),
             'crossref' => [
-                'depositorName' => Setting::get(Crossref::SETTING_NAME),
-                'depositorEmail' => Setting::get(Crossref::SETTING_EMAIL),
+                'depositorName' => Crossref::depositorName(),
+                'depositorEmail' => Crossref::depositorEmail(),
                 'auto' => Setting::get(Crossref::SETTING_AUTO) === '1',
                 'connected' => Crossref::connected(),
                 'testMode' => Crossref::testMode(),
@@ -181,10 +185,27 @@ class ArchiveAdminController extends Controller
                     'trigger' => $d->trigger,
                     'test' => $d->test,
                     'message' => $d->message,
+                    'checkUrl' => $d->status === 'sent' ? route('admin.crossref.check', $d) : null,
                     'by' => $d->user?->name,
                     'at' => $d->created_at?->toIso8601String(),
                 ])->values()->all(),
         ]);
+    }
+
+    /**
+     * One article's deposit links, when its DOI may be deposited.
+     *
+     * @param  list<string>  $pending  numbers of the issue's articles to deposit
+     * @return array{xmlUrl: string|null, depositUrl: string|null}
+     */
+    private static function depositLinks(Issue $issue, Article $a, array $pending): array
+    {
+        $ok = in_array($a->number, $pending, true);
+
+        return [
+            'xmlUrl' => $ok ? route('admin.crossref.article.xml', [$issue, $a->number]) : null,
+            'depositUrl' => $ok ? route('admin.crossref.article.deposit', [$issue, $a->number]) : null,
+        ];
     }
 
     public function issue(Issue $issue): Response

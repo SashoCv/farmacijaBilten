@@ -219,5 +219,12 @@
     "Enter the Crossref username.": "Внесете го Crossref корисничкото име.",
     "Enter the Crossref password.": "Внесете ја Crossref лозинката.",
     "Crossref account saved. Deposits now register real DOIs.": "Crossref сметката е зачувана. Депонирањата сега регистрираат вистински DOI.",
-    "Crossref account saved, in test mode: deposits are checked but nothing is registered.": "Crossref сметката е зачувана, во тест-режим: депонирањата се проверуваат, но ништо не се регистрира."
+    "Crossref account saved, in test mode: deposits are checked but nothing is registered.": "Crossref сметката е зачувана, во тест-режим: депонирањата се проверуваат, но ништо не се регистрира.",
+    "Crossref did not accept the username or password.": "Crossref не ги прифати корисничкото име или лозинката.",
+    "If you sign in to Crossref with your e-mail address, write the username as e-mail/role (the role is shown when you sign in at doi.crossref.org).": "Ако во Crossref се најавувате со е-адреса, корисничкото име напишете го како е-адреса/улога (улогата се гледа кога ќе се најавите на doi.crossref.org).",
+    "Crossref answered with a web page instead of a deposit answer. Usually the username needs the role (e-mail/role), or the account has no access to the Crossref test system (ask support@crossref.org to enable it).": "Crossref врати веб-страница наместо одговор за депонирањето. Најчесто корисничкото име треба да ја содржи улогата (е-адреса/улога), или сметката нема пристап до тест-системот на Crossref (побарајте од support@crossref.org да го овозможи).",
+    "Crossref is still processing the deposit. Try again in a few minutes.": "Crossref сè уште го обработува депонирањето. Обидете се повторно за неколку минути.",
+    "Crossref has answered: see the deposit.": "Crossref одговори: погледнете го депонирањето.",
+    ":doi sent to Crossref. The result comes within minutes.": ":doi е испратено до Crossref. Резултатот стига за неколку минути.",
+    "This DOI is already registered, or it must be checked by hand first.": "Ова DOI е веќе регистрирано, или прво мора рачно да се провери."
 }

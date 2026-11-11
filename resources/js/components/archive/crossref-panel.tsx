@@ -1,6 +1,6 @@
-import { Form, router } from '@inertiajs/react';
+import { Form, router, usePoll } from '@inertiajs/react';
 import { Download, Send } from 'lucide-react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import InputError from '@/components/input-error';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -178,6 +178,55 @@ export function DepositButtons({
     );
 }
 
+/** One article: its deposit file, or send its DOI alone. */
+export function ArticleDepositButtons({
+    xmlUrl,
+    depositUrl,
+}: {
+    xmlUrl: string | null;
+    depositUrl: string | null;
+}) {
+    const { t } = useT();
+    const [sending, setSending] = useState(false);
+
+    if (!xmlUrl) {
+        return null;
+    }
+
+    return (
+        <span className="flex flex-wrap items-center gap-2">
+            <Button asChild variant="ghost" size="sm" className="h-7 px-2">
+                <a href={xmlUrl}>
+                    <Download aria-hidden="true" />
+                    {t('XML')}
+                </a>
+            </Button>
+            {depositUrl && (
+                <Button
+                    variant="outline"
+                    size="sm"
+                    className="h-7"
+                    disabled={sending}
+                    onClick={() =>
+                        router.post(
+                            depositUrl,
+                            {},
+                            {
+                                preserveScroll: true,
+                                onStart: () => setSending(true),
+                                onFinish: () => setSending(false),
+                            },
+                        )
+                    }
+                >
+                    <Send aria-hidden="true" />
+                    {sending ? t('Sending…') : t('Send this one')}
+                </Button>
+            )}
+        </span>
+    );
+}
+
 const STATUS_TONE: Record<string, string> = {
     succeeded: 'text-emerald-700',
     failed: 'text-red-700',
@@ -187,6 +236,26 @@ const STATUS_TONE: Record<string, string> = {
 /** The last deposits and Crossref's answer. */
 export function DepositLog({ deposits }: { deposits: CrossrefDepositRow[] }) {
     const { t, locale } = useT();
+    const waiting = deposits.some(
+        (d) => d.status === 'queued' || d.status === 'sent',
+    );
+
+    // While a deposit waits to be sent (a few seconds), refresh the list.
+    const { start, stop } = usePoll(
+        5000,
+        { only: ['deposits', 'groups', 'double'] },
+        { autoStart: false },
+    );
+
+    useEffect(() => {
+        if (waiting) {
+            start();
+        } else {
+            stop();
+        }
+
+        return stop;
+    }, [waiting, start, stop]);
 
     if (deposits.length === 0) {
         return null;
@@ -239,6 +308,27 @@ export function DepositLog({ deposits }: { deposits: CrossrefDepositRow[] }) {
                                     : d.by && ` · ${d.by}`}
                             </span>
                         </span>
+                        {d.status === 'sent' && d.checkUrl && (
+                            <span className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
+                                {t(
+                                    'Crossref processes deposits in its queue, usually within minutes; the system asks every ten minutes.',
+                                )}
+                                <Button
+                                    size="sm"
+                                    variant="outline"
+                                    className="h-7"
+                                    onClick={() =>
+                                        router.post(
+                                            d.checkUrl as string,
+                                            {},
+                                            { preserveScroll: true },
+                                        )
+                                    }
+                                >
+                                    {t('Ask Crossref now')}
+                                </Button>
+                            </span>
+                        )}
                         {d.message && (
                             <pre className="m-0 font-mono text-xs whitespace-pre-wrap text-red-700">
                                 {d.message}
@@ -304,10 +394,16 @@ export function CrossrefAccountForm({
                                 id="cr-user"
                                 name="username"
                                 autoComplete="off"
+                                placeholder={t('e-mail/role')}
                                 defaultValue={
                                     saved ? (settings.username ?? '') : ''
                                 }
                             />
+                            <p className="m-0 text-xs text-muted-foreground">
+                                {t(
+                                    'If you sign in to Crossref with your e-mail address, add the role after a slash: e-mail/role. The role is shown when you sign in at doi.crossref.org.',
+                                )}
+                            </p>
                             <InputError message={errors.username} />
                         </div>
                         <div className="grid gap-1.5">

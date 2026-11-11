@@ -56,7 +56,10 @@ return [
         'country_code' => 'MK',
     ],
 
-    'editorial_email' => 'magl@ff.ukim.edu.mk',
+    // The editorial mailbox: shown on the site, Reply-To of every e-mail, and
+    // where the system's messages for the editorial office go (in editorial_locale).
+    'editorial_email' => env('JOURNAL_EDITORIAL_EMAIL', 'macpharmbull@ff.ukim.edu.mk'),
+    'editorial_locale' => 'mk',
     // TO CONFIRM: no phone number is published on the old site.
     'phone' => null,
 
