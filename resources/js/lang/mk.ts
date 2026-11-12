@@ -113,6 +113,7 @@ const mk: Record<string, string> = {
     'The Bulletin’s mission is to be the premier periodical on basic pharmacy concepts and recent developments in pharmacy, promoting research, postgraduate training and progress in pharmacy, medicine, dental medicine and the life sciences.':
         'Мисијата на Билтенот е да биде водечко списание за основните концепти и најновите достигнувања во фармацијата, кое ги поттикнува истражувањата, последипломското образование и напредокот во фармацијата, медицината, стоматологијата и науките за животот.',
     'Prof. Marija Glavas Dodov': 'Проф. д-р Марија Главаш Додов',
+    'Editor-in-Chief': 'Главен уредник',
     'From the editor’s words': 'Од зборот на уредникот',
     'Read the full editorial': 'Прочитајте го целиот збор од уредникот',
     'Publish with the Bulletin': 'Објавете во Билтенот',

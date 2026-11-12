@@ -67,9 +67,8 @@ return [
     'editor' => [
         'name' => 'Marija Glavas Dodov',
         'title' => 'Professor',
-        // TO CONFIRM: the editorial board page (last updated 2020) lists her as
-        // Secretary and Svetlana Kulevanova as Editor-in-Chief.
-        'role' => null,
+        // Editor-in-Chief since November 2026 (confirmed by the editorial office).
+        'role' => 'Editor-in-Chief',
         'signature' => '/media/uploads/2025/09/Potpis_Glavas-e1757065020400.png',
     ],
 
