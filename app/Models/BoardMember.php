@@ -84,8 +84,10 @@ class BoardMember extends Model
      */
     public function scopeOrdered(Builder $query): void
     {
+        // "group" is a reserved word. Backticks quote it on both MySQL and SQLite;
+        // double quotes would be a string literal on MySQL.
         $query->orderByRaw(
-            "case \"group\" when 'editor-in-chief' then 0 when 'secretary' then 1 when 'international' then 2 else 99 end",
+            "case `group` when 'editor-in-chief' then 0 when 'secretary' then 1 when 'international' then 2 else 99 end",
         )->orderBy('position')->orderBy('family_name');
     }
 

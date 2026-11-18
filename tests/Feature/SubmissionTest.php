@@ -101,7 +101,8 @@ class SubmissionTest extends TestCase
         $this->post(route('submissions.store'), $this->payload());
 
         $submission = Submission::sole();
-        $expected = sprintf('MPB-%s-%04d', now()->format('Y'), $submission->id);
+        // The yearly sequence, not the row id (MySQL does not roll ids back between tests).
+        $expected = sprintf('MPB-%s-0001', now()->format('Y'));
 
         $this->assertSame($expected, $submission->reference);
         $this->assertSame($expected, session('submitted'));

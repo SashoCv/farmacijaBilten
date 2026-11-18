@@ -109,11 +109,14 @@ class Article extends Model
     {
         foreach ($terms as $term) {
             $like = "%{$term}%";
+            // JSON columns compare case-sensitively on MySQL/MariaDB (binary
+            // collation): both sides lower-cased, as LIKE does on SQLite.
+            $lower = '%'.mb_strtolower($term).'%';
 
             $query->where(fn (Builder $q) => $q
                 ->where('articles.title', 'like', $like)
-                ->orWhere('articles.authors', 'like', $like)
-                ->orWhere('articles.keywords', 'like', $like)
+                ->orWhereRaw('lower(articles.authors) like ?', [$lower])
+                ->orWhereRaw('lower(articles.keywords) like ?', [$lower])
                 ->orWhere('articles.abstract', 'like', $like));
         }
     }
