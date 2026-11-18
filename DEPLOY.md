@@ -3,7 +3,8 @@
 This guide sets up the journal website on a Linux server (the examples use
 Ubuntu 24.04 LTS) and keeps it running. Follow it from top to bottom on a
 clean machine and the site serves `https://bulletin.mfd.org.mk` with styles,
-server-side rendering, e-mail and backups.
+server-side rendering, e-mail and backups. For Hostinger shared hosting
+(MySQL, no root) see section 11.
 
 Everything the server needs is in this repository:
 
@@ -334,3 +335,159 @@ composer dev       # the local PHP server and Vite (Vite writes public/hot while
 In the local environment the public page cache and `X-Frame-Options` are off
 (`config/http.php`), so pages are never stale and QA can frame pages at phone
 width. Tests run on an in-memory database: `php artisan test`.
+
+## 11. Hostinger shared hosting
+
+The site also runs on Hostinger shared (web/cloud) hosting, with MySQL instead
+of SQLite and without root, Supervisor or nginx. Tested on the staging site
+`orangered-emu-632765.hostingersite.com` (November 2026). What differs from
+the VPS setup above:
+
+| Feature                    | VPS (sections 1–9)            | Hostinger shared                                                       |
+| -------------------------- | ----------------------------- | ---------------------------------------------------------------------- |
+| Database                   | SQLite file                   | MySQL/MariaDB from hPanel (all tests pass on both)                     |
+| Server-side rendering      | Node process under Supervisor | Off (`INERTIA_SSR_ENABLED=false`); pages render in the browser         |
+| E-mail queue               | Worker under Supervisor       | Cron runs `queue:work --stop-when-empty` every minute                  |
+| Article PDF (WeasyPrint)   | `/opt/weasyprint` venv        | micromamba environment in the home folder (11.4)                       |
+| Covers from PDFs (poppler) | `journal:generate-covers`     | Not available: generate locally and upload `storage/app/journal/media` |
+
+Paths below use the staging account; replace `u638118030` and the domain
+folder with the real ones (`pwd` in the site folder prints it).
+
+### 11.1 PHP and Node versions
+
+The default `php`, `node` and `python3` are too old. Newer versions live in
+`/opt/alt`. Put them first in the `PATH` (once, in `~/.bashrc`):
+
+```bash
+echo 'export PATH=/opt/alt/alt-nodejs22/root/usr/bin:/opt/alt/php83/usr/bin:$PATH' >> ~/.bashrc
+echo 'export RAYON_NUM_THREADS=1 UV_THREADPOOL_SIZE=2' >> ~/.bashrc
+source ~/.bashrc
+node -v    # 22.18 or newer
+php -v     # 8.3
+```
+
+`RAYON_NUM_THREADS` matters: shared hosting limits the number of threads per
+user, and Rolldown/Tailwind (Rust) otherwise start one per CPU core and the
+build stops with `The global thread pool has not been initialized ...
+Resource temporarily unavailable`.
+
+### 11.2 Code, database and build
+
+The domain's document root is `public_html`; point it at Laravel's `public`
+folder with a symlink (move Hostinger's default `public_html` folder away
+first if it exists):
+
+```bash
+cd ~/domains/DOMAIN
+git clone https://github.com/SashoCv/farmacijaBilten.git .
+ln -s public public_html
+composer install --no-dev --optimize-autoloader
+cp .env.example .env && php artisan key:generate
+```
+
+In `.env`, besides `APP_URL`, mail and Crossref:
+
+```
+APP_ENV=production
+APP_DEBUG=false
+DB_CONNECTION=mysql
+DB_HOST=localhost
+DB_PORT=3306
+DB_DATABASE=u638118030_...      # from hPanel → Databases → Management
+DB_USERNAME=u638118030_...
+DB_PASSWORD="..."
+QUEUE_CONNECTION=database
+INERTIA_SSR_ENABLED=false
+HTTP_PUBLIC_CACHE=false          # see 11.6
+WEASYPRINT_PYTHON=/home/u638118030/wp/bin/python
+```
+
+Import the data in hPanel → phpMyAdmin (a `.sql.gz` dump of the current
+database), then:
+
+```bash
+npm ci && npm run build
+rm -f public/hot public/fonts-manifest.dev.json
+php artisan migrate --force      # adds the MySQL triggers; only warns if not allowed
+php artisan storage:link
+php artisan optimize
+php artisan journal:editor editor@example.org --name="Full Name"
+```
+
+The dump is made from the SQLite database by migrating an empty MySQL/MariaDB
+database and copying the rows table by table (sessions, cache and jobs are
+left out). Make it with MariaDB (for example the `mariadb:10.11` Docker image)
+so it imports into both MariaDB and MySQL 8. Before handing it over, remove
+any saved Crossref login and change or lock the demo accounts.
+
+### 11.3 Journal files
+
+The PDFs, images and covers are not in git (`storage/app/journal`, about
+800 MB). Most come from the old site:
+
+```bash
+php artisan journal:import --only-files --concurrency=2
+```
+
+Covers and article thumbnails (`media/covers`, `media/thumbs`) need poppler,
+which shared hosting lacks: zip them on a machine that has them, upload with
+`scp -P 65002 file.zip u638118030@SERVER_IP:~/domains/DOMAIN/` (one line) and
+`unzip -o` in the site folder. The same for `storage/app/reports` (DOI
+reports) and `storage/app/private` (manuscript files).
+
+### 11.4 Article PDFs: WeasyPrint with micromamba
+
+The system Pango is 1.42; WeasyPrint needs 1.44 or newer and fails with
+`undefined symbol: pango_context_set_round_glyph_positions`. A pip install is
+therefore not enough. Install Python, WeasyPrint and a current Pango from
+conda-forge into the home folder instead:
+
+```bash
+cd ~
+curl -Ls https://micro.mamba.pm/api/micromamba/linux-64/latest | tar -xvj bin/micromamba
+~/bin/micromamba create -y -p ~/wp -c conda-forge python=3.11 weasyprint pango
+# check, in the site folder:
+echo '<html lang="mk"><body><h1>Тест</h1></body></html>' > /tmp/t.html
+~/wp/bin/python resources/pdf/render.py /tmp/t.html /tmp/t.pdf     # prints pages=1
+```
+
+Then set `WEASYPRINT_PYTHON=/home/u638118030/wp/bin/python` and run
+`php artisan optimize`. If `micromamba create` fails with "Resource
+temporarily unavailable", repeat it with `MAMBA_EXTRACT_THREADS=1` in front.
+
+### 11.5 Cron
+
+hPanel → Advanced → Cron Jobs, both every minute (use the full PHP path):
+
+```
+/opt/alt/php83/usr/bin/php /home/u638118030/domains/DOMAIN/artisan schedule:run
+/opt/alt/php83/usr/bin/php /home/u638118030/domains/DOMAIN/artisan queue:work --stop-when-empty --max-time=50
+```
+
+The second line sends the queued e-mails and Crossref deposits (there is no
+Supervisor to keep a worker running).
+
+### 11.6 Hostinger CDN
+
+Hostinger puts its CDN (`server: hcdn`) in front of the site. It does not
+honour `Vary: X-Inertia`, so with the public page cache on it can answer an
+Inertia link click with a cached HTML page, and Inertia shows it in an empty
+dialog (clicking the logo opened a blank popup). Hence
+`HTTP_PUBLIC_CACHE=false`. After changing it, flush the CDN in hPanel →
+Performance → CDN.
+
+The CDN also caches 404 answers for images for 30 days, and browsers keep them
+too. Upload the journal files **before** anyone opens the site; if a page was
+opened earlier, flush the CDN and clear that browser's site data.
+
+### 11.7 Updates
+
+```bash
+cd ~/domains/DOMAIN
+git pull
+composer install --no-dev --optimize-autoloader
+npm ci && npm run build && rm -f public/hot
+php artisan migrate --force
+php artisan optimize
+```
