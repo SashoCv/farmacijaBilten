@@ -32,7 +32,8 @@ return [
         'name_en' => 'Macedonian Pharmaceutical Association',
         'name_mk' => 'Македонско фармацевтско друштво',
         'abbrev' => 'MFD',
-        'email' => 'info@mfd.org.mk',
+        // Contact address given by the editorial office (November 2026).
+        'email' => 'mfd.mpa.mk@gmail.com',
         'url' => 'https://mfd.org.mk',
         // As on the old contact page ("Marshal Tito 13B/8, Skopje, Macedonia").
         'address' => 'Marshal Tito 13B/8, Skopje',
