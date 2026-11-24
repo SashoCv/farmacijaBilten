@@ -2,7 +2,6 @@ import { Head, Link, usePage } from '@inertiajs/react';
 import { ExternalLink } from 'lucide-react';
 import {
     ArticleDepositButtons,
-    CrossrefAccountForm,
     CrossrefSettingsForm,
     DepositButtons,
     DepositLog,
@@ -83,7 +82,8 @@ export default function ArchiveDois({
                 </header>
 
                 <CrossrefSettingsForm settings={crossref} />
-                <CrossrefAccountForm settings={crossref} />
+                {/* The account form (CrossrefAccountForm) is hidden: the Crossref account is
+                    set on the server in .env (CROSSREF_USERNAME, CROSSREF_PASSWORD, CROSSREF_MODE). */}
                 <InputError message={errors.crossref} />
 
                 <section className="rounded-xl border bg-card p-4">
