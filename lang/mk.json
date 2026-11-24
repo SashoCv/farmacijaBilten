@@ -227,6 +227,7 @@
     "Crossref has answered: see the deposit.": "Crossref одговори: погледнете го депонирањето.",
     ":doi sent to Crossref. The result comes within minutes.": ":doi е испратено до Crossref. Резултатот стига за неколку минути.",
     "This DOI is already registered, or it must be checked by hand first.": "Ова DOI е веќе регистрирано, или прво мора рачно да се провери.",
-    ":email already has an account and is now in the list of reviewers.": ":email веќе има сметка и сега е во листата на рецензенти.",
-    "You are in the list of reviewers. Invitations to review will come by e-mail and appear here.": "Сега сте во листата на рецензенти. Поканите за рецензија ќе стигнуваат по е-пошта и ќе се појавуваат тука."
+    "You are in the list of reviewers. Invitations to review will come by e-mail and appear here.": "Сега сте во листата на рецензенти. Поканите за рецензија ќе стигнуваат по е-пошта и ќе се појавуваат тука.",
+    ":email already has an account and is now in the list of reviewers. An e-mail has been sent.": ":email веќе има сметка и сега е во листата на рецензенти. Испратена е е-порака.",
+    ":email is already in the list of reviewers.": ":email веќе е во листата на рецензенти."
 }

@@ -1,6 +1,6 @@
 import { Form, router, usePoll } from '@inertiajs/react';
 import { Download, Send } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import InputError from '@/components/input-error';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -45,7 +45,7 @@ export function CrossrefSettingsForm({
                     ) : (
                         <span className="text-muted-foreground">
                             {t(
-                                'No Crossref account is entered (below). Until then, download the XML of an issue and upload it at Crossref (doi.crossref.org → Submissions → Upload, type Metadata).',
+                                'No Crossref account is set on the server. Until then, download the XML of an issue and upload it at Crossref (doi.crossref.org → Submissions → Upload, type Metadata).',
                             )}
                         </span>
                     )}
@@ -228,19 +228,58 @@ export function ArticleDepositButtons({
 }
 
 const STATUS_TONE: Record<string, string> = {
-    succeeded: 'text-emerald-700',
-    failed: 'text-red-700',
-    partly: 'text-amber-800',
+    queued: 'border-sky-300 text-sky-800 dark:border-sky-800 dark:text-sky-300',
+    sent: 'border-sky-300 text-sky-800 dark:border-sky-800 dark:text-sky-300',
+    succeeded:
+        'border-emerald-300 text-emerald-800 dark:border-emerald-800 dark:text-emerald-300',
+    failed: 'border-red-300 text-red-700 dark:border-red-800 dark:text-red-400',
+    partly: 'border-amber-300 text-amber-800 dark:border-amber-800 dark:text-amber-300',
 };
 
-/** The last deposits and Crossref's answer. */
-export function DepositLog({ deposits }: { deposits: CrossrefDepositRow[] }) {
-    const { t, locale } = useT();
-    const waiting = deposits.some(
-        (d) => d.status === 'queued' || d.status === 'sent',
-    );
+/** A deposit's state as a small badge. */
+export function DepositStatusBadge({
+    status,
+    test,
+}: {
+    status: string;
+    test?: boolean;
+}) {
+    const { t } = useT();
+    const label: Record<string, string> = {
+        queued: t('waiting to be sent'),
+        sent: t('sent, waiting for Crossref'),
+        succeeded: t('registered'),
+        partly: t('partly registered'),
+        failed: t('failed'),
+    };
 
-    // While a deposit waits to be sent (a few seconds), refresh the list.
+    return (
+        <span className="inline-flex flex-wrap items-center gap-1">
+            <span
+                className={cn(
+                    'rounded border px-1.5 py-0.5 text-xs font-medium whitespace-nowrap',
+                    STATUS_TONE[status] ?? 'text-muted-foreground',
+                )}
+            >
+                {label[status] ?? status}
+            </span>
+            {test && (
+                <span className="rounded border border-amber-300 px-1.5 py-0.5 text-xs text-amber-800 dark:border-amber-800 dark:text-amber-300">
+                    {t('test')}
+                </span>
+            )}
+        </span>
+    );
+}
+
+/** Deposits waiting to be sent or for Crossref's answer. */
+export function isDepositOpen(d: CrossrefDepositRow): boolean {
+    return d.status === 'queued' || d.status === 'sent';
+}
+
+/** While a deposit waits (to be sent, or for Crossref), refresh the page data. */
+export function useDepositPolling(deposits: CrossrefDepositRow[]) {
+    const waiting = deposits.some(isDepositOpen);
     const { start, stop } = usePoll(
         5000,
         { only: ['deposits', 'groups', 'double'] },
@@ -256,88 +295,128 @@ export function DepositLog({ deposits }: { deposits: CrossrefDepositRow[] }) {
 
         return stop;
     }, [waiting, start, stop]);
+}
+
+/** The last deposits and Crossref's answer, as a table. */
+export function DepositLog({ deposits }: { deposits: CrossrefDepositRow[] }) {
+    const { t, locale } = useT();
 
     if (deposits.length === 0) {
-        return null;
+        return (
+            <p className="m-0 rounded-xl border bg-card px-4 py-8 text-center text-sm text-muted-foreground">
+                {t('Nothing has been sent to Crossref from here yet.')}
+            </p>
+        );
     }
 
-    const label: Record<string, string> = {
-        queued: t('waiting to be sent'),
-        sent: t('sent, waiting for Crossref'),
-        succeeded: t('registered'),
-        partly: t('partly registered'),
-        failed: t('failed'),
-    };
-
     return (
-        <section className="grid gap-2">
-            <h2 className="m-0 text-lg font-semibold">{t('Deposits')}</h2>
-            <ul className="m-0 grid list-none divide-y rounded-xl border bg-card p-0">
-                {deposits.map((d) => (
-                    <li key={d.id} className="grid gap-1 px-4 py-3 text-sm">
-                        <span className="flex flex-wrap gap-x-3">
-                            <span className="font-medium">
-                                {d.issue ?? '—'}
-                            </span>
-                            <span>{t('{count} DOIs', { count: d.count })}</span>
-                            <span
+        <div className="overflow-x-auto rounded-xl border bg-card">
+            <table className="w-full min-w-[640px] text-left text-sm">
+                <thead className="border-b bg-muted/50 text-xs text-muted-foreground">
+                    <tr>
+                        <th scope="col" className="px-4 py-2.5 font-medium">
+                            {t('When')}
+                        </th>
+                        <th scope="col" className="px-4 py-2.5 font-medium">
+                            {t('Issue')}
+                        </th>
+                        <th
+                            scope="col"
+                            className="px-3 py-2.5 text-right font-medium"
+                        >
+                            {t('DOIs')}
+                        </th>
+                        <th scope="col" className="px-4 py-2.5 font-medium">
+                            {t('Status')}
+                        </th>
+                        <th scope="col" className="px-4 py-2.5 font-medium">
+                            {t('By')}
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {deposits.map((d) => (
+                        <Fragment key={d.id}>
+                            <tr
                                 className={cn(
-                                    'font-medium',
-                                    STATUS_TONE[d.status] ??
-                                        'text-muted-foreground',
+                                    'align-top',
+                                    !(d.message || d.status === 'sent') &&
+                                        'border-b last:border-0',
                                 )}
                             >
-                                {label[d.status] ?? d.status}
-                            </span>
-                            {d.test && (
-                                <span className="text-amber-800">
-                                    {t('test')}
-                                </span>
+                                <td className="px-4 py-2.5 whitespace-nowrap text-muted-foreground tabular-nums">
+                                    {d.at &&
+                                        new Date(d.at).toLocaleString(
+                                            locale === 'mk' ? 'mk-MK' : 'en-GB',
+                                            {
+                                                dateStyle: 'medium',
+                                                timeStyle: 'short',
+                                            },
+                                        )}
+                                </td>
+                                <td className="px-4 py-2.5 font-medium">
+                                    {d.issue ?? '—'}
+                                </td>
+                                <td className="px-3 py-2.5 text-right tabular-nums">
+                                    {d.count}
+                                </td>
+                                <td className="px-4 py-2.5">
+                                    <DepositStatusBadge
+                                        status={d.status}
+                                        test={d.test}
+                                    />
+                                </td>
+                                <td className="px-4 py-2.5 text-muted-foreground">
+                                    {d.trigger === 'publish'
+                                        ? t('automatic, on publishing')
+                                        : (d.by ?? '—')}
+                                </td>
+                            </tr>
+                            {(d.message ||
+                                (d.status === 'sent' && d.checkUrl)) && (
+                                <tr className="border-b last:border-0">
+                                    <td colSpan={5} className="px-4 pb-3">
+                                        {d.status === 'sent' && d.checkUrl && (
+                                            <span className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
+                                                {t(
+                                                    'Crossref processes deposits in its queue, usually within minutes; the system asks every ten minutes.',
+                                                )}
+                                                <Button
+                                                    size="sm"
+                                                    variant="outline"
+                                                    className="h-7"
+                                                    onClick={() =>
+                                                        router.post(
+                                                            d.checkUrl as string,
+                                                            {},
+                                                            {
+                                                                preserveScroll: true,
+                                                            },
+                                                        )
+                                                    }
+                                                >
+                                                    {t('Ask Crossref now')}
+                                                </Button>
+                                            </span>
+                                        )}
+                                        {d.message && (
+                                            <details className="text-xs">
+                                                <summary className="cursor-pointer font-medium text-red-700 dark:text-red-400">
+                                                    {t('What Crossref said')}
+                                                </summary>
+                                                <pre className="m-0 mt-1 font-mono whitespace-pre-wrap text-red-700 dark:text-red-400">
+                                                    {d.message}
+                                                </pre>
+                                            </details>
+                                        )}
+                                    </td>
+                                </tr>
                             )}
-                            <span className="text-muted-foreground">
-                                {d.at &&
-                                    new Date(d.at).toLocaleString(
-                                        locale === 'mk' ? 'mk-MK' : 'en-GB',
-                                        {
-                                            dateStyle: 'medium',
-                                            timeStyle: 'short',
-                                        },
-                                    )}
-                                {d.trigger === 'publish'
-                                    ? ` · ${t('automatic, on publishing')}`
-                                    : d.by && ` · ${d.by}`}
-                            </span>
-                        </span>
-                        {d.status === 'sent' && d.checkUrl && (
-                            <span className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
-                                {t(
-                                    'Crossref processes deposits in its queue, usually within minutes; the system asks every ten minutes.',
-                                )}
-                                <Button
-                                    size="sm"
-                                    variant="outline"
-                                    className="h-7"
-                                    onClick={() =>
-                                        router.post(
-                                            d.checkUrl as string,
-                                            {},
-                                            { preserveScroll: true },
-                                        )
-                                    }
-                                >
-                                    {t('Ask Crossref now')}
-                                </Button>
-                            </span>
-                        )}
-                        {d.message && (
-                            <pre className="m-0 font-mono text-xs whitespace-pre-wrap text-red-700">
-                                {d.message}
-                            </pre>
-                        )}
-                    </li>
-                ))}
-            </ul>
-        </section>
+                        </Fragment>
+                    ))}
+                </tbody>
+            </table>
+        </div>
     );
 }
 

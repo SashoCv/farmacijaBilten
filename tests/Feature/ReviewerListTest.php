@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use App\Enums\Role;
 use App\Models\ReviewerInvite;
 use App\Models\User;
+use App\Notifications\Reviews\ReviewerAdded;
 use App\Notifications\Reviews\ReviewerListInvitation;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Notifications\AnonymousNotifiable;
@@ -116,7 +117,7 @@ class ReviewerListTest extends TestCase
             ->assertInertia(fn (Assert $page) => $page->has('invites', 0));
     }
 
-    public function test_someone_with_an_account_becomes_a_reviewer_without_an_e_mail(): void
+    public function test_someone_with_an_account_becomes_a_reviewer_and_is_told_by_e_mail(): void
     {
         $author = User::factory()->author()->create(['email' => 'author@example.org']);
 
@@ -124,7 +125,17 @@ class ReviewerListTest extends TestCase
 
         $this->assertTrue($author->fresh()->hasRole(Role::Reviewer));
         $this->assertSame(0, ReviewerInvite::count());
-        Notification::assertNothingSent();
+        Notification::assertSentTo($author, ReviewerAdded::class, function (ReviewerAdded $n) use ($author) {
+            $mail = $n->toMail($author);
+            $this->assertStringContainsString('We would value your help.', implode("\n", $mail->introLines));
+
+            return true;
+        });
+
+        // Added again: no second e-mail.
+        $this->add('author@example.org');
+        Notification::assertSentToTimes($author, ReviewerAdded::class, 1);
+        Notification::assertNotSentTo(new AnonymousNotifiable, ReviewerListInvitation::class);
     }
 
     public function test_sending_again_replaces_the_link_and_withdrawing_closes_it(): void

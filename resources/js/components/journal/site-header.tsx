@@ -18,7 +18,7 @@ import {
     submitHref,
 } from '@/lib/site-links';
 import type { SiteLink } from '@/lib/site-links';
-import { archive, earlyOnline, home } from '@/routes';
+import { archive, dashboard, earlyOnline, home } from '@/routes';
 import { show as showIssue } from '@/routes/issues';
 
 type NavGroup = { key: 'authors' | 'about'; label: string; items: SiteLink[] };
@@ -138,6 +138,8 @@ export function SiteHeader() {
     const { t, locale } = useT();
     const { component, props } = usePage();
     const { currentIssueSlug, journal } = props;
+    // Signed in (editors, authors, reviewers): a way back to their workspace.
+    const signedIn = props.auth.user !== null;
     const section = useSection();
     const isHome = component === 'journal/home';
 
@@ -236,7 +238,17 @@ export function SiteHeader() {
                                 {t('Faculty of Pharmacy, UKIM Skopje')}
                             </a>
                         </p>
-                        <LanguageSwitch variant="bar" />
+                        <div className="flex shrink-0 items-center gap-4">
+                            {signedIn && (
+                                <Link
+                                    href={dashboard()}
+                                    className="font-semibold text-white no-underline hover:underline lg:hidden"
+                                >
+                                    {t('My workspace')}
+                                </Link>
+                            )}
+                            <LanguageSwitch variant="bar" />
+                        </div>
                     </div>
                 </div>
 
@@ -273,6 +285,15 @@ export function SiteHeader() {
                                 placeholder={t('Search articles, authors…')}
                             />
                         </div>
+                    )}
+
+                    {signedIn && (
+                        <Link
+                            href={dashboard()}
+                            className="btn-outline hidden whitespace-nowrap lg:inline-flex"
+                        >
+                            {t('My workspace')}
+                        </Link>
                     )}
 
                     <Link
@@ -638,7 +659,12 @@ function MobileMenu({
                 ))}
             </nav>
 
-            <div className="shrink-0 border-t border-line bg-white p-4 pb-[max(1rem,env(safe-area-inset-bottom))]">
+            <div className="grid shrink-0 gap-2 border-t border-line bg-white p-4 pb-[max(1rem,env(safe-area-inset-bottom))]">
+                {props.auth.user !== null && (
+                    <Link href={dashboard()} className="btn-outline h-12 w-full">
+                        {t('My workspace')}
+                    </Link>
+                )}
                 <Link href={submitHref} className="btn-primary h-12 w-full">
                     {t('Submit manuscript')}
                 </Link>

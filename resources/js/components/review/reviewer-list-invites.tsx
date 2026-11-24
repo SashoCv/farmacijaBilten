@@ -84,7 +84,7 @@ export function AddReviewerForm({ storeUrl }: { storeUrl: string }) {
                 </h2>
                 <p className="m-0 mt-1 max-w-3xl text-sm text-muted-foreground">
                     {t(
-                        'The person gets an e-mail with a link to create a reviewer account. Someone who already has an account simply becomes a reviewer. Reviewers see only the manuscripts they are invited to.',
+                        'The person gets an e-mail at once: with a link to create a reviewer account or, if they already have an account, a notice that they are now a reviewer. Reviewers see only the manuscripts they are invited to.',
                     )}
                 </p>
             </div>

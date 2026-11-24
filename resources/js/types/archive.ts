@@ -133,6 +133,7 @@ export type ArchiveDoisProps = {
         slug: string;
         label: string;
         volume: number;
+        url: string;
         pending: number;
         xmlUrl: string;
         depositUrl: string;
@@ -147,7 +148,7 @@ export type ArchiveDoisProps = {
     }[];
     indexUrl: string;
     crossref: CrossrefSettings;
-    /** The last 20 deposits, newest first. */
+    /** The last 50 deposits, newest first. */
     deposits: CrossrefDepositRow[];
 };
 
@@ -175,6 +176,8 @@ export type CrossrefDepositRow = {
     id: number;
     batchId: string;
     issue: string | null;
+    /** To show an issue's last deposit next to it. */
+    issueSlug: string | null;
     count: number;
     dois: string[];
     /** queued | sent | succeeded | partly | failed */

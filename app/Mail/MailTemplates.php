@@ -125,6 +125,17 @@ final class MailTemplates
                     'mk' => "Почитувани {name},\n\nРедакцијата ве поканува да се приклучите кон рецензентите на {journal}.\n\n{message}\n\nСо рецензентска сметка ги добивате нашите покани за рецензија, ги читате ракописите што ќе прифатите да ги рецензирате и ги праќате рецензиите. Ги гледате само ракописите на кои сте поканети.\n\n{button}\n\nЛинкот е личен; ве молиме не го препраќајте. Ако не сакате да се приклучите, само занемарете ја оваа порака.\n\nВашето име и е-адреса ги чуваме за водење на рецензиите (видете ја изјавата за приватност на веб-страницата на списанието).",
                 ],
             ],
+            'reviewer_added' => [
+                'audience' => 'reviewer',
+                'description' => 'To someone who already has an account: they were added to the list of reviewers (from the Reviewers page).',
+                'placeholders' => $person + $journal + ['message' => 'The personal note added when inviting (may be empty)'],
+                'action' => ['en' => 'Open your reviews', 'mk' => 'Отворете ги рецензиите'],
+                'subject' => ['en' => 'You are now a reviewer for the {journal}', 'mk' => 'Сега сте рецензент на {journal}'],
+                'body' => [
+                    'en' => "Dear {name},\n\nThe editorial office has added you to the list of reviewers of the {journal}. You can use your existing account.\n\n{message}\n\nOur invitations to review will come by e-mail and appear in your account. You see only the manuscripts you are invited to.\n\n{button}",
+                    'mk' => "Почитувани {name},\n\nРедакцијата ве додаде во листата на рецензенти на {journal}. Ја користите постојната сметка.\n\n{message}\n\nНашите покани за рецензија ќе стигнуваат по е-пошта и ќе се појавуваат во вашата сметка. Ги гледате само ракописите на кои сте поканети.\n\n{button}",
+                ],
+            ],
             'new_manuscript' => [
                 'audience' => 'editors',
                 'description' => 'To the editorial office: a new manuscript arrived.',

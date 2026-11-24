@@ -1885,8 +1885,8 @@ const mk: Record<string, string> = {
         'сè уште без сметка',
     'Add a reviewer':
         'Додај рецензент',
-    'The person gets an e-mail with a link to create a reviewer account. Someone who already has an account simply becomes a reviewer. Reviewers see only the manuscripts they are invited to.':
-        'Лицето добива е-порака со линк за отворање рецензентска сметка. Ако веќе има сметка, само станува рецензент. Рецензентите ги гледаат само ракописите на кои се поканети.',
+    'The person gets an e-mail at once: with a link to create a reviewer account or, if they already have an account, a notice that they are now a reviewer. Reviewers see only the manuscripts they are invited to.':
+        'Лицето веднаш добива е-порака: со линк за отворање рецензентска сметка или, ако веќе има сметка, известување дека сега е рецензент. Рецензентите ги гледаат само ракописите на кои се поканети.',
     'Expertise (for finding reviewers)':
         'Експертиза (за пребарување рецензенти)',
     'Add and send the e-mail':
@@ -1911,6 +1911,40 @@ const mk: Record<string, string> = {
         'Редакцијата ве поканува да се приклучите кон рецензентите на списанието.',
     'Invitation to join the journal’s list of reviewers and create an account (from the Reviewers page).':
         'Покана за приклучување кон рецензентите на списанието и отворање сметка (од страницата Рецензенти).',
+    Settings: 'Поставки',
+    When: 'Кога',
+    By: 'Испратил',
+    DOIs: 'DOI',
+    'Last deposit': 'Последно испраќање',
+    'Open all': 'Отвори ги сите',
+    'Close all': 'Затвори ги сите',
+    'Nothing has been sent to Crossref from here yet.':
+        'Оттука сè уште ништо не е испратено до Crossref.',
+    'What Crossref said': 'Што одговори Crossref',
+    'No Crossref account is set on the server. Until then, download the XML of an issue and upload it at Crossref (doi.crossref.org → Submissions → Upload, type Metadata).':
+        'На серверот нема поставено Crossref сметка. Дотогаш, симнете го XML-от на бројот и прикачете го во Crossref (doi.crossref.org → Submissions → Upload, тип Metadata).',
+    'Crossref: test system.': 'Crossref: тест систем.',
+    'Crossref: connected.': 'Crossref: поврзан.',
+    'Crossref: not connected.': 'Crossref: не е поврзан.',
+    'How does this work?': 'Како функционира ова?',
+    'DOIs not registered, in {count} issues':
+        'нерегистрирани DOI, во {count} броеви',
+    'Registered with a mistake': 'регистрирани со грешка',
+    'Deposits in progress': 'испраќања во тек',
+    'Issues whose last deposit failed':
+        'броеви чие последно испраќање не успеало',
+    'To register ({count})': 'За регистрирање ({count})',
+    'Deposits ({count})': 'Испраќања ({count})',
+    'Volume, year, title or DOI': 'Том, година, наслов или DOI',
+    'Every DOI of the archive is registered.':
+        'Сите DOI од архивата се регистрирани.',
+    'No issue matches the search.':
+        'Ниеден број не одговара на пребарувањето.',
+    'The last deposits sent from here, newest first. Crossref’s answer arrives within minutes.':
+        'Последните испраќања оттука, најновите прво. Одговорот од Crossref стига за неколку минути.',
+    'My workspace': 'Мој панел',
+    'To someone who already has an account: they were added to the list of reviewers (from the Reviewers page).':
+        'До некој што веќе има сметка: додаден е во листата на рецензенти (од страницата Рецензенти).',
 };
 
 export default mk;

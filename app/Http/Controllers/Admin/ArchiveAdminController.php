@@ -140,6 +140,7 @@ class ArchiveAdminController extends Controller
                     'slug' => $issue->slug,
                     'label' => $issue->label(),
                     'volume' => $issue->volume,
+                    'url' => route('admin.archive.issue', $issue),
                     'pending' => count($pending),
                     'xmlUrl' => route('admin.crossref.xml', $issue),
                     'depositUrl' => route('admin.crossref.deposit', $issue),
@@ -174,11 +175,12 @@ class ArchiveAdminController extends Controller
                 'username' => Crossref::username(),
                 'accountSource' => Crossref::accountSource(),
             ],
-            'deposits' => CrossrefDeposit::with(['issue', 'user'])->latest('id')->limit(20)->get()
+            'deposits' => CrossrefDeposit::with(['issue', 'user'])->latest('id')->limit(50)->get()
                 ->map(fn (CrossrefDeposit $d) => [
                     'id' => $d->id,
                     'batchId' => $d->batch_id,
                     'issue' => $d->issue?->label(),
+                    'issueSlug' => $d->issue?->slug,
                     'count' => count($d->dois),
                     'dois' => $d->dois,
                     'status' => $d->status,
