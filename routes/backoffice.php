@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\MailTemplateAdminController;
 use App\Http\Controllers\Admin\ManuscriptAdminController;
 use App\Http\Controllers\Admin\ReviewAdminController;
 use App\Http\Controllers\Admin\ReviewerAdminController;
+use App\Http\Controllers\Admin\ReviewerInviteAdminController;
 use App\Http\Controllers\Admin\SubmissionAdminController;
 use App\Http\Controllers\Admin\UserAdminController;
 use App\Http\Controllers\Author\ManuscriptController;
@@ -16,6 +17,7 @@ use App\Http\Controllers\ManuscriptDocxController;
 use App\Http\Controllers\ManuscriptImageController;
 use App\Http\Controllers\ManuscriptPdfController;
 use App\Http\Controllers\Reviewer\ReviewController;
+use App\Http\Controllers\ReviewerSignupController;
 use App\Http\Controllers\ReviewFileController;
 use Illuminate\Support\Facades\Route;
 
@@ -49,6 +51,10 @@ Route::get('manuscripts/{manuscript}/pdf', ManuscriptPdfController::class)
 Route::middleware(['signed', 'throttle:30,1'])->group(function () {
     Route::get('invitations/{assignment}', [InvitationController::class, 'show'])->name('invitations.show');
     Route::post('invitations/{assignment}', [InvitationController::class, 'createAccount'])->name('invitations.account');
+
+    // Joining the list of reviewers (invited from the Reviewers page).
+    Route::get('reviewer-signup/{invite}', [ReviewerSignupController::class, 'show'])->name('reviewer-signup.show');
+    Route::post('reviewer-signup/{invite}', [ReviewerSignupController::class, 'store'])->name('reviewer-signup.store');
 });
 
 // Files attached to reviews (ReviewFileController decides who may see each).
@@ -99,6 +105,9 @@ Route::middleware(['auth', 'verified', 'role:admin', 'admin.2fa'])
         Route::put('manuscripts/{manuscript}/publication', [ManuscriptAdminController::class, 'updatePublication'])->name('manuscripts.publication');
         Route::post('manuscripts/{manuscript}/reviewers', [ReviewAdminController::class, 'invite'])->name('manuscripts.reviewers.store');
         Route::get('reviewers', ReviewerAdminController::class)->name('reviewers.index');
+        Route::post('reviewers', [ReviewerInviteAdminController::class, 'store'])->middleware('throttle:30,1')->name('reviewers.store');
+        Route::post('reviewer-invites/{invite}/resend', [ReviewerInviteAdminController::class, 'resend'])->middleware('throttle:30,1')->name('reviewer-invites.resend');
+        Route::delete('reviewer-invites/{invite}', [ReviewerInviteAdminController::class, 'destroy'])->name('reviewer-invites.destroy');
 
         // The wording of the system's e-mails.
         Route::get('mail-templates', [MailTemplateAdminController::class, 'index'])->name('mail-templates.index');

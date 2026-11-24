@@ -109,13 +109,18 @@ export type AdminReviews = {
     defaults: { responseDays: number; reviewDays: number };
     /** The author's suggestions (name, institution, e-mail). */
     suggested: { name: string; affiliation: string; email: string }[];
-    /** People with the reviewer role, for quick picking (authors of this paper excluded). */
+    /**
+     * People with the reviewer role, for quick picking (authors of this paper
+     * excluded), then people invited to the list who have no account yet
+     * (`pending`, id null).
+     */
     pool: {
-        id: number;
+        id: number | null;
         name: string;
         email: string;
         affiliation: string | null;
         expertise: string | null;
+        pending: boolean;
     }[];
     /** Every invitation of every round, newest round first. */
     assignments: AdminAssignment[];
@@ -212,6 +217,26 @@ export type InvitationProps = {
      * 'sign_in': an account exists: link to urls.signIn (returns here after);
      * 'wrong_account': signed in with another e-mail: offer to sign out (POST urls.signOut);
      * 'closed': the invitation was withdrawn, expired or already answered.
+     */
+    mode: 'create' | 'sign_in' | 'wrong_account' | 'closed';
+    signedInAs: string | null;
+    countries: string[];
+    passwordRules: string;
+    urls: { createAccount: string; signIn: string; signOut: string };
+};
+
+/** pages/auth/reviewer-signup.tsx: the link in the e-mail inviting someone to the list of reviewers. */
+export type ReviewerSignupProps = {
+    email: string;
+    givenName: string | null;
+    familyName: string | null;
+    affiliation: string | null;
+    message: string | null;
+    /**
+     * 'create': show the sign-up form, POST it to urls.createAccount;
+     * 'sign_in': the account exists and is a reviewer: link to urls.signIn;
+     * 'wrong_account': signed in with another e-mail: offer to sign out;
+     * 'closed': the invitation was withdrawn, replaced by a newer e-mail or used.
      */
     mode: 'create' | 'sign_in' | 'wrong_account' | 'closed';
     signedInAs: string | null;
@@ -323,6 +348,22 @@ export type ReviewersIndexProps = {
             url: string;
         }[];
     }[];
+    /** Invited to the list of reviewers, no account yet. */
+    invites: {
+        id: number;
+        email: string;
+        name: string;
+        affiliation: string | null;
+        expertise: string | null;
+        invitedAt: string;
+        invitedBy: string | null;
+        /** POST: the e-mail again with a new link. */
+        resendUrl: string;
+        /** DELETE: withdraw the invitation. */
+        withdrawUrl: string;
+    }[];
+    /** POST { email, given_name, family_name, affiliation?, expertise?, message? }. */
+    storeUrl: string;
 };
 
 /* --- Admin: e-mail templates (pages/admin/mail-templates/*) -------------- */

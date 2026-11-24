@@ -2,6 +2,10 @@ import { Head, Link } from '@inertiajs/react';
 import { ChevronDown, CircleAlert, Search } from 'lucide-react';
 import { Fragment, useState } from 'react';
 import { AssignmentStatusBadge } from '@/components/review/assignment-status-badge';
+import {
+    AddReviewerForm,
+    PendingReviewerInvites,
+} from '@/components/review/reviewer-list-invites';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { useDates } from '@/lib/dates';
@@ -93,7 +97,11 @@ function Assignments({ reviewer }: { reviewer: Reviewer }) {
     );
 }
 
-export default function ReviewersIndex({ reviewers }: ReviewersIndexProps) {
+export default function ReviewersIndex({
+    reviewers,
+    invites,
+    storeUrl,
+}: ReviewersIndexProps) {
     const { t } = useT();
     const { date } = useDates();
     const [query, setQuery] = useState('');
@@ -149,6 +157,9 @@ export default function ReviewersIndex({ reviewers }: ReviewersIndexProps) {
                         )}
                     </p>
                 </header>
+
+                <AddReviewerForm storeUrl={storeUrl} />
+                <PendingReviewerInvites invites={invites} />
 
                 <div role="search" className="flex flex-wrap items-end gap-3">
                     <div className="grid min-w-[16rem] flex-1 gap-1.5">

@@ -10,6 +10,7 @@ use App\Manuscripts\ManuscriptPresenter;
 use App\Manuscripts\Rendering\ManuscriptRenderer;
 use App\Manuscripts\ReviewWorkflow;
 use App\Models\ReviewAssignment;
+use App\Models\ReviewerInvite;
 use App\Models\User;
 use App\Support\Countries;
 use Illuminate\Http\RedirectResponse;
@@ -116,6 +117,7 @@ class InvitationController extends Controller
             $user->recordEvent('registered', null, ['via' => 'invitation']);
             $user->grantRole(Role::Reviewer);
             $assignment->forceFill(['reviewer_id' => $user->id])->save();
+            ReviewerInvite::acceptFor($user);
 
             return $user;
         });

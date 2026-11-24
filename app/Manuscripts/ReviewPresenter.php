@@ -11,6 +11,7 @@ use App\Manuscripts\Rendering\ManuscriptRenderer;
 use App\Models\Manuscript;
 use App\Models\ManuscriptDecision;
 use App\Models\ReviewAssignment;
+use App\Models\ReviewerInvite;
 use App\Models\ReviewFile;
 use App\Models\User;
 
@@ -57,7 +58,24 @@ final class ReviewPresenter
                 'email' => $u->email,
                 'affiliation' => $u->affiliation,
                 'expertise' => $u->expertise,
-            ])->values()->all();
+                'pending' => false,
+            ])->values();
+
+        // Invited to the list of reviewers, no account yet: the invitation
+        // to review lets them create one.
+        $accounts = User::pluck('email')->map(fn (string $e) => mb_strtolower($e))->all();
+        $pending = ReviewerInvite::pending()->orderBy('family_name')->orderBy('given_name')->get()
+            ->reject(fn (ReviewerInvite $i) => in_array($i->email, $accounts, true) || in_array($i->email, $authorEmails, true))
+            ->map(fn (ReviewerInvite $i) => [
+                'id' => null,
+                'name' => $i->name(),
+                'email' => $i->email,
+                'affiliation' => $i->affiliation,
+                'expertise' => $i->expertise,
+                'pending' => true,
+            ]);
+
+        $pool = $pool->concat($pending)->values()->all();
 
         return [
             'round' => max(1, $m->current_round) + ($m->status === ManuscriptStatus::Resubmitted ? 1 : 0),

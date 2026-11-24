@@ -1881,6 +1881,36 @@ const mk: Record<string, string> = {
     'Ask Crossref now': 'Прашај го Crossref сега',
     XML: 'XML',
     'Send this one': 'Испрати го овој',
+    'no account yet':
+        'сè уште без сметка',
+    'Add a reviewer':
+        'Додај рецензент',
+    'The person gets an e-mail with a link to create a reviewer account. Someone who already has an account simply becomes a reviewer. Reviewers see only the manuscripts they are invited to.':
+        'Лицето добива е-порака со линк за отворање рецензентска сметка. Ако веќе има сметка, само станува рецензент. Рецензентите ги гледаат само ракописите на кои се поканети.',
+    'Expertise (for finding reviewers)':
+        'Експертиза (за пребарување рецензенти)',
+    'Add and send the e-mail':
+        'Додај и испрати е-порака',
+    'Invited, no account yet ({count})':
+        'Поканети, сè уште без сметка ({count})',
+    'E-mail sent {date}':
+        'Е-пораката е испратена {date}',
+    'Send again':
+        'Испрати повторно',
+    'Join the reviewers':
+        'Станете рецензент',
+    'As a reviewer you receive the editorial office’s invitations to review by e-mail. You see only the manuscripts you are invited to and agree to review.':
+        'Како рецензент ги добивате поканите за рецензија од редакцијата по е-пошта. Ги гледате само ракописите на кои сте поканети и сте прифатиле да ги рецензирате.',
+    'The account is for {email}. With it you answer invitations to review, read the manuscripts and send your reviews.':
+        'Сметката е за {email}. Со неа одговарате на поканите за рецензија, ги читате ракописите и ги праќате рецензиите.',
+    'You are in the list of reviewers with the account {email}. Sign in to see your invitations.':
+        'Во листата на рецензенти сте со сметката {email}. Најавете се за да ги видите поканите.',
+    'This link no longer works: it was withdrawn, replaced by a newer e-mail or already used. If you think this is a mistake, write to the editorial office.':
+        'Овој линк повеќе не важи: повлечен е, заменет со понова е-порака или веќе е искористен. Ако мислите дека е грешка, пишете ѝ на редакцијата.',
+    'The editorial office invites you to join the journal’s list of reviewers.':
+        'Редакцијата ве поканува да се приклучите кон рецензентите на списанието.',
+    'Invitation to join the journal’s list of reviewers and create an account (from the Reviewers page).':
+        'Покана за приклучување кон рецензентите на списанието и отворање сметка (од страницата Рецензенти).',
 };
 
 export default mk;

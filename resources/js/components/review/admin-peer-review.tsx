@@ -180,7 +180,7 @@ function InviteForm({
                         className="m-0 grid list-none gap-1 p-0 empty:hidden"
                     >
                         {matches.map((p) => (
-                            <li key={p.id}>
+                            <li key={p.email}>
                                 <button
                                     type="button"
                                     disabled={invited.has(
@@ -195,6 +195,11 @@ function InviteForm({
                                     <span className="text-muted-foreground">
                                         {p.email}
                                     </span>
+                                    {p.pending && (
+                                        <span className="ml-1.5 text-xs text-muted-foreground">
+                                            · {t('no account yet')}
+                                        </span>
+                                    )}
                                     {(p.affiliation || p.expertise) && (
                                         <span className="block text-xs text-muted-foreground">
                                             {[p.affiliation, p.expertise]

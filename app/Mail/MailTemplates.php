@@ -114,6 +114,17 @@ final class MailTemplates
                     'mk' => "Почитувани {name},\n\nВашата рецензија на „{title}“ повеќе не е потребна. Ви благодариме за времето и подготвеноста да помогнете.",
                 ],
             ],
+            'reviewer_list_invitation' => [
+                'audience' => 'reviewer',
+                'description' => 'Invitation to join the journal’s list of reviewers and create an account (from the Reviewers page).',
+                'placeholders' => $person + $journal + ['message' => 'The personal note added when inviting (may be empty)'],
+                'action' => ['en' => 'Create your account', 'mk' => 'Отворете сметка'],
+                'subject' => ['en' => 'Invitation to join the reviewers of the {journal}', 'mk' => 'Покана да станете рецензент на {journal}'],
+                'body' => [
+                    'en' => "Dear {name},\n\nThe editorial office invites you to join the list of reviewers of the {journal}.\n\n{message}\n\nWith a reviewer account you receive our invitations to review, read the manuscripts you agree to review and send your reviews. You see only the manuscripts you are invited to.\n\n{button}\n\nThe link is personal; please do not forward it. If you do not wish to join, simply ignore this e-mail.\n\nWe keep your name and e-mail address to manage reviews (see the privacy statement on the journal website).",
+                    'mk' => "Почитувани {name},\n\nРедакцијата ве поканува да се приклучите кон рецензентите на {journal}.\n\n{message}\n\nСо рецензентска сметка ги добивате нашите покани за рецензија, ги читате ракописите што ќе прифатите да ги рецензирате и ги праќате рецензиите. Ги гледате само ракописите на кои сте поканети.\n\n{button}\n\nЛинкот е личен; ве молиме не го препраќајте. Ако не сакате да се приклучите, само занемарете ја оваа порака.\n\nВашето име и е-адреса ги чуваме за водење на рецензиите (видете ја изјавата за приватност на веб-страницата на списанието).",
+                ],
+            ],
             'new_manuscript' => [
                 'audience' => 'editors',
                 'description' => 'To the editorial office: a new manuscript arrived.',
